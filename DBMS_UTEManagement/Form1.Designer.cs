@@ -34,6 +34,8 @@ namespace DBMS_UTEManagement
             this.btnMonHocF = new System.Windows.Forms.Button();
             this.btnLopF = new System.Windows.Forms.Button();
             this.btnKhoahocF = new System.Windows.Forms.Button();
+            this.btnKhoa = new System.Windows.Forms.Button();
+            this.btnBangDiemF = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSinhVienF
@@ -89,11 +91,33 @@ namespace DBMS_UTEManagement
             this.btnKhoahocF.UseVisualStyleBackColor = true;
             this.btnKhoahocF.Click += new System.EventHandler(this.btnKhoahocF_Click);
             // 
+            // btnKhoa
+            // 
+            this.btnKhoa.Location = new System.Drawing.Point(129, 59);
+            this.btnKhoa.Name = "btnKhoa";
+            this.btnKhoa.Size = new System.Drawing.Size(135, 51);
+            this.btnKhoa.TabIndex = 4;
+            this.btnKhoa.Text = "Khoa form";
+            this.btnKhoa.UseVisualStyleBackColor = true;
+            this.btnKhoa.Click += new System.EventHandler(this.btnKhoa_Click);
+            // 
+            // btnBangDiemF
+            // 
+            this.btnBangDiemF.Location = new System.Drawing.Point(268, 59);
+            this.btnBangDiemF.Name = "btnBangDiemF";
+            this.btnBangDiemF.Size = new System.Drawing.Size(142, 51);
+            this.btnBangDiemF.TabIndex = 5;
+            this.btnBangDiemF.Text = "Bang diem";
+            this.btnBangDiemF.UseVisualStyleBackColor = true;
+            this.btnBangDiemF.Click += new System.EventHandler(this.btnBangDiemF_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btnBangDiemF);
+            this.Controls.Add(this.btnKhoa);
             this.Controls.Add(this.btnKhoahocF);
             this.Controls.Add(this.btnLopF);
             this.Controls.Add(this.btnMonHocF);
@@ -113,6 +137,8 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.Button btnMonHocF;
         private System.Windows.Forms.Button btnLopF;
         private System.Windows.Forms.Button btnKhoahocF;
+        private System.Windows.Forms.Button btnKhoa;
+        private System.Windows.Forms.Button btnBangDiemF;
     }
 }
 

@@ -32,10 +32,14 @@ namespace DBMS_UTEManagement
             this.dgvLop = new System.Windows.Forms.DataGridView();
             this.lbMaLop = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbMaNganh = new System.Windows.Forms.Label();
+            this.lbMaHe = new System.Windows.Forms.Label();
             this.btnHuy = new System.Windows.Forms.Button();
             this.lbTenLop = new System.Windows.Forms.Label();
             this.btnLuu = new System.Windows.Forms.Button();
             this.lbMaKhoaHoc = new System.Windows.Forms.Label();
+            this.txt_MaNganh = new System.Windows.Forms.TextBox();
+            this.txt_MaHe = new System.Windows.Forms.TextBox();
             this.txt_MaLop = new System.Windows.Forms.TextBox();
             this.txt_TenLop = new System.Windows.Forms.TextBox();
             this.txt_MaKhoaHoc = new System.Windows.Forms.TextBox();
@@ -45,10 +49,6 @@ namespace DBMS_UTEManagement
             this.btnLoad = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbMaHe = new System.Windows.Forms.Label();
-            this.txt_MaHe = new System.Windows.Forms.TextBox();
-            this.lbMaNganh = new System.Windows.Forms.Label();
-            this.txt_MaNganh = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -95,6 +95,26 @@ namespace DBMS_UTEManagement
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết lớp";
             // 
+            // lbMaNganh
+            // 
+            this.lbMaNganh.AutoSize = true;
+            this.lbMaNganh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbMaNganh.Location = new System.Drawing.Point(250, 60);
+            this.lbMaNganh.Name = "lbMaNganh";
+            this.lbMaNganh.Size = new System.Drawing.Size(58, 13);
+            this.lbMaNganh.TabIndex = 1;
+            this.lbMaNganh.Text = "Mã ngành:";
+            // 
+            // lbMaHe
+            // 
+            this.lbMaHe.AutoSize = true;
+            this.lbMaHe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbMaHe.Location = new System.Drawing.Point(250, 30);
+            this.lbMaHe.Name = "lbMaHe";
+            this.lbMaHe.Size = new System.Drawing.Size(40, 13);
+            this.lbMaHe.TabIndex = 1;
+            this.lbMaHe.Text = "Mã hệ:";
+            // 
             // btnHuy
             // 
             this.btnHuy.Location = new System.Drawing.Point(320, 125);
@@ -132,6 +152,20 @@ namespace DBMS_UTEManagement
             this.lbMaKhoaHoc.Size = new System.Drawing.Size(73, 13);
             this.lbMaKhoaHoc.TabIndex = 1;
             this.lbMaKhoaHoc.Text = "Mã khóa học:";
+            // 
+            // txt_MaNganh
+            // 
+            this.txt_MaNganh.Location = new System.Drawing.Point(320, 55);
+            this.txt_MaNganh.Name = "txt_MaNganh";
+            this.txt_MaNganh.Size = new System.Drawing.Size(118, 20);
+            this.txt_MaNganh.TabIndex = 2;
+            // 
+            // txt_MaHe
+            // 
+            this.txt_MaHe.Location = new System.Drawing.Point(320, 25);
+            this.txt_MaHe.Name = "txt_MaHe";
+            this.txt_MaHe.Size = new System.Drawing.Size(118, 20);
+            this.txt_MaHe.TabIndex = 2;
             // 
             // txt_MaLop
             // 
@@ -213,40 +247,6 @@ namespace DBMS_UTEManagement
             this.label1.TabIndex = 12;
             this.label1.Text = "Lớp Học";
             // 
-            // lbMaHe
-            // 
-            this.lbMaHe.AutoSize = true;
-            this.lbMaHe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbMaHe.Location = new System.Drawing.Point(250, 30);
-            this.lbMaHe.Name = "lbMaHe";
-            this.lbMaHe.Size = new System.Drawing.Size(40, 13);
-            this.lbMaHe.TabIndex = 1;
-            this.lbMaHe.Text = "Mã hệ:";
-            // 
-            // txt_MaHe
-            // 
-            this.txt_MaHe.Location = new System.Drawing.Point(320, 25);
-            this.txt_MaHe.Name = "txt_MaHe";
-            this.txt_MaHe.Size = new System.Drawing.Size(118, 20);
-            this.txt_MaHe.TabIndex = 2;
-            // 
-            // lbMaNganh
-            // 
-            this.lbMaNganh.AutoSize = true;
-            this.lbMaNganh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbMaNganh.Location = new System.Drawing.Point(250, 60);
-            this.lbMaNganh.Name = "lbMaNganh";
-            this.lbMaNganh.Size = new System.Drawing.Size(58, 13);
-            this.lbMaNganh.TabIndex = 1;
-            this.lbMaNganh.Text = "Mã ngành:";
-            // 
-            // txt_MaNganh
-            // 
-            this.txt_MaNganh.Location = new System.Drawing.Point(320, 55);
-            this.txt_MaNganh.Name = "txt_MaNganh";
-            this.txt_MaNganh.Size = new System.Drawing.Size(118, 20);
-            this.txt_MaNganh.TabIndex = 2;
-            // 
             // groupBox4
             // 
             this.groupBox4.Location = new System.Drawing.Point(676, 204);
@@ -260,7 +260,7 @@ namespace DBMS_UTEManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 455);
+            this.ClientSize = new System.Drawing.Size(1148, 461);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.dgvLop);
             this.Controls.Add(this.groupBox1);

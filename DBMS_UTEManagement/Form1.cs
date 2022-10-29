@@ -48,5 +48,17 @@ namespace DBMS_UTEManagement
             Form frm = new KhoaHocForm();
             frm.ShowDialog();
         }
+
+        private void btnKhoa_Click(object sender, EventArgs e)
+        {
+            Form frm = new KhoaForm();
+            frm.ShowDialog();
+        }
+
+        private void btnBangDiemF_Click(object sender, EventArgs e)
+        {
+            Form frm = new BangDiemForm();
+            frm.ShowDialog();
+        }
     }
 }

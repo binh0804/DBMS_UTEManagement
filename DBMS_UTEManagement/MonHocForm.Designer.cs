@@ -58,7 +58,7 @@ namespace DBMS_UTEManagement
             this.dgvMonHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMonHoc.Location = new System.Drawing.Point(12, 34);
             this.dgvMonHoc.Name = "dgvMonHoc";
-            this.dgvMonHoc.Size = new System.Drawing.Size(644, 415);
+            this.dgvMonHoc.Size = new System.Drawing.Size(658, 415);
             this.dgvMonHoc.TabIndex = 0;
             // 
             // lbMaMH
