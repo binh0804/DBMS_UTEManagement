@@ -52,10 +52,55 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="KhoaHocForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KhoaHocForm.Designer.cs">
+      <DependentUpon>KhoaHocForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LopForm.Designer.cs">
+      <DependentUpon>LopForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NganhHocForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NganhHocForm.Designer.cs">
+      <DependentUpon>NganhHocForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SinhVienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SinhVienForm.Designer.cs">
+      <DependentUpon>SinhVienForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonHocForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonHocForm.Designer.cs">
+      <DependentUpon>MonHocForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KhoaHocForm.resx">
+      <DependentUpon>KhoaHocForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LopForm.resx">
+      <DependentUpon>LopForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NganhHocForm.resx">
+      <DependentUpon>NganhHocForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SinhVienForm.resx">
+      <DependentUpon>SinhVienForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonHocForm.resx">
+      <DependentUpon>MonHocForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

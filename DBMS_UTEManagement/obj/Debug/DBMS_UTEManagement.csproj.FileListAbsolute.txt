@@ -1,0 +1,15 @@
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\bin\Debug\DBMS_UTEManagement.exe.config
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\bin\Debug\DBMS_UTEManagement.exe
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\bin\Debug\DBMS_UTEManagement.pdb
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.csproj.AssemblyReference.cache
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.Form1.resources
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.MonHocForm.resources
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.Properties.Resources.resources
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.csproj.GenerateResource.cache
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.exe
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.pdb
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.SinhVìenForm.resources
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.NganhHocForm.resources
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.LopForm.resources
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.KhoaHocForm.resources

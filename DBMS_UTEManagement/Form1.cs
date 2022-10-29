@@ -16,5 +16,37 @@ namespace DBMS_UTEManagement
         {
             InitializeComponent();
         }
+
+
+
+        private void btnSinhVienF_Click(object sender, EventArgs e)
+        {
+            Form frm = new SinhVìenForm();
+            frm.ShowDialog();
+        }
+
+        private void btnMonHocF_Click(object sender, EventArgs e)
+        {
+            Form frm = new MonHocForm();
+            frm.ShowDialog();
+        }
+
+        private void btnNganhHocF_Click(object sender, EventArgs e)
+        {
+            Form frm = new NganhHocForm();
+            frm.ShowDialog();
+        }
+
+        private void btnLopF_Click(object sender, EventArgs e)
+        {
+            Form frm = new LopForm();
+            frm.ShowDialog();
+        }
+
+        private void btnKhoahocF_Click(object sender, EventArgs e)
+        {
+            Form frm = new KhoaHocForm();
+            frm.ShowDialog();
+        }
     }
 }

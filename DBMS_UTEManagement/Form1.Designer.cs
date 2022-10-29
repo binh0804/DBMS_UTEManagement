@@ -29,84 +29,90 @@ namespace DBMS_UTEManagement
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnSinhVienF = new System.Windows.Forms.Button();
+            this.btnNganhHocF = new System.Windows.Forms.Button();
+            this.btnMonHocF = new System.Windows.Forms.Button();
+            this.btnLopF = new System.Windows.Forms.Button();
+            this.btnKhoahocF = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // btnSinhVienF
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(592, 348);
-            this.dataGridView1.TabIndex = 0;
+            this.btnSinhVienF.Location = new System.Drawing.Point(11, 11);
+            this.btnSinhVienF.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSinhVienF.Name = "btnSinhVienF";
+            this.btnSinhVienF.Size = new System.Drawing.Size(112, 43);
+            this.btnSinhVienF.TabIndex = 1;
+            this.btnSinhVienF.Text = "SinhVìenForm";
+            this.btnSinhVienF.UseVisualStyleBackColor = true;
+            this.btnSinhVienF.Click += new System.EventHandler(this.btnSinhVienF_Click);
             // 
-            // button1
+            // btnNganhHocF
             // 
-            this.button1.Location = new System.Drawing.Point(13, 378);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNganhHocF.Location = new System.Drawing.Point(268, 12);
+            this.btnNganhHocF.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNganhHocF.Name = "btnNganhHocF";
+            this.btnNganhHocF.Size = new System.Drawing.Size(142, 42);
+            this.btnNganhHocF.TabIndex = 1;
+            this.btnNganhHocF.Text = "Nganh hoc Form";
+            this.btnNganhHocF.UseVisualStyleBackColor = true;
+            this.btnNganhHocF.Click += new System.EventHandler(this.btnNganhHocF_Click);
             // 
-            // button2
+            // btnMonHocF
             // 
-            this.button2.Location = new System.Drawing.Point(12, 407);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMonHocF.Location = new System.Drawing.Point(127, 12);
+            this.btnMonHocF.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMonHocF.Name = "btnMonHocF";
+            this.btnMonHocF.Size = new System.Drawing.Size(137, 42);
+            this.btnMonHocF.TabIndex = 1;
+            this.btnMonHocF.Text = "Mon hoc Form";
+            this.btnMonHocF.UseVisualStyleBackColor = true;
+            this.btnMonHocF.Click += new System.EventHandler(this.btnMonHocF_Click);
             // 
-            // button3
+            // btnLopF
             // 
-            this.button3.Location = new System.Drawing.Point(94, 378);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnLopF.Location = new System.Drawing.Point(415, 12);
+            this.btnLopF.Name = "btnLopF";
+            this.btnLopF.Size = new System.Drawing.Size(143, 42);
+            this.btnLopF.TabIndex = 2;
+            this.btnLopF.Text = "Lop form";
+            this.btnLopF.UseVisualStyleBackColor = true;
+            this.btnLopF.Click += new System.EventHandler(this.btnLopF_Click);
             // 
-            // button4
+            // btnKhoahocF
             // 
-            this.button4.Location = new System.Drawing.Point(94, 407);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "button1";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnKhoahocF.Location = new System.Drawing.Point(12, 59);
+            this.btnKhoahocF.Name = "btnKhoahocF";
+            this.btnKhoahocF.Size = new System.Drawing.Size(111, 51);
+            this.btnKhoahocF.TabIndex = 3;
+            this.btnKhoahocF.Text = "Khoa Hoc form";
+            this.btnKhoahocF.UseVisualStyleBackColor = true;
+            this.btnKhoahocF.Click += new System.EventHandler(this.btnKhoahocF_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btnKhoahocF);
+            this.Controls.Add(this.btnLopF);
+            this.Controls.Add(this.btnMonHocF);
+            this.Controls.Add(this.btnNganhHocF);
+            this.Controls.Add(this.btnSinhVienF);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSinhVienF;
+        private System.Windows.Forms.Button btnNganhHocF;
+        private System.Windows.Forms.Button btnMonHocF;
+        private System.Windows.Forms.Button btnLopF;
+        private System.Windows.Forms.Button btnKhoahocF;
     }
 }
 
