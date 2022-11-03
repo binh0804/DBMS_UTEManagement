@@ -46,6 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BSLayer\BSBangDiem.cs" />
+    <Compile Include="BSLayer\BSHeDaoTao.cs" />
+    <Compile Include="BSLayer\BSKhoaHoc.cs" />
+    <Compile Include="BSLayer\BSLop.cs" />
+    <Compile Include="BSLayer\BSMonHoc.cs" />
+    <Compile Include="BSLayer\BSNganhHoc.cs" />
+    <Compile Include="BSLayer\BSSinhVien.cs" />
+    <Compile Include="BSLayer\BSKhoa.cs" />
+    <Compile Include="DBLayer\DBMain.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +67,7 @@
     <Compile Include="BangDiemForm.Designer.cs">
       <DependentUpon>BangDiemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Khoa.cs" />
     <Compile Include="KhoaForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -15,3 +15,21 @@ C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagem
 C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.KhoaHocForm.resources
 C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.KhoaForm.resources
 C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.BangDiemForm.resources
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\bin\Debug\DBMS_UTEManagement.exe.config
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\bin\Debug\DBMS_UTEManagement.exe
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\bin\Debug\DBMS_UTEManagement.pdb
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.csproj.AssemblyReference.cache
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.csproj.SuggestedBindingRedirects.cache
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.BangDiemForm.resources
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.Form1.resources
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.KhoaForm.resources
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.KhoaHocForm.resources
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.LopForm.resources
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.NganhHocForm.resources
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.SinhVìenForm.resources
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.MonHocForm.resources
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.Properties.Resources.resources
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.csproj.GenerateResource.cache
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.csproj.CoreCompileInputs.cache
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.exe
+E:\DBMS\DoAnCuoiKi\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.pdb
