@@ -46,9 +46,6 @@ namespace DBMS_UTEManagement
             this.txt_TenNganh = new System.Windows.Forms.TextBox();
             this.txt_MaKhoa = new System.Windows.Forms.TextBox();
             this.dgvNganhHoc = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNganhHoc)).BeginInit();
@@ -58,9 +55,10 @@ namespace DBMS_UTEManagement
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(286, 0);
+            this.label1.Location = new System.Drawing.Point(429, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 25);
+            this.label1.Size = new System.Drawing.Size(188, 37);
             this.label1.TabIndex = 6;
             this.label1.Text = "Ngành Học";
             // 
@@ -70,54 +68,66 @@ namespace DBMS_UTEManagement
             this.groupBox3.Controls.Add(this.btnThem);
             this.groupBox3.Controls.Add(this.btnSua);
             this.groupBox3.Controls.Add(this.btnXoa);
-            this.groupBox3.Location = new System.Drawing.Point(676, 369);
+            this.groupBox3.Location = new System.Drawing.Point(1014, 568);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(296, 80);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox3.Size = new System.Drawing.Size(444, 123);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức năng";
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(6, 19);
+            this.btnLoad.Location = new System.Drawing.Point(9, 29);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(86, 23);
+            this.btnLoad.Size = new System.Drawing.Size(129, 35);
             this.btnLoad.TabIndex = 3;
             this.btnLoad.Text = "Load ngành";
             this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btn_load_Click);
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(98, 19);
+            this.btnThem.Location = new System.Drawing.Point(147, 29);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(86, 23);
+            this.btnThem.Size = new System.Drawing.Size(129, 35);
             this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm ngành";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(190, 19);
+            this.btnSua.Location = new System.Drawing.Point(285, 29);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(86, 23);
+            this.btnSua.Size = new System.Drawing.Size(129, 35);
             this.btnSua.TabIndex = 3;
             this.btnSua.Text = "Sửa ngành";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(6, 48);
+            this.btnXoa.Location = new System.Drawing.Point(9, 74);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(86, 23);
+            this.btnXoa.Size = new System.Drawing.Size(129, 35);
             this.btnXoa.TabIndex = 3;
             this.btnXoa.Text = "Xóa ngành";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(676, 194);
+            this.groupBox2.Location = new System.Drawing.Point(1014, 298);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(296, 169);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(444, 260);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm kiếm và bộ lọc";
@@ -132,9 +142,11 @@ namespace DBMS_UTEManagement
             this.groupBox1.Controls.Add(this.txt_MaNganh);
             this.groupBox1.Controls.Add(this.txt_TenNganh);
             this.groupBox1.Controls.Add(this.txt_MaKhoa);
-            this.groupBox1.Location = new System.Drawing.Point(676, 28);
+            this.groupBox1.Location = new System.Drawing.Point(1014, 43);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(296, 160);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(444, 246);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết ngành";
@@ -143,112 +155,107 @@ namespace DBMS_UTEManagement
             // 
             this.lbMaNganh.AutoSize = true;
             this.lbMaNganh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbMaNganh.Location = new System.Drawing.Point(10, 30);
+            this.lbMaNganh.Location = new System.Drawing.Point(15, 46);
+            this.lbMaNganh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMaNganh.Name = "lbMaNganh";
-            this.lbMaNganh.Size = new System.Drawing.Size(58, 13);
+            this.lbMaNganh.Size = new System.Drawing.Size(87, 20);
             this.lbMaNganh.TabIndex = 1;
             this.lbMaNganh.Text = "Mã ngành:";
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(187, 125);
+            this.btnHuy.Location = new System.Drawing.Point(280, 192);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(86, 23);
+            this.btnHuy.Size = new System.Drawing.Size(129, 35);
             this.btnHuy.TabIndex = 3;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // lbTenNganh
             // 
             this.lbTenNganh.AutoSize = true;
             this.lbTenNganh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbTenNganh.Location = new System.Drawing.Point(10, 60);
+            this.lbTenNganh.Location = new System.Drawing.Point(15, 92);
+            this.lbTenNganh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTenNganh.Name = "lbTenNganh";
-            this.lbTenNganh.Size = new System.Drawing.Size(62, 13);
+            this.lbTenNganh.Size = new System.Drawing.Size(92, 20);
             this.lbTenNganh.TabIndex = 1;
             this.lbTenNganh.Text = "Tên ngành:";
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(81, 125);
+            this.btnLuu.Location = new System.Drawing.Point(122, 192);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(86, 23);
+            this.btnLuu.Size = new System.Drawing.Size(129, 35);
             this.btnLuu.TabIndex = 3;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // lbMaKhoa
             // 
             this.lbMaKhoa.AutoSize = true;
             this.lbMaKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbMaKhoa.Location = new System.Drawing.Point(10, 90);
+            this.lbMaKhoa.Location = new System.Drawing.Point(15, 138);
+            this.lbMaKhoa.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMaKhoa.Name = "lbMaKhoa";
-            this.lbMaKhoa.Size = new System.Drawing.Size(52, 13);
+            this.lbMaKhoa.Size = new System.Drawing.Size(77, 20);
             this.lbMaKhoa.TabIndex = 1;
             this.lbMaKhoa.Text = "Mã khoa:";
             // 
             // txt_MaNganh
             // 
-            this.txt_MaNganh.Location = new System.Drawing.Point(81, 22);
+            this.txt_MaNganh.Location = new System.Drawing.Point(122, 34);
+            this.txt_MaNganh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_MaNganh.Name = "txt_MaNganh";
-            this.txt_MaNganh.Size = new System.Drawing.Size(192, 20);
+            this.txt_MaNganh.Size = new System.Drawing.Size(286, 26);
             this.txt_MaNganh.TabIndex = 2;
             // 
             // txt_TenNganh
             // 
-            this.txt_TenNganh.Location = new System.Drawing.Point(81, 57);
+            this.txt_TenNganh.Location = new System.Drawing.Point(122, 88);
+            this.txt_TenNganh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_TenNganh.Name = "txt_TenNganh";
-            this.txt_TenNganh.Size = new System.Drawing.Size(192, 20);
+            this.txt_TenNganh.Size = new System.Drawing.Size(286, 26);
             this.txt_TenNganh.TabIndex = 2;
             // 
             // txt_MaKhoa
             // 
-            this.txt_MaKhoa.Location = new System.Drawing.Point(81, 90);
+            this.txt_MaKhoa.Location = new System.Drawing.Point(122, 138);
+            this.txt_MaKhoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_MaKhoa.Name = "txt_MaKhoa";
-            this.txt_MaKhoa.Size = new System.Drawing.Size(192, 20);
+            this.txt_MaKhoa.Size = new System.Drawing.Size(286, 26);
             this.txt_MaKhoa.TabIndex = 2;
             // 
             // dgvNganhHoc
             // 
             this.dgvNganhHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNganhHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNganhHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dgvNganhHoc.Location = new System.Drawing.Point(12, 28);
+            this.dgvNganhHoc.Location = new System.Drawing.Point(18, 43);
+            this.dgvNganhHoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvNganhHoc.Name = "dgvNganhHoc";
-            this.dgvNganhHoc.Size = new System.Drawing.Size(658, 421);
+            this.dgvNganhHoc.RowHeadersWidth = 62;
+            this.dgvNganhHoc.Size = new System.Drawing.Size(987, 648);
             this.dgvNganhHoc.TabIndex = 8;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "MaNganh";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "TenNganh";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "MaKhoa";
-            this.Column3.Name = "Column3";
             // 
             // NganhHocForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.ClientSize = new System.Drawing.Size(1476, 709);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvNganhHoc);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "NganhHocForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ngành học";
+            this.Load += new System.EventHandler(this.NganhHocForm_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -277,8 +284,5 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.TextBox txt_TenNganh;
         private System.Windows.Forms.TextBox txt_MaKhoa;
         private System.Windows.Forms.DataGridView dgvNganhHoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

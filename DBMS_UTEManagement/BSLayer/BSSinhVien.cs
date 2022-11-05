@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using CuoiKi.DBLayer;
+using DBMS_UTEManagement.DBLayer;
 
-namespace CuoiKi.BSLayer
+namespace DBMS_UTEManagement.BSLayer
 {
     internal class BSSinhVien
     {

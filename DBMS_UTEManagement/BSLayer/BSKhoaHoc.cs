@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using CuoiKi.DBLayer;
+using DBMS_UTEManagement.DBLayer;
 
-namespace CuoiKi.BSLayer
+namespace DBMS_UTEManagement.BSLayer
 {
     internal class BSKhoaHoc
     {
@@ -16,6 +16,10 @@ namespace CuoiKi.BSLayer
         public BSKhoaHoc()
         {
             db = new DBMain();
+        }
+        public DataSet LoadDDKhoaHoc()
+        {
+            return db.ExcuteQueryDataSet($"select * from fLoadKhoaHoc()", CommandType.Text);
         }
         public DataSet AddKhoaHoc(string MaKhoaHoc, string TenKhoaHoc)
         {

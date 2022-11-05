@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace CuoiKi.DBLayer
+namespace DBMS_UTEManagement.DBLayer
 {
     internal class DBMain
     {

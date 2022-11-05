@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using CuoiKi.DBLayer;
+using DBMS_UTEManagement.DBLayer;
 
 
-namespace CuoiKi.BSLayer
+namespace DBMS_UTEManagement.BSLayer
 {
     internal class BSLop
     {
@@ -18,10 +18,14 @@ namespace CuoiKi.BSLayer
         {
             db = new DBMain();
         }
+        public DataSet LoadDDLop()
+        {
+            return db.ExcuteQueryDataSet($"select * from fLoadLop()", CommandType.Text);
+        }
         public DataSet ADDLopHoc(string MaLop, string TenLop, string MaKhoaHoc, string MaHe, string MaNganh)
         {
             SqlParameter p1 = new SqlParameter("@MaLop", SqlDbType.Char);
-            p1.Value = MaKhoaHoc;
+            p1.Value = MaLop;
             SqlParameter p2 = new SqlParameter("@TenLop", SqlDbType.Char);
             p2.Value = TenLop;
             SqlParameter p3 = new SqlParameter("@MaKhoaHoc", SqlDbType.Char);
