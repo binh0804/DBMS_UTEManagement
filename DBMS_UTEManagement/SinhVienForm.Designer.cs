@@ -56,8 +56,11 @@ namespace DBMS_UTEManagement
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSinhVien = new System.Windows.Forms.DataGridView();
+            this.btnSearchTTSV = new System.Windows.Forms.Button();
+            this.txt_searchSV = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +88,7 @@ namespace DBMS_UTEManagement
             this.btn_huy.TabIndex = 42;
             this.btn_huy.Text = "Hủy";
             this.btn_huy.UseVisualStyleBackColor = true;
-            this.btn_huy.Click += new System.EventHandler(this.btn_update_Click);
+            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
             // btn_luu
             // 
@@ -295,6 +298,8 @@ namespace DBMS_UTEManagement
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txt_searchSV);
+            this.groupBox3.Controls.Add(this.btnSearchTTSV);
             this.groupBox3.Location = new System.Drawing.Point(1302, 357);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
@@ -325,6 +330,24 @@ namespace DBMS_UTEManagement
             this.dgvSinhVien.RowHeadersWidth = 62;
             this.dgvSinhVien.Size = new System.Drawing.Size(1275, 638);
             this.dgvSinhVien.TabIndex = 49;
+            this.dgvSinhVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinhVien_CellClick);
+            // 
+            // btnSearchTTSV
+            // 
+            this.btnSearchTTSV.Location = new System.Drawing.Point(353, 27);
+            this.btnSearchTTSV.Name = "btnSearchTTSV";
+            this.btnSearchTTSV.Size = new System.Drawing.Size(231, 35);
+            this.btnSearchTTSV.TabIndex = 45;
+            this.btnSearchTTSV.Text = "Tìm kiếm thông tin";
+            this.btnSearchTTSV.UseVisualStyleBackColor = true;
+            this.btnSearchTTSV.Click += new System.EventHandler(this.btnSearchTTSV_Click);
+            // 
+            // txt_searchSV
+            // 
+            this.txt_searchSV.Location = new System.Drawing.Point(140, 31);
+            this.txt_searchSV.Name = "txt_searchSV";
+            this.txt_searchSV.Size = new System.Drawing.Size(176, 26);
+            this.txt_searchSV.TabIndex = 45;
             // 
             // SinhVìenForm
             // 
@@ -344,6 +367,8 @@ namespace DBMS_UTEManagement
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSinhVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -379,5 +404,7 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSinhVien;
+        private System.Windows.Forms.Button btnSearchTTSV;
+        private System.Windows.Forms.TextBox txt_searchSV;
     }
 }

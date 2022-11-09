@@ -97,7 +97,7 @@ namespace DBMS_UTEManagement
             txtMaMH.Text = dgvMonHoc.Rows[r].Cells[0].Value.ToString();
             txtTenMH.Text = dgvMonHoc.Rows[r].Cells[1].Value.ToString();
             txtLyThuyet.Text = dgvMonHoc.Rows[r].Cells[2].Value.ToString();
-            txtThucHanh.Text = dgvMonHoc.Rows[r].Cells[2].Value.ToString();
+            txtThucHanh.Text = dgvMonHoc.Rows[r].Cells[3].Value.ToString();
         }
 
         private void btn_update_Click(object sender, EventArgs e)

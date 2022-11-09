@@ -68,14 +68,21 @@ namespace DBMS_UTEManagement
             }
             else
             {
-                // Thực hiện lệnh 
-                BSSinhVien BSSV = new BSSinhVien();
-                BSSV.UpdateSV(txt_masv.Text.Trim(), txt_tensv.Text.Trim(), txt_gioitinh.Text.Trim(), DateTime.ParseExact(txt_ngaysinh.Text, "dd/MM/yyyy hh.mm.ss tt", CultureInfo.InvariantCulture), txt_noisinh.Text.Trim(), txt_diachi.Text.Trim(), float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat), txt_malop.Text.Trim());
+                try
+                {
+                    // Thực hiện lệnh 
+                    BSSinhVien BSSV = new BSSinhVien();
+                    BSSV.UpdateSV(txt_masv.Text.Trim(), txt_tensv.Text.Trim(), txt_gioitinh.Text.Trim(), DateTime.ParseExact(txt_ngaysinh.Text, "d/M/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture), txt_noisinh.Text.Trim(), txt_diachi.Text.Trim(), float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat));
 
-                // Load lại dữ liệu trên DataGridView 
-                LoadData();
-                // Thông báo 
-                MessageBox.Show("Đã sửa xong!");
+                    // Load lại dữ liệu trên DataGridView 
+                    LoadData();
+                    // Thông báo 
+                    MessageBox.Show("Đã sửa xong!");
+                }
+                catch(FormatException)
+                {
+                    MessageBox.Show("Không Update được, lỗi rồi!");
+                }
             }
         }
 
@@ -99,14 +106,14 @@ namespace DBMS_UTEManagement
             // Thứ tự dòng hiện hành 
             int r = dgvSinhVien.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel 
-            txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString();
-            txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString();
-            txt_gioitinh.Text = dgvSinhVien.Rows[r].Cells[2].Value.ToString();
-            txt_ngaysinh.Text = dgvSinhVien.Rows[r].Cells[3].Value.ToString();
-            txt_noisinh.Text = dgvSinhVien.Rows[r].Cells[4].Value.ToString();
-            txt_diachi.Text = dgvSinhVien.Rows[r].Cells[5].Value.ToString();
-            txt_malop.Text = dgvSinhVien.Rows[r].Cells[6].Value.ToString();
-            txt_hocbong.Text = dgvSinhVien.Rows[r].Cells[7].Value.ToString();
+            txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
+            txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
+            txt_gioitinh.Text = dgvSinhVien.Rows[r].Cells[2].Value.ToString().Trim();
+            txt_ngaysinh.Text = dgvSinhVien.Rows[r].Cells[3].Value.ToString().Trim();
+            txt_noisinh.Text = dgvSinhVien.Rows[r].Cells[4].Value.ToString().Trim();
+            txt_diachi.Text = dgvSinhVien.Rows[r].Cells[5].Value.ToString().Trim();
+            txt_malop.Text = dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim();
+            txt_hocbong.Text = dgvSinhVien.Rows[r].Cells[7].Value.ToString().Trim();
         }
 
         private void btn_update_Click(object sender, EventArgs e)
@@ -196,6 +203,26 @@ namespace DBMS_UTEManagement
                 //
                 Them = false;
                 //dgvSinhVien_CellClick(null, null);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không lấy được nội dung trong table Sản phẩm. Lỗi rồi!!!");
+            }
+        }
+
+        private void btnSearchTTSV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtSinhVien = new DataTable();
+                dtSinhVien.Clear();
+                DataSet ds = dbSV.SearchSV(txt_searchSV.Text.Trim());
+                dtSinhVien = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView 
+                dgvSinhVien.DataSource = dtSinhVien;
+                // Thay đổi độ rộng cột 
+                dgvSinhVien.AutoResizeColumns();
+                txt_searchSV.ResetText();
             }
             catch (SqlException)
             {

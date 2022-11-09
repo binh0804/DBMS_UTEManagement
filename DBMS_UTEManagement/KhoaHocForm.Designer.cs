@@ -59,6 +59,7 @@ namespace DBMS_UTEManagement
             this.dgvKhoaHoc.RowHeadersWidth = 62;
             this.dgvKhoaHoc.Size = new System.Drawing.Size(987, 638);
             this.dgvKhoaHoc.TabIndex = 13;
+            this.dgvKhoaHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhoaHoc_CellClick);
             // 
             // lbMaKhoaHoc
             // 

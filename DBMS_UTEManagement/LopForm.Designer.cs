@@ -65,6 +65,7 @@ namespace DBMS_UTEManagement
             this.dgvLop.RowHeadersWidth = 62;
             this.dgvLop.Size = new System.Drawing.Size(987, 623);
             this.dgvLop.TabIndex = 13;
+            this.dgvLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLop_CellClick);
             // 
             // lbMaLop
             // 

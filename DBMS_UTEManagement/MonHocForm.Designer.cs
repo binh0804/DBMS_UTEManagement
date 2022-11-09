@@ -62,6 +62,7 @@ namespace DBMS_UTEManagement
             this.dgvMonHoc.RowHeadersWidth = 62;
             this.dgvMonHoc.Size = new System.Drawing.Size(987, 638);
             this.dgvMonHoc.TabIndex = 0;
+            this.dgvMonHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonHoc_CellClick);
             // 
             // lbMaMH
             // 

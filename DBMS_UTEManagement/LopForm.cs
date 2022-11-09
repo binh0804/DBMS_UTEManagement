@@ -97,7 +97,8 @@ namespace DBMS_UTEManagement
             txt_MaLop.Text = dgvLop.Rows[r].Cells[0].Value.ToString();
             txt_TenLop.Text = dgvLop.Rows[r].Cells[1].Value.ToString();
             txt_MaKhoaHoc.Text = dgvLop.Rows[r].Cells[2].Value.ToString();
-            txt_MaHe.Text = dgvLop.Rows[r].Cells[2].Value.ToString();
+            txt_MaHe.Text = dgvLop.Rows[r].Cells[3].Value.ToString();
+            txt_MaNganh.Text = dgvLop.Rows[r].Cells[4].Value.ToString();
         }
 
         private void btn_update_Click(object sender, EventArgs e)

@@ -240,6 +240,7 @@ namespace DBMS_UTEManagement
             this.dgvNganhHoc.RowHeadersWidth = 62;
             this.dgvNganhHoc.Size = new System.Drawing.Size(987, 648);
             this.dgvNganhHoc.TabIndex = 8;
+            this.dgvNganhHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNganhHoc_CellClick);
             // 
             // NganhHocForm
             // 
