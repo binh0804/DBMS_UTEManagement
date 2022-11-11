@@ -226,7 +226,7 @@ namespace DBMS_UTEManagement
             }
             catch (SqlException)
             {
-                MessageBox.Show("Không lấy được nội dung trong table Sản phẩm. Lỗi rồi!!!");
+                MessageBox.Show("Không lấy được nội dung trong table Sinh Vien. Lỗi rồi!!!");
             }
         }
     }

@@ -189,5 +189,24 @@ namespace DBMS_UTEManagement
                 MessageBox.Show("Không lấy được nội dung trong table MonHoc. Lỗi rồi!!!");
             }
         }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtLop = new DataTable();
+                dtLop.Clear();
+                DataSet ds = dbLop.Search(txt_search.Text.Trim());
+                dtLop = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView 
+                dgvLop.DataSource = dtLop;
+                // Thay đổi độ rộng cột 
+                dgvLop.AutoResizeColumns();
+                txt_search.ResetText();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không lấy được nội dung trong table Lop Hoc. Lỗi rồi!!!");
+            }
+        }
     }
 }

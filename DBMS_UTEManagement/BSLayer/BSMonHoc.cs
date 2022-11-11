@@ -52,6 +52,9 @@ namespace DBMS_UTEManagement.BSLayer
             p4.Value = ThucHanh;
             return db.ExcuteQueryDataSetWithParam("UpdateMH", CommandType.StoredProcedure, p1, p2, p3, p4);
         }
-
+        public DataSet Search(string thongTin)
+        {
+            return db.ExcuteQueryDataSet($"select * from fSearchMH({thongTin})", CommandType.Text);
+        }
     }
 }

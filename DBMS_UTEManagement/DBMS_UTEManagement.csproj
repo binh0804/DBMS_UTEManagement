@@ -67,7 +67,6 @@
     <Compile Include="BangDiemForm.Designer.cs">
       <DependentUpon>BangDiemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Khoa.cs" />
     <Compile Include="KhoaForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -48,5 +48,9 @@ namespace DBMS_UTEManagement.BSLayer
             p3.Value = MaKhoa;
             return db.ExcuteQueryDataSetWithParam("UpdateNganh", CommandType.StoredProcedure, p1, p2, p3);
         }
+        public DataSet Search(string thongTin)
+        {
+            return db.ExcuteQueryDataSet($"select * from fSearchNganh({thongTin})", CommandType.Text);
+        }
     }
 }

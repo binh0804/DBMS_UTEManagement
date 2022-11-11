@@ -46,7 +46,10 @@ namespace DBMS_UTEManagement
             this.txt_TenNganh = new System.Windows.Forms.TextBox();
             this.txt_MaKhoa = new System.Windows.Forms.TextBox();
             this.dgvNganhHoc = new System.Windows.Forms.DataGridView();
+            this.txt_search = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNganhHoc)).BeginInit();
             this.SuspendLayout();
@@ -123,6 +126,8 @@ namespace DBMS_UTEManagement
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txt_search);
+            this.groupBox2.Controls.Add(this.btnSearch);
             this.groupBox2.Location = new System.Drawing.Point(1014, 298);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
@@ -242,6 +247,23 @@ namespace DBMS_UTEManagement
             this.dgvNganhHoc.TabIndex = 8;
             this.dgvNganhHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNganhHoc_CellClick);
             // 
+            // txt_search
+            // 
+            this.txt_search.Location = new System.Drawing.Point(0, 45);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(176, 26);
+            this.txt_search.TabIndex = 46;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(213, 41);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(231, 35);
+            this.btnSearch.TabIndex = 47;
+            this.btnSearch.Text = "Tìm kiếm thông tin";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // NganhHocForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -258,6 +280,8 @@ namespace DBMS_UTEManagement
             this.Text = "Ngành học";
             this.Load += new System.EventHandler(this.NganhHocForm_Load);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNganhHoc)).EndInit();
@@ -285,5 +309,7 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.TextBox txt_TenNganh;
         private System.Windows.Forms.TextBox txt_MaKhoa;
         private System.Windows.Forms.DataGridView dgvNganhHoc;
+        private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

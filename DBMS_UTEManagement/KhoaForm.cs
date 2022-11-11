@@ -185,5 +185,24 @@ namespace DBMS_UTEManagement
                 MessageBox.Show("Không lấy được nội dung trong table KhoaHoc. Lỗi rồi!!!");
             }
         }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtKhoa = new DataTable();
+                dtKhoa.Clear();
+                DataSet ds = dbKhoa.Search(txt_search.Text.Trim());
+                dtKhoa = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView 
+                dgvKhoa.DataSource = dtKhoa;
+                // Thay đổi độ rộng cột 
+                dgvKhoa.AutoResizeColumns();
+                txt_search.ResetText();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không lấy được nội dung trong table Khoa Hoc. Lỗi rồi!!!");
+            }
+        }
     }
 }

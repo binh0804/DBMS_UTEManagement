@@ -46,5 +46,9 @@ namespace DBMS_UTEManagement.BSLayer
 
             return db.ExcuteQueryDataSetWithParam("DeleteKhoaHoc", CommandType.StoredProcedure, p1);
         }
+        public DataSet Search(string thongTin)
+        {
+            return db.ExcuteQueryDataSet($"select * from fSearchKhoaHoc({thongTin})", CommandType.Text);
+        }
     }
 }

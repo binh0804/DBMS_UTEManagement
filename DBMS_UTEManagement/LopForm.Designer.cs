@@ -50,9 +50,12 @@ namespace DBMS_UTEManagement
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txt_search = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLop)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvLop
@@ -279,6 +282,8 @@ namespace DBMS_UTEManagement
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txt_search);
+            this.groupBox4.Controls.Add(this.btnSearch);
             this.groupBox4.Location = new System.Drawing.Point(1014, 314);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox4.Name = "groupBox4";
@@ -287,6 +292,23 @@ namespace DBMS_UTEManagement
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tìm kiếm và bộ lọc";
+            // 
+            // txt_search
+            // 
+            this.txt_search.Location = new System.Drawing.Point(18, 40);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(176, 26);
+            this.txt_search.TabIndex = 46;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(231, 36);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(231, 35);
+            this.btnSearch.TabIndex = 47;
+            this.btnSearch.Text = "Tìm kiếm thông tin";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // LopForm
             // 
@@ -307,6 +329,8 @@ namespace DBMS_UTEManagement
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,5 +359,7 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.TextBox txt_MaNganh;
         private System.Windows.Forms.TextBox txt_MaHe;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

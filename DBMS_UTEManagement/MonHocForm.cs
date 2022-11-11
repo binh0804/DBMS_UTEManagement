@@ -188,6 +188,25 @@ namespace DBMS_UTEManagement
                 MessageBox.Show("Không lấy được nội dung trong table MonHoc. Lỗi rồi!!!");
             }
         }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtMonHoc = new DataTable();
+                dtMonHoc.Clear();
+                DataSet ds = dbMH.Search(txt_search.Text.Trim());
+                dtMonHoc = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView 
+                dgvMonHoc.DataSource = dtMonHoc;
+                // Thay đổi độ rộng cột 
+                dgvMonHoc.AutoResizeColumns();
+                txt_search.ResetText();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không lấy được nội dung trong table Mon Hoc. Lỗi rồi!!!");
+            }
+        }
 
     }
 }

@@ -27,21 +27,21 @@ namespace DBMS_UTEManagement.BSLayer
         }
         public DataSet AddSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, float HocBong, string MaLop)
         {
-            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.NChar);
+            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
-            SqlParameter p2 = new SqlParameter("@TenSV", SqlDbType.NChar);
+            SqlParameter p2 = new SqlParameter("@TenSV", SqlDbType.NVarChar);
             p2.Value = TenSV;
             SqlParameter p3 = new SqlParameter("@GioiTinh", SqlDbType.NChar);
             p3.Value = GioiTinh;
             SqlParameter p4 = new SqlParameter("@NgaySinh", SqlDbType.Date);
             p4.Value = NgaySinh.Date;
-            SqlParameter p5 = new SqlParameter("@NoiSinh", SqlDbType.NChar);
+            SqlParameter p5 = new SqlParameter("@NoiSinh", SqlDbType.NVarChar);
             p5.Value = NoiSinh;
-            SqlParameter p6 = new SqlParameter("@DiaChi", SqlDbType.NChar);
+            SqlParameter p6 = new SqlParameter("@DiaChi", SqlDbType.NVarChar);
             p6.Value = DiaChi;
-            SqlParameter p7 = new SqlParameter("@HocBong", SqlDbType.Float);
+            SqlParameter p7 = new SqlParameter("@HocBong", SqlDbType.Int);
             p7.Value = HocBong;
-            SqlParameter p8 = new SqlParameter("@MaLop", SqlDbType.NChar);
+            SqlParameter p8 = new SqlParameter("@MaLop", SqlDbType.Char);
             p8.Value = MaLop;
             return db.ExcuteQueryDataSetWithParam("ADDSV", CommandType.StoredProcedure, p1,p2,p3,p4,p5,p6,p7,p8);
         }
@@ -53,19 +53,19 @@ namespace DBMS_UTEManagement.BSLayer
         }
         public DataSet UpdateSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, float HocBong)
         {
-            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.NChar);
+            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
-            SqlParameter p2 = new SqlParameter("@TenSV", SqlDbType.NChar);
+            SqlParameter p2 = new SqlParameter("@TenSV", SqlDbType.NVarChar);
             p2.Value = TenSV;
             SqlParameter p3 = new SqlParameter("@GioiTinh", SqlDbType.NChar);
             p3.Value = GioiTinh;
             SqlParameter p4 = new SqlParameter("@NgaySinh", SqlDbType.Date);
             p4.Value = NgaySinh.Date;
-            SqlParameter p5 = new SqlParameter("@NoiSinh", SqlDbType.NChar);
+            SqlParameter p5 = new SqlParameter("@NoiSinh", SqlDbType.NVarChar);
             p5.Value = NoiSinh;
-            SqlParameter p6 = new SqlParameter("@DiaChi", SqlDbType.NChar);
+            SqlParameter p6 = new SqlParameter("@DiaChi", SqlDbType.NVarChar);
             p6.Value = DiaChi;
-            SqlParameter p7 = new SqlParameter("@HocBong", SqlDbType.Float);
+            SqlParameter p7 = new SqlParameter("@HocBong", SqlDbType.Int);
             p7.Value = HocBong;
             return db.ExcuteQueryDataSetWithParam("UpdateSV", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6, p7);
         }

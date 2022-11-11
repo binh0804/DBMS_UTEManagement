@@ -187,6 +187,25 @@ namespace DBMS_UTEManagement
                 MessageBox.Show("Không lấy được nội dung trong table Sản phẩm. Lỗi rồi!!!");
             }
         }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtNganhHoc = new DataTable();
+                dtNganhHoc.Clear();
+                DataSet ds = dbNH.Search(txt_search.Text.Trim());
+                dtNganhHoc = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView 
+                dgvNganhHoc.DataSource = dtNganhHoc;
+                // Thay đổi độ rộng cột 
+                dgvNganhHoc.AutoResizeColumns();
+                txt_search.ResetText();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không lấy được nội dung trong table Nganh Hoc. Lỗi rồi!!!");
+            }
+        }
 
     }
 }

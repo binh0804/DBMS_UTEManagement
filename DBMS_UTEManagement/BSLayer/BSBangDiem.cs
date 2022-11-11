@@ -21,21 +21,23 @@ namespace DBMS_UTEManagement.BSLayer
         {
             return db.ExcuteQueryDataSet($"select * from fLoadMH()", CommandType.Text);
         }
-        public DataSet AddBD(string MaSV, string MaMH, string LanThi, int HocKy, float Diem)
+        public DataSet AddDiem(string MaSV, string MaMH, string LanThi, int HocKy, float Diem, int Nam)
         {
-            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.Char);
+            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.NChar);
             p1.Value = MaSV;
-            SqlParameter p2 = new SqlParameter("@MaMH", SqlDbType.Char);
+            SqlParameter p2 = new SqlParameter("@MaMH", SqlDbType.NChar);
             p2.Value = MaMH;
-            SqlParameter p3 = new SqlParameter("@LanThi", SqlDbType.Char);
+            SqlParameter p3 = new SqlParameter("@LanThi", SqlDbType.NChar);
             p3.Value = LanThi;
             SqlParameter p4 = new SqlParameter("@HocKy", SqlDbType.Int);
             p4.Value = HocKy;
             SqlParameter p5 = new SqlParameter("@Diem", SqlDbType.Float);
             p5.Value = Diem;
-            return db.ExcuteQueryDataSetWithParam("Add", CommandType.StoredProcedure, p1, p2, p3, p4, p5);
+            SqlParameter p6 = new SqlParameter("@Nam", SqlDbType.Int);
+            p5.Value = Nam;
+            return db.ExcuteQueryDataSetWithParam("Add", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6);
         }
-        public DataSet DeleteBD(string MaSV, string MaMH, string LanThi, int HocKy)
+        public DataSet DeleteDiem(string MaSV, string MaMH, string LanThi, int HocKy, int Nam)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.Char);
             p1.Value = MaSV;
@@ -45,22 +47,25 @@ namespace DBMS_UTEManagement.BSLayer
             p3.Value = LanThi;
             SqlParameter p4 = new SqlParameter("@HocKy", SqlDbType.Int);
             p4.Value = HocKy;
-
-            return db.ExcuteQueryDataSetWithParam("DeleteBD", CommandType.StoredProcedure, p1,p2,p3,p4);
+            SqlParameter p5 = new SqlParameter("@Nam", SqlDbType.Int);
+            p5.Value = Nam;
+            return db.ExcuteQueryDataSetWithParam("DeleteDiem", CommandType.StoredProcedure, p1,p2,p3,p4, p5);
         }
-        public DataSet UpdateBD(string MaSV, string MaMH, string LanThi, int HocKy, float Diem)
+        public DataSet UpdateDiem(string MaSV, string MaMH, string LanThi, int HocKy, float Diem, int Nam)
         {
-            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.Char);
+            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.NChar);
             p1.Value = MaSV;
-            SqlParameter p2 = new SqlParameter("@MaMH", SqlDbType.Char);
+            SqlParameter p2 = new SqlParameter("@MaMH", SqlDbType.NChar);
             p2.Value = MaMH;
-            SqlParameter p3 = new SqlParameter("@LanThi", SqlDbType.Char);
+            SqlParameter p3 = new SqlParameter("@LanThi", SqlDbType.NChar);
             p3.Value = LanThi;
             SqlParameter p4 = new SqlParameter("@HocKy", SqlDbType.Int);
             p4.Value = HocKy;
             SqlParameter p5 = new SqlParameter("@Diem", SqlDbType.Float);
             p5.Value = Diem;
-            return db.ExcuteQueryDataSetWithParam("UpdateDiem", CommandType.StoredProcedure, p1, p2, p3, p4, p5);
+            SqlParameter p6 = new SqlParameter("@Nam", SqlDbType.Int);
+            p5.Value = Nam;
+            return db.ExcuteQueryDataSetWithParam("UpdateDiem", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6);
         }
     }
 }

@@ -59,5 +59,9 @@ namespace DBMS_UTEManagement.BSLayer
 
             return db.ExcuteQueryDataSetWithParam("DeleteLopHoc", CommandType.StoredProcedure, p1);
         }
+        public DataSet Search(string thongTin)
+        {
+            return db.ExcuteQueryDataSet($"select * from fSearchLopHoc({thongTin})", CommandType.Text);
+        }
     }
 }
