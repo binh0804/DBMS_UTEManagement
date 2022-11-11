@@ -121,6 +121,8 @@ namespace DBMS_UTEManagement
                 // Lấy MaSV của record hiện hành 
                 string strMaKhoaHoc =
                 dgvKhoa.Rows[r].Cells[0].Value.ToString();
+
+                Console.WriteLine(strMaKhoaHoc);
                 // Viết câu lệnh SQL 
                 // Hiện thông báo xác nhận việc xóa mẫu tin 
                 // Khai báo biến traloi 

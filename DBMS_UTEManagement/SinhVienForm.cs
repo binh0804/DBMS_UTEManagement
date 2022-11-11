@@ -14,15 +14,20 @@ using DBMS_UTEManagement.BSLayer;
 
 namespace DBMS_UTEManagement
 {
-    public partial class SinhVìenForm : Form
+    public partial class SinhVienForm : Form
     {
         DataTable dtSinhVien = null;
         BSSinhVien dbSV = new BSSinhVien();
-        bool Them;
+        bool Them = false;
+        bool Sua = false;
         string err;
-        public SinhVìenForm()
+        public SinhVienForm()
         {
             InitializeComponent();
+            SetUpNormalState();
+            cb_gioiTinh.SelectedItem = "Nam";
+            dgvSinhVien.ReadOnly = true;
+
         }
         private void btn_load_Click(object sender, EventArgs e)
         {
@@ -43,8 +48,23 @@ namespace DBMS_UTEManagement
         {
             txt_masv.Focus();
             Them = true;
-            btn_luu.Enabled = true;
-            btn_huy.Enabled = true;
+            SetUpAddState();
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            Sua = true;
+            SetUpAddState();
+            //Khoá mã sinh viên
+            txt_masv.Enabled = false;
+
+            txt_tensv.Focus();
+            if(dgvSinhVien.CurrentCell != null)
+            {
+                int r = dgvSinhVien.CurrentCell.RowIndex;
+                string strMaSV = dgvSinhVien.Rows[r].Cells[0].Value.ToString();
+                txt_masv.Text = strMaSV;
+            }
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
@@ -55,78 +75,83 @@ namespace DBMS_UTEManagement
                 {
                     BSSinhVien BSSV = new BSSinhVien();
                     // Thực hiện lệnh 
-                    BSSV.AddSV(txt_masv.Text, txt_tensv.Text, txt_gioitinh.Text, DateTime.ParseExact(txt_ngaysinh.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture), txt_noisinh.Text, txt_diachi.Text, float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat), txt_malop.Text);
+                   
+                    BSSV.AddSV( txt_masv.Text.Trim(), 
+                                txt_tensv.Text.Trim(),
+                                cb_gioiTinh.Text.ToString().Trim(), 
+                                dtp_ngaySinh.Value.Date,
+                                txt_noisinh.Text.Trim(), 
+                                txt_diachi.Text.Trim(), 
+                                float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat), 
+                                cb_maLop.SelectedValue.ToString().Trim());
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
                     // Thông báo 
                     MessageBox.Show("Đã thêm xong!");
                 }
-                catch (SqlException)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
+                    if(ex is SqlException)
+                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                    if (ex is FormatException)
+                        MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
+                    if (ex is NullReferenceException)
+                        MessageBox.Show("Không được bỏ trống các mục!");
                 }
             }
-            else
+            else if(Sua)
             {
+                Console.WriteLine("SUA");
                 try
                 {
                     // Thực hiện lệnh 
                     BSSinhVien BSSV = new BSSinhVien();
-                    BSSV.UpdateSV(txt_masv.Text.Trim(), txt_tensv.Text.Trim(), txt_gioitinh.Text.Trim(), DateTime.ParseExact(txt_ngaysinh.Text, "d/M/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture), txt_noisinh.Text.Trim(), txt_diachi.Text.Trim(), float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat));
+                    BSSV.UpdateSV(  txt_masv.Text.Trim(), 
+                                    txt_tensv.Text.Trim(), 
+                                    cb_gioiTinh.Text.Trim(),
+                                    dtp_ngaySinh.Value.Date,
+                                    txt_noisinh.Text.Trim(), 
+                                    txt_diachi.Text.Trim(), 
+                                    float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat), 
+                                    cb_maLop.SelectedValue.ToString().Trim());
 
                     // Load lại dữ liệu trên DataGridView 
-                    LoadData();
                     // Thông báo 
+                    LoadData();
                     MessageBox.Show("Đã sửa xong!");
                 }
-                catch(FormatException)
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Không Update được, lỗi rồi!");
+                    if (ex is SqlException)
+                        MessageBox.Show("Không sửa được, hệ thống đang bị lỗi!");
+                    if (ex is FormatException)
+                        MessageBox.Show("Không Update được, vui lòng nhập đúng định dạng!");
+                    if (ex is NullReferenceException)
+                        MessageBox.Show("Không để trống thông tin");
                 }
             }
+            SetUpNormalState();
         }
 
         private void btn_huy_Click(object sender, EventArgs e)
         {
-            txt_masv.ResetText();
-            txt_tensv.ResetText();
-            txt_gioitinh.ResetText();
-            txt_ngaysinh.ResetText();
-            txt_noisinh.ResetText();
-            txt_diachi.ResetText();
-            txt_hocbong.ResetText();
-            txt_malop.ResetText();
-            btn_huy.Enabled = false;
-            btn_luu.Enabled = false;
-            txt_masv.Enabled = true;
+            SetUpNormalState();
         }
 
         private void dgvSinhVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            ResetTextAll();
             // Thứ tự dòng hiện hành 
             int r = dgvSinhVien.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel 
             txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
             txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
-            txt_gioitinh.Text = dgvSinhVien.Rows[r].Cells[2].Value.ToString().Trim();
-            txt_ngaysinh.Text = dgvSinhVien.Rows[r].Cells[3].Value.ToString().Trim();
+            cb_gioiTinh.SelectedItem = cb_gioiTinh.SelectedValue = cb_gioiTinh.Text =  dgvSinhVien.Rows[r].Cells[2].Value.ToString().Trim();
+            dtp_ngaySinh.Text = dgvSinhVien.Rows[r].Cells[3].Value.ToString().Trim();
             txt_noisinh.Text = dgvSinhVien.Rows[r].Cells[4].Value.ToString().Trim();
             txt_diachi.Text = dgvSinhVien.Rows[r].Cells[5].Value.ToString().Trim();
-            txt_malop.Text = dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim();
+            cb_maLop.SelectedValue = dgvSinhVien.Rows[r].Cells[6].Value.ToString();
             txt_hocbong.Text = dgvSinhVien.Rows[r].Cells[7].Value.ToString().Trim();
-        }
-
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-            Them = false;
-            txt_tensv.Focus();
-            btn_luu.Enabled = true;
-            btn_huy.Enabled = true;
-            int r = dgvSinhVien.CurrentCell.RowIndex;
-            string strMaSV =
-                dgvSinhVien.Rows[r].Cells[0].Value.ToString();
-            txt_masv.Text = strMaSV;
-            txt_masv.Enabled = false;
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -137,8 +162,7 @@ namespace DBMS_UTEManagement
                 // Lấy thứ tự record hiện hành 
                 int r = dgvSinhVien.CurrentCell.RowIndex;
                 // Lấy MaSV của record hiện hành 
-                string strMaSV =
-                dgvSinhVien.Rows[r].Cells[0].Value.ToString();
+                string strMaSV = dgvSinhVien.Rows[r].Cells[0].Value.ToString();
                 // Viết câu lệnh SQL 
                 // Hiện thông báo xác nhận việc xóa mẫu tin 
                 // Khai báo biến traloi 
@@ -161,14 +185,20 @@ namespace DBMS_UTEManagement
                     MessageBox.Show("Không thực hiện việc xóa mẫu tin!");
                 }
             }
-            catch (SqlException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Không xóa được. Lỗi rồi!");
+                if(ex is SqlException)
+                    MessageBox.Show("Không xóa được. Lỗi rồi!");
+                else if (ex is NullReferenceException)
+                    MessageBox.Show("Vui lòng chọn sinh viên muốn xoá!");
             }
+            SetUpNormalState();
         }
 
         private void SinhVienForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'quanLySinhVien_UTEDataSet.Lop' table. You can move, or remove it, as needed.
+            this.lopTableAdapter.Fill(this.quanLySinhVien_UTEDataSet.Lop);
             LoadData();
         }
         void LoadData()
@@ -183,26 +213,6 @@ namespace DBMS_UTEManagement
                 dgvSinhVien.DataSource = dtSinhVien;
                 // Thay đổi độ rộng cột 
                 dgvSinhVien.AutoResizeColumns();
-                // Xóa trống các đối tượng trong Panel 
-                txt_masv.ResetText();
-                txt_tensv.ResetText();
-                txt_gioitinh.ResetText();
-                txt_ngaysinh.ResetText();
-                txt_noisinh.ResetText();
-                txt_diachi.ResetText();
-                txt_hocbong.ResetText();
-                txt_malop.ResetText();
-                //// Không cho thao tác trên các nút Lưu / Hủy 
-                this.btn_luu.Enabled = false;
-                this.btn_huy.Enabled = false;
-
-                //// Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát 
-                this.btn_add.Enabled = true;
-                this.btn_update.Enabled = true;
-                this.btn_delete.Enabled = true;
-                //
-                Them = false;
-                //dgvSinhVien_CellClick(null, null);
             }
             catch (SqlException)
             {
@@ -229,5 +239,68 @@ namespace DBMS_UTEManagement
                 MessageBox.Show("Không lấy được nội dung trong table Sinh Vien. Lỗi rồi!!!");
             }
         }
+
+        private void SetUpNormalState()
+        {
+            Them = Sua = false;
+            txt_diachi.Enabled = false;
+            txt_hocbong.Enabled = false;
+            txt_masv.Enabled = false;
+            txt_noisinh.Enabled = false;
+            txt_tensv.Enabled = false;
+            cb_gioiTinh.Enabled = false;
+            cb_maLop.Enabled = false;
+            dtp_ngaySinh.Enabled = false;
+
+            btn_luu.Enabled = false;
+            btn_huy.Enabled = false;
+
+            this.btn_add.Enabled = true;
+            this.btn_update.Enabled = true;
+            this.btn_delete.Enabled = true;
+
+            ResetTextAll();
+        }
+
+        private void ResetTextAll()
+        {
+            txt_masv.ResetText();
+            txt_tensv.ResetText();
+            txt_noisinh.ResetText();
+            txt_diachi.ResetText();
+            txt_hocbong.ResetText();
+            cb_gioiTinh.ResetText();
+            cb_maLop.ResetText();
+            dtp_ngaySinh.ResetText();
+        }
+
+        private void SetUpAddState()
+        {
+            txt_diachi.Enabled = true;
+            txt_hocbong.Enabled = true;
+            txt_masv.Enabled = true;
+            txt_noisinh.Enabled = true;
+            txt_tensv.Enabled = true;
+            cb_gioiTinh.Enabled = true;
+            cb_maLop.Enabled = true;
+            dtp_ngaySinh.Enabled = true;
+
+            btn_luu.Enabled = true;
+            btn_huy.Enabled = true;
+
+            this.btn_add.Enabled = false;
+            this.btn_update.Enabled = false;
+            this.btn_delete.Enabled = false;
+        }
     }
 }
+
+
+//Console.WriteLine(txt_masv.Text.Trim());
+//Console.WriteLine(txt_tensv.Text.Trim());
+//Console.WriteLine(cb_gioiTinh.Text.ToString().Trim());
+//Console.WriteLine(dtp_ngaySinh.Value.Date);
+//Console.WriteLine(txt_noisinh.Text.Trim());
+//Console.WriteLine(txt_diachi.Text.Trim());
+//Console.WriteLine(float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat));
+//Console.WriteLine(cb_maLop.SelectedValue.ToString().Trim());
