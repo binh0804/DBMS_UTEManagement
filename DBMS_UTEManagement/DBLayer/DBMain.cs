@@ -10,7 +10,7 @@ namespace DBMS_UTEManagement.DBLayer
 {
     internal class DBMain
     {
-        string ConnStr = "Data Source=DESKTOP-100BASK;Initial Catalog=QuanLySinhVien_UTE;Integrated Security=True";
+        string ConnStr = "Data Source=LOJC\\LOJC;Initial Catalog=QuanLySinhVien_UTE;Integrated Security=True";
         SqlConnection conn = null;
         SqlCommand comm = null;
         SqlDataAdapter da = null;

@@ -18,11 +18,14 @@ namespace DBMS_UTEManagement
     {
         DataTable dtKhoaHoc = null;
         BSKhoaHoc dbKhoaHoc = new BSKhoaHoc();
-        bool Them;
+        bool Them = false;
+        bool Sua = false;
         string err;
         public KhoaHocForm()
         {
             InitializeComponent();
+            SetUpNormalState();
+            dgvKhoaHoc.ReadOnly = true;
         }
         private void btn_load_Click(object sender, EventArgs e)
         {
@@ -43,8 +46,7 @@ namespace DBMS_UTEManagement
         {
             txt_MaKhoaHoc.Focus();
             Them = true;
-            btnLuu.Enabled = true;
-            btnHuy.Enabled = true;
+            SetUpAddState();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -66,27 +68,36 @@ namespace DBMS_UTEManagement
                     MessageBox.Show("Không thêm được. Lỗi rồi!");
                 }
             }
-            else
+            else if(Sua)
             {
-                // Thực hiện lệnh 
-                BSKhoaHoc BSNH = new BSKhoaHoc();
-                BSNH.UpdateKhoaHoc(txt_MaKhoaHoc.Text, txt_TenKhoaHoc.Text);
+                try
+                {
+                    // Thực hiện lệnh 
+                    BSKhoaHoc BSNH = new BSKhoaHoc();
+                    BSNH.UpdateKhoaHoc(txt_MaKhoaHoc.Text, txt_TenKhoaHoc.Text);
 
-                // Load lại dữ liệu trên DataGridView 
-                LoadData();
-                // Thông báo 
-                MessageBox.Show("Đã sửa xong!");
+                    // Load lại dữ liệu trên DataGridView 
+                    LoadData();
+                    // Thông báo 
+                    MessageBox.Show("Đã sửa xong!");
+                }
+                catch(Exception ex)
+                {
+                    if (ex is SqlException)
+                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                    if (ex is FormatException)
+                        MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
+                    if (ex is NullReferenceException)
+                        MessageBox.Show("Không được bỏ trống các mục!");
+                }
             }
+            SetUpNormalState();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            txt_MaKhoaHoc.ResetText();
-            txt_TenKhoaHoc.ResetText();
-            txt_MaKhoaHoc.ResetText();
-            btnHuy.Enabled = false;
-            btnLuu.Enabled = false;
-            txt_MaKhoaHoc.Enabled = true;
+            SetUpNormalState();
+
         }
 
         private void dgvKhoaHoc_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -100,10 +111,10 @@ namespace DBMS_UTEManagement
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            Them = false;
+            Sua = true;
+            SetUpAddState();
             txt_TenKhoaHoc.Focus();
-            btnLuu.Enabled = true;
-            btnHuy.Enabled = true;
+
             int r = dgvKhoaHoc.CurrentCell.RowIndex;
             string strMaSV =
                 dgvKhoaHoc.Rows[r].Cells[0].Value.ToString();
@@ -169,13 +180,13 @@ namespace DBMS_UTEManagement
                 txt_MaKhoaHoc.ResetText();
                 txt_TenKhoaHoc.ResetText();
                 //// Không cho thao tác trên các nút Lưu / Hủy 
-                this.btnLuu.Enabled = false;
-                this.btnHuy.Enabled = false;
+                this.btn_luu.Enabled = false;
+                this.btn_huy.Enabled = false;
 
                 //// Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát 
-                this.btnThem.Enabled = true;
-                this.btnSua.Enabled = true;
-                this.btnXoa.Enabled = true;
+                this.btn_add.Enabled = true;
+                this.btn_update.Enabled = true;
+                this.btn_delete.Enabled = true;
                 //
                 Them = false;
                 //dgvKhoaHoc_CellClick(null, null);
@@ -203,6 +214,42 @@ namespace DBMS_UTEManagement
             {
                 MessageBox.Show("Không lấy được nội dung trong table Nganh Hoc. Lỗi rồi!!!");
             }
+        }
+        private void SetUpNormalState()
+        {
+            Them = Sua = false;
+            txt_MaKhoaHoc.Enabled = false;
+            txt_TenKhoaHoc.Enabled = false;
+           
+
+            btn_luu.Enabled = false;
+            btn_huy.Enabled = false;
+
+            this.btn_add.Enabled = true;
+            this.btn_update.Enabled = true;
+            this.btn_delete.Enabled = true;
+
+            ResetTextAll();
+        }
+
+        private void ResetTextAll()
+        {
+            txt_MaKhoaHoc.ResetText();
+            txt_TenKhoaHoc.ResetText();          
+        }
+
+        private void SetUpAddState()
+        {
+            txt_MaKhoaHoc.Enabled = true;
+            txt_TenKhoaHoc.Enabled = true;
+            
+
+            btn_luu.Enabled = true;
+            btn_huy.Enabled = true;
+
+            this.btn_add.Enabled = false;
+            this.btn_update.Enabled = false;
+            this.btn_delete.Enabled = false;
         }
     }
 }

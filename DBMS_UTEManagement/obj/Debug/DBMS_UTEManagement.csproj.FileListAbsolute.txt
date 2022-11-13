@@ -9,7 +9,6 @@ C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagem
 C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.csproj.CoreCompileInputs.cache
 C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.exe
 C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.pdb
-C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.SinhVìenForm.resources
 C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.NganhHocForm.resources
 C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.LopForm.resources
 C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.KhoaHocForm.resources
@@ -50,3 +49,4 @@ D:\DBMS\DoAn_DBMS\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.csproj.CoreCom
 D:\DBMS\DoAn_DBMS\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.exe
 D:\DBMS\DoAn_DBMS\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.pdb
 D:\DBMS\DoAn_DBMS\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.SinhVienForm.resources
+C:\Users\Admin\OneDrive\Máy tính\HeQuanTriCoSoDuLieu\CuoiKiiii\DBMS_UTEManagement\obj\Debug\DBMS_UTEManagement.SinhVienForm.resources

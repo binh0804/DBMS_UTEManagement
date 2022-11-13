@@ -18,11 +18,14 @@ namespace DBMS_UTEManagement
     {
         DataTable dtLop = null;
         BSLop dbLop = new BSLop();
-        bool Them;
+        bool Them = false;
+        bool Sua = false;
         string err;
         public LopForm()
         {
             InitializeComponent();
+            SetUpNormalState();
+            dgvLop.ReadOnly = true;
         }
         private void btn_load_Click(object sender, EventArgs e)
         {
@@ -43,8 +46,7 @@ namespace DBMS_UTEManagement
         {
             txt_MaLop.Focus();
             Them = true;
-            btnLuu.Enabled = true;
-            btnHuy.Enabled = true;
+            SetUpAddState();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -55,38 +57,51 @@ namespace DBMS_UTEManagement
                 {
                     BSLop BSNH = new BSLop();
                     // Thực hiện lệnh 
-                    BSNH.ADDLopHoc(txt_MaLop.Text, txt_TenLop.Text, txt_MaKhoaHoc.Text, txt_MaHe.Text, txt_MaNganh.Text);
+                    BSNH.ADDLopHoc(txt_MaLop.Text, txt_TenLop.Text, cb_makhoahoc.Text, cb_MaHe.Text, cb_manganh.Text);
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
                     // Thông báo 
                     MessageBox.Show("Đã thêm xong!");
                 }
-                catch (SqlException)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
+                    if (ex is SqlException)
+                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                    if (ex is FormatException)
+                        MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
+                    if (ex is NullReferenceException)
+                        MessageBox.Show("Không được bỏ trống các mục!");
                 }
             }
-            else
+            else if(Sua)
             {
-                // Thực hiện lệnh 
-                BSLop BSNH = new BSLop();
-                BSNH.UpdateLopHoc(txt_MaLop.Text, txt_TenLop.Text, txt_MaKhoaHoc.Text, txt_MaHe.Text, txt_MaNganh.Text);
+                try
+                {
+                    // Thực hiện lệnh 
+                    BSLop BSNH = new BSLop();
+                    BSNH.UpdateLopHoc(txt_MaLop.Text, txt_TenLop.Text, cb_makhoahoc.Text, cb_MaHe.Text, cb_manganh.Text);
 
-                // Load lại dữ liệu trên DataGridView 
-                LoadData();
-                // Thông báo 
-                MessageBox.Show("Đã sửa xong!");
+                    // Load lại dữ liệu trên DataGridView 
+                    LoadData();
+                    // Thông báo 
+                    MessageBox.Show("Đã sửa xong!");
+                }
+                catch(Exception ex)
+                {
+                    if (ex is SqlException)
+                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                    if (ex is FormatException)
+                        MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
+                    if (ex is NullReferenceException)
+                        MessageBox.Show("Không được bỏ trống các mục!");
+                }
             }
+            SetUpNormalState();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            txt_MaLop.ResetText();
-            txt_TenLop.ResetText();
-            txt_MaKhoaHoc.ResetText();
-            btnHuy.Enabled = false;
-            btnLuu.Enabled = false;
-            txt_MaLop.Enabled = true;
+            SetUpNormalState();
         }
 
         private void dgvLop_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -96,17 +111,17 @@ namespace DBMS_UTEManagement
             // Chuyển thông tin lên panel 
             txt_MaLop.Text = dgvLop.Rows[r].Cells[0].Value.ToString();
             txt_TenLop.Text = dgvLop.Rows[r].Cells[1].Value.ToString();
-            txt_MaKhoaHoc.Text = dgvLop.Rows[r].Cells[2].Value.ToString();
-            txt_MaHe.Text = dgvLop.Rows[r].Cells[3].Value.ToString();
-            txt_MaNganh.Text = dgvLop.Rows[r].Cells[4].Value.ToString();
+            cb_makhoahoc.Text = dgvLop.Rows[r].Cells[2].Value.ToString();
+            cb_MaHe.Text = dgvLop.Rows[r].Cells[3].Value.ToString();
+            cb_manganh.Text = dgvLop.Rows[r].Cells[4].Value.ToString();
         }
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            Them = false;
-            txt_TenLop.Focus();
-            btnLuu.Enabled = true;
-            btnHuy.Enabled = true;
+            Sua = true;
+            SetUpAddState();
+            txt_MaLop.Focus();
+
             int r = dgvLop.CurrentCell.RowIndex;
             string strMaSV =
                 dgvLop.Rows[r].Cells[0].Value.ToString();
@@ -154,6 +169,10 @@ namespace DBMS_UTEManagement
 
         private void LopHocForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'quanLySinhVien_UTEDataSet3.KhoaHoc' table. You can move, or remove it, as needed.
+            this.khoaHocTableAdapter.Fill(this.quanLySinhVien_UTEDataSet3.KhoaHoc);
+            // TODO: This line of code loads data into the 'quanLySinhVien_UTEDataSet2.NganhHoc' table. You can move, or remove it, as needed.
+            this.nganhHocTableAdapter.Fill(this.quanLySinhVien_UTEDataSet2.NganhHoc);
             LoadData();
         }
         void LoadData()
@@ -171,15 +190,17 @@ namespace DBMS_UTEManagement
                 // Xóa trống các đối tượng trong Panel 
                 txt_MaLop.ResetText();
                 txt_TenLop.ResetText();
-                txt_MaKhoaHoc.ResetText();
+                cb_makhoahoc.ResetText();
+                cb_MaHe.ResetText();
+                cb_manganh.ResetText();
                 //// Không cho thao tác trên các nút Lưu / Hủy 
-                this.btnLuu.Enabled = false;
-                this.btnHuy.Enabled = false;
+                this.btn_luu.Enabled = false;
+                this.btn_huy.Enabled = false;
 
                 //// Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát 
-                this.btnThem.Enabled = true;
-                this.btnSua.Enabled = true;
-                this.btnXoa.Enabled = true;
+                this.btn_add.Enabled = true;
+                this.btn_update.Enabled = true;
+                this.btn_delete.Enabled = true;
                 //
                 Them = false;
                 //dgvLop_CellClick(null, null);
@@ -208,5 +229,50 @@ namespace DBMS_UTEManagement
                 MessageBox.Show("Không lấy được nội dung trong table Lop Hoc. Lỗi rồi!!!");
             }
         }
+        private void SetUpNormalState()
+        {
+            Them = Sua = false;
+            txt_MaLop.Enabled = false;
+            txt_TenLop.Enabled = false;
+            cb_MaHe.Enabled = false;
+            cb_makhoahoc.Enabled = false;
+            cb_manganh.Enabled = false;
+
+            btn_luu.Enabled = false;
+            btn_huy.Enabled = false;
+
+            this.btn_add.Enabled = true;
+            this.btn_update.Enabled = true;
+            this.btn_delete.Enabled = true;
+
+            ResetTextAll();
+        }
+
+        private void ResetTextAll()
+        {
+            txt_MaLop.ResetText();
+            txt_TenLop.ResetText();
+            cb_MaHe.ResetText();
+            cb_makhoahoc.ResetText();
+            cb_manganh.ResetText();
+           
+        }
+
+        private void SetUpAddState()
+        {
+            txt_MaLop.Enabled = true;
+            txt_TenLop.Enabled = true;
+            cb_MaHe.Enabled = true;
+            cb_makhoahoc.Enabled = true;
+            cb_manganh.Enabled = true;
+
+            btn_luu.Enabled = true;
+            btn_huy.Enabled = true;
+
+            this.btn_add.Enabled = false;
+            this.btn_update.Enabled = false;
+            this.btn_delete.Enabled = false;
+        }
     }
 }
+

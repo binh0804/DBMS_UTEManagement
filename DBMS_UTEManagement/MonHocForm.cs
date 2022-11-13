@@ -18,11 +18,14 @@ namespace DBMS_UTEManagement
     {
         DataTable dtMonHoc = null;
         BSMonHoc dbMH = new BSMonHoc();
-        bool Them;
+        bool Them = false;
+        bool Sua = false;
         string err;
         public MonHocForm()
         {
             InitializeComponent();
+            SetUpNormalState();
+            dgvMonHoc.ReadOnly = true;
         }
         private void btn_load_Click(object sender, EventArgs e)
         {
@@ -43,8 +46,7 @@ namespace DBMS_UTEManagement
         {
             txtMaMH.Focus();
             Them = true;
-            btnLuu.Enabled = true;
-            btnHuy.Enabled = true;
+            SetUpAddState();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -61,32 +63,45 @@ namespace DBMS_UTEManagement
                     // Thông báo 
                     MessageBox.Show("Đã thêm xong!");
                 }
-                catch (SqlException)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
+                    if (ex is SqlException)
+                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                    if (ex is FormatException)
+                        MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
+                    if (ex is NullReferenceException)
+                        MessageBox.Show("Không được bỏ trống các mục!");
                 }
             }
-            else
+            else if(Sua)
             {
-                // Thực hiện lệnh 
-                BSMonHoc BSNH = new BSMonHoc();
-                BSNH.UpdateMH(txtMaMH.Text.Trim(), txtTenMH.Text.Trim(), float.Parse(txtLyThuyet.Text.Trim()), float.Parse(txtThucHanh.Text.Trim()));
+                try
+                {
+                    // Thực hiện lệnh 
+                    BSMonHoc BSNH = new BSMonHoc();
+                    BSNH.UpdateMH(txtMaMH.Text.Trim(), txtTenMH.Text.Trim(), float.Parse(txtLyThuyet.Text.Trim()), float.Parse(txtThucHanh.Text.Trim()));
 
-                // Load lại dữ liệu trên DataGridView 
-                LoadData();
-                // Thông báo 
-                MessageBox.Show("Đã sửa xong!");
+                    // Load lại dữ liệu trên DataGridView 
+                    LoadData();
+                    // Thông báo 
+                    MessageBox.Show("Đã sửa xong!");
+                }
+                catch(Exception ex)
+                {
+                    if (ex is SqlException)
+                        MessageBox.Show("Không sửa được, hệ thống đang bị lỗi!");
+                    if (ex is FormatException)
+                        MessageBox.Show("Không Update được, vui lòng nhập đúng định dạng!");
+                    if (ex is NullReferenceException)
+                        MessageBox.Show("Không để trống thông tin");
+                }
             }
+            SetUpNormalState();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            txtMaMH.ResetText();
-            txtTenMH.ResetText();
-            txtLyThuyet.ResetText();
-            btnHuy.Enabled = false;
-            btnLuu.Enabled = false;
-            txtMaMH.Enabled = true;
+            SetUpNormalState();
         }
 
         private void dgvMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -102,10 +117,10 @@ namespace DBMS_UTEManagement
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            Them = false;
+            Sua = true;
             txtTenMH.Focus();
-            btnLuu.Enabled = true;
-            btnHuy.Enabled = true;
+            SetUpAddState();
+
             int r = dgvMonHoc.CurrentCell.RowIndex;
             string strMaSV =
                 dgvMonHoc.Rows[r].Cells[0].Value.ToString();
@@ -172,13 +187,13 @@ namespace DBMS_UTEManagement
                 txtTenMH.ResetText();
                 txtLyThuyet.ResetText();
                 //// Không cho thao tác trên các nút Lưu / Hủy 
-                this.btnLuu.Enabled = false;
-                this.btnHuy.Enabled = false;
+                this.btn_luu.Enabled = false;
+                this.btn_huy.Enabled = false;
 
                 //// Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát 
-                this.btnThemMH.Enabled = true;
-                this.btnSuaMH.Enabled = true;
-                this.btnXoaMH.Enabled = true;
+                this.btn_add.Enabled = true;
+                this.btn_update.Enabled = true;
+                this.btn_delete.Enabled = true;
                 //
                 Them = false;
                 //dgvMonHoc_CellClick(null, null);
@@ -208,5 +223,46 @@ namespace DBMS_UTEManagement
             }
         }
 
+        private void SetUpNormalState()
+        {
+            Them = Sua = false;
+            txtLyThuyet.Enabled = false;
+            txtMaMH.Enabled = false;
+            txtTenMH.Enabled = false;
+            txtThucHanh.Enabled = false;
+           
+
+            btn_luu.Enabled = false;
+            btn_huy.Enabled = false;
+
+            this.btn_add.Enabled = true;
+            this.btn_update.Enabled = true;
+            this.btn_delete.Enabled = true;
+
+            ResetTextAll();
+        }
+
+        private void ResetTextAll()
+        {
+            txtLyThuyet.ResetText();
+            txtMaMH.ResetText();
+            txtTenMH.ResetText();
+            txtThucHanh.ResetText();
+        }
+
+        private void SetUpAddState()
+        {
+            txtLyThuyet.Enabled = true;
+            txtMaMH.Enabled = true;
+            txtTenMH.Enabled = true;
+            txtThucHanh.Enabled = true;
+
+            btn_luu.Enabled = true;
+            btn_huy.Enabled = true;
+
+            this.btn_add.Enabled = false;
+            this.btn_update.Enabled = false;
+            this.btn_delete.Enabled = false;
+        }
     }
 }

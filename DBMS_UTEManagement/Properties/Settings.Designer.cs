@@ -33,5 +33,16 @@ namespace DBMS_UTEManagement.Properties {
                 return ((string)(this["QuanLySinhVien_UTEConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LOJC\\LOJC;Initial Catalog=QuanLySinhVien_UTE;Integrated Security=True" +
+            "")]
+        public string QuanLySinhVien_UTEConnectionString1 {
+            get {
+                return ((string)(this["QuanLySinhVien_UTEConnectionString1"]));
+            }
+        }
     }
 }

@@ -23,9 +23,9 @@ namespace DBMS_UTEManagement.BSLayer
         }
         public DataSet AddMH(string MaMH, string TenMH, float LyThuyet, float ThucHanh)
         {
-            SqlParameter p1 = new SqlParameter("@TenMH", SqlDbType.Char);
+            SqlParameter p1 = new SqlParameter("@MaMH", SqlDbType.Char);
             p1.Value = MaMH;
-            SqlParameter p2 = new SqlParameter("@TenSV", SqlDbType.Char);
+            SqlParameter p2 = new SqlParameter("@TenMH", SqlDbType.Char);
             p2.Value = TenMH;
             SqlParameter p3 = new SqlParameter("@LyThuyet", SqlDbType.Float);
             p3.Value = LyThuyet;
@@ -42,9 +42,9 @@ namespace DBMS_UTEManagement.BSLayer
         }
         public DataSet UpdateMH(string MaMH, string TenMH, float LyThuyet, float ThucHanh)
         {
-            SqlParameter p1 = new SqlParameter("@TenMH", SqlDbType.Char);
+            SqlParameter p1 = new SqlParameter("@MaMH", SqlDbType.Char);
             p1.Value = MaMH;
-            SqlParameter p2 = new SqlParameter("@TenSV", SqlDbType.Char);
+            SqlParameter p2 = new SqlParameter("@TenMH", SqlDbType.Char);
             p2.Value = TenMH;
             SqlParameter p3 = new SqlParameter("@LyThuyet", SqlDbType.Float);
             p3.Value = LyThuyet;

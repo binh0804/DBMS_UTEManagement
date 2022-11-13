@@ -20,17 +20,17 @@ namespace DBMS_UTEManagement {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("QuanLySinhVien_UTEDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("QuanLySinhVien_UTEDataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class QuanLySinhVien_UTEDataSet : global::System.Data.DataSet {
+    public partial class QuanLySinhVien_UTEDataSet1 : global::System.Data.DataSet {
         
-        private LopDataTable tableLop;
+        private KhoaDataTable tableKhoa;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public QuanLySinhVien_UTEDataSet() {
+        public QuanLySinhVien_UTEDataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace DBMS_UTEManagement {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected QuanLySinhVien_UTEDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected QuanLySinhVien_UTEDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace DBMS_UTEManagement {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Lop"] != null)) {
-                    base.Tables.Add(new LopDataTable(ds.Tables["Lop"]));
+                if ((ds.Tables["Khoa"] != null)) {
+                    base.Tables.Add(new KhoaDataTable(ds.Tables["Khoa"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace DBMS_UTEManagement {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public LopDataTable Lop {
+        public KhoaDataTable Khoa {
             get {
-                return this.tableLop;
+                return this.tableKhoa;
             }
         }
         
@@ -127,7 +127,7 @@ namespace DBMS_UTEManagement {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            QuanLySinhVien_UTEDataSet cln = ((QuanLySinhVien_UTEDataSet)(base.Clone()));
+            QuanLySinhVien_UTEDataSet1 cln = ((QuanLySinhVien_UTEDataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace DBMS_UTEManagement {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Lop"] != null)) {
-                    base.Tables.Add(new LopDataTable(ds.Tables["Lop"]));
+                if ((ds.Tables["Khoa"] != null)) {
+                    base.Tables.Add(new KhoaDataTable(ds.Tables["Khoa"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace DBMS_UTEManagement {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableLop = ((LopDataTable)(base.Tables["Lop"]));
+            this.tableKhoa = ((KhoaDataTable)(base.Tables["Khoa"]));
             if ((initTable == true)) {
-                if ((this.tableLop != null)) {
-                    this.tableLop.InitVars();
+                if ((this.tableKhoa != null)) {
+                    this.tableKhoa.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace DBMS_UTEManagement {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "QuanLySinhVien_UTEDataSet";
+            this.DataSetName = "QuanLySinhVien_UTEDataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/QuanLySinhVien_UTEDataSet.xsd";
+            this.Namespace = "http://tempuri.org/QuanLySinhVien_UTEDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableLop = new LopDataTable();
-            base.Tables.Add(this.tableLop);
+            this.tableKhoa = new KhoaDataTable();
+            base.Tables.Add(this.tableKhoa);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeLop() {
+        private bool ShouldSerializeKhoa() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace DBMS_UTEManagement {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            QuanLySinhVien_UTEDataSet ds = new QuanLySinhVien_UTEDataSet();
+            QuanLySinhVien_UTEDataSet1 ds = new QuanLySinhVien_UTEDataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,21 +270,21 @@ namespace DBMS_UTEManagement {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void LopRowChangeEventHandler(object sender, LopRowChangeEvent e);
+        public delegate void KhoaRowChangeEventHandler(object sender, KhoaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class LopDataTable : global::System.Data.TypedTableBase<LopRow> {
+        public partial class KhoaDataTable : global::System.Data.TypedTableBase<KhoaRow> {
             
-            private global::System.Data.DataColumn columnMaLop;
+            private global::System.Data.DataColumn columnMaKhoa;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LopDataTable() {
-                this.TableName = "Lop";
+            public KhoaDataTable() {
+                this.TableName = "Khoa";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -292,7 +292,7 @@ namespace DBMS_UTEManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal LopDataTable(global::System.Data.DataTable table) {
+            internal KhoaDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -309,16 +309,16 @@ namespace DBMS_UTEManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected LopDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected KhoaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn MaLopColumn {
+            public global::System.Data.DataColumn MaKhoaColumn {
                 get {
-                    return this.columnMaLop;
+                    return this.columnMaKhoa;
                 }
             }
             
@@ -333,52 +333,52 @@ namespace DBMS_UTEManagement {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LopRow this[int index] {
+            public KhoaRow this[int index] {
                 get {
-                    return ((LopRow)(this.Rows[index]));
+                    return ((KhoaRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LopRowChangeEventHandler LopRowChanging;
+            public event KhoaRowChangeEventHandler KhoaRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LopRowChangeEventHandler LopRowChanged;
+            public event KhoaRowChangeEventHandler KhoaRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LopRowChangeEventHandler LopRowDeleting;
+            public event KhoaRowChangeEventHandler KhoaRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event LopRowChangeEventHandler LopRowDeleted;
+            public event KhoaRowChangeEventHandler KhoaRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddLopRow(LopRow row) {
+            public void AddKhoaRow(KhoaRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LopRow AddLopRow(string MaLop) {
-                LopRow rowLopRow = ((LopRow)(this.NewRow()));
+            public KhoaRow AddKhoaRow(string MaKhoa) {
+                KhoaRow rowKhoaRow = ((KhoaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        MaLop};
-                rowLopRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowLopRow);
-                return rowLopRow;
+                        MaKhoa};
+                rowKhoaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowKhoaRow);
+                return rowKhoaRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LopRow FindByMaLop(string MaLop) {
-                return ((LopRow)(this.Rows.Find(new object[] {
-                            MaLop})));
+            public KhoaRow FindByMaKhoa(string MaKhoa) {
+                return ((KhoaRow)(this.Rows.Find(new object[] {
+                            MaKhoa})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                LopDataTable cln = ((LopDataTable)(base.Clone()));
+                KhoaDataTable cln = ((KhoaDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -386,51 +386,51 @@ namespace DBMS_UTEManagement {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new LopDataTable();
+                return new KhoaDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnMaLop = base.Columns["MaLop"];
+                this.columnMaKhoa = base.Columns["MaKhoa"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnMaLop = new global::System.Data.DataColumn("MaLop", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMaLop);
+                this.columnMaKhoa = new global::System.Data.DataColumn("MaKhoa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMaKhoa);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnMaLop}, true));
-                this.columnMaLop.AllowDBNull = false;
-                this.columnMaLop.Unique = true;
-                this.columnMaLop.MaxLength = 20;
+                                this.columnMaKhoa}, true));
+                this.columnMaKhoa.AllowDBNull = false;
+                this.columnMaKhoa.Unique = true;
+                this.columnMaKhoa.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LopRow NewLopRow() {
-                return ((LopRow)(this.NewRow()));
+            public KhoaRow NewKhoaRow() {
+                return ((KhoaRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new LopRow(builder);
+                return new KhoaRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(LopRow);
+                return typeof(KhoaRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.LopRowChanged != null)) {
-                    this.LopRowChanged(this, new LopRowChangeEvent(((LopRow)(e.Row)), e.Action));
+                if ((this.KhoaRowChanged != null)) {
+                    this.KhoaRowChanged(this, new KhoaRowChangeEvent(((KhoaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -438,8 +438,8 @@ namespace DBMS_UTEManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.LopRowChanging != null)) {
-                    this.LopRowChanging(this, new LopRowChangeEvent(((LopRow)(e.Row)), e.Action));
+                if ((this.KhoaRowChanging != null)) {
+                    this.KhoaRowChanging(this, new KhoaRowChangeEvent(((KhoaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -447,8 +447,8 @@ namespace DBMS_UTEManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.LopRowDeleted != null)) {
-                    this.LopRowDeleted(this, new LopRowChangeEvent(((LopRow)(e.Row)), e.Action));
+                if ((this.KhoaRowDeleted != null)) {
+                    this.KhoaRowDeleted(this, new KhoaRowChangeEvent(((KhoaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -456,14 +456,14 @@ namespace DBMS_UTEManagement {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.LopRowDeleting != null)) {
-                    this.LopRowDeleting(this, new LopRowChangeEvent(((LopRow)(e.Row)), e.Action));
+                if ((this.KhoaRowDeleting != null)) {
+                    this.KhoaRowDeleting(this, new KhoaRowChangeEvent(((KhoaRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveLopRow(LopRow row) {
+            public void RemoveKhoaRow(KhoaRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -472,7 +472,7 @@ namespace DBMS_UTEManagement {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                QuanLySinhVien_UTEDataSet ds = new QuanLySinhVien_UTEDataSet();
+                QuanLySinhVien_UTEDataSet1 ds = new QuanLySinhVien_UTEDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -490,7 +490,7 @@ namespace DBMS_UTEManagement {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "LopDataTable";
+                attribute2.FixedValue = "KhoaDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -534,25 +534,25 @@ namespace DBMS_UTEManagement {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class LopRow : global::System.Data.DataRow {
+        public partial class KhoaRow : global::System.Data.DataRow {
             
-            private LopDataTable tableLop;
+            private KhoaDataTable tableKhoa;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal LopRow(global::System.Data.DataRowBuilder rb) : 
+            internal KhoaRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableLop = ((LopDataTable)(this.Table));
+                this.tableKhoa = ((KhoaDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string MaLop {
+            public string MaKhoa {
                 get {
-                    return ((string)(this[this.tableLop.MaLopColumn]));
+                    return ((string)(this[this.tableKhoa.MaKhoaColumn]));
                 }
                 set {
-                    this[this.tableLop.MaLopColumn] = value;
+                    this[this.tableKhoa.MaKhoaColumn] = value;
                 }
             }
         }
@@ -561,22 +561,22 @@ namespace DBMS_UTEManagement {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class LopRowChangeEvent : global::System.EventArgs {
+        public class KhoaRowChangeEvent : global::System.EventArgs {
             
-            private LopRow eventRow;
+            private KhoaRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LopRowChangeEvent(LopRow row, global::System.Data.DataRowAction action) {
+            public KhoaRowChangeEvent(KhoaRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public LopRow Row {
+            public KhoaRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -592,7 +592,7 @@ namespace DBMS_UTEManagement {
         }
     }
 }
-namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
+namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSet1TableAdapters {
     
     
     /// <summary>
@@ -604,7 +604,7 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class LopTableAdapter : global::System.ComponentModel.Component {
+    public partial class KhoaTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -618,7 +618,7 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public LopTableAdapter() {
+        public KhoaTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -715,27 +715,27 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Lop";
-            tableMapping.ColumnMappings.Add("MaLop", "MaLop");
+            tableMapping.DataSetTable = "Khoa";
+            tableMapping.ColumnMappings.Add("MaKhoa", "MaKhoa");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Lop] WHERE (([MaLop] = @Original_MaLop))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Khoa] WHERE (([MaKhoa] = @Original_MaKhoa))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaLop", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaLop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaKhoa", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaKhoa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Lop] ([MaLop]) VALUES (@MaLop);\r\nSELECT MaLop FROM Lop WHERE (" +
-                "MaLop = @MaLop)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Khoa] ([MaKhoa]) VALUES (@MaKhoa);\r\nSELECT MaKhoa FROM Khoa WH" +
+                "ERE (MaKhoa = @MaKhoa)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaLop", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaLop", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaKhoa", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaKhoa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Lop] SET [MaLop] = @MaLop WHERE (([MaLop] = @Original_MaLop));\r\nSEL" +
-                "ECT MaLop FROM Lop WHERE (MaLop = @MaLop)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Khoa] SET [MaKhoa] = @MaKhoa WHERE (([MaKhoa] = @Original_MaKhoa));" +
+                "\r\nSELECT MaKhoa FROM Khoa WHERE (MaKhoa = @MaKhoa)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaLop", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaLop", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaLop", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaLop", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaKhoa", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaKhoa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaKhoa", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaKhoa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -751,7 +751,7 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MaLop FROM dbo.Lop";
+            this._commandCollection[0].CommandText = "SELECT MaKhoa FROM dbo.Khoa";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -759,7 +759,7 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(QuanLySinhVien_UTEDataSet.LopDataTable dataTable) {
+        public virtual int Fill(QuanLySinhVien_UTEDataSet1.KhoaDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -772,9 +772,9 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual QuanLySinhVien_UTEDataSet.LopDataTable GetData() {
+        public virtual QuanLySinhVien_UTEDataSet1.KhoaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            QuanLySinhVien_UTEDataSet.LopDataTable dataTable = new QuanLySinhVien_UTEDataSet.LopDataTable();
+            QuanLySinhVien_UTEDataSet1.KhoaDataTable dataTable = new QuanLySinhVien_UTEDataSet1.KhoaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -782,15 +782,15 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(QuanLySinhVien_UTEDataSet.LopDataTable dataTable) {
+        public virtual int Update(QuanLySinhVien_UTEDataSet1.KhoaDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(QuanLySinhVien_UTEDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Lop");
+        public virtual int Update(QuanLySinhVien_UTEDataSet1 dataSet) {
+            return this.Adapter.Update(dataSet, "Khoa");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -812,12 +812,12 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_MaLop) {
-            if ((Original_MaLop == null)) {
-                throw new global::System.ArgumentNullException("Original_MaLop");
+        public virtual int Delete(string Original_MaKhoa) {
+            if ((Original_MaKhoa == null)) {
+                throw new global::System.ArgumentNullException("Original_MaKhoa");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_MaLop));
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_MaKhoa));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -839,12 +839,12 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string MaLop) {
-            if ((MaLop == null)) {
-                throw new global::System.ArgumentNullException("MaLop");
+        public virtual int Insert(string MaKhoa) {
+            if ((MaKhoa == null)) {
+                throw new global::System.ArgumentNullException("MaKhoa");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(MaLop));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(MaKhoa));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -866,18 +866,18 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string MaLop, string Original_MaLop) {
-            if ((MaLop == null)) {
-                throw new global::System.ArgumentNullException("MaLop");
+        public virtual int Update(string MaKhoa, string Original_MaKhoa) {
+            if ((MaKhoa == null)) {
+                throw new global::System.ArgumentNullException("MaKhoa");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(MaLop));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(MaKhoa));
             }
-            if ((Original_MaLop == null)) {
-                throw new global::System.ArgumentNullException("Original_MaLop");
+            if ((Original_MaKhoa == null)) {
+                throw new global::System.ArgumentNullException("Original_MaKhoa");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Original_MaLop));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Original_MaKhoa));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -899,8 +899,8 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Original_MaLop) {
-            return this.Update(Original_MaLop, Original_MaLop);
+        public virtual int Update(string Original_MaKhoa) {
+            return this.Update(Original_MaKhoa, Original_MaKhoa);
         }
     }
     
@@ -916,7 +916,7 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private LopTableAdapter _lopTableAdapter;
+        private KhoaTableAdapter _khoaTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -938,12 +938,12 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public LopTableAdapter LopTableAdapter {
+        public KhoaTableAdapter KhoaTableAdapter {
             get {
-                return this._lopTableAdapter;
+                return this._khoaTableAdapter;
             }
             set {
-                this._lopTableAdapter = value;
+                this._khoaTableAdapter = value;
             }
         }
         
@@ -966,9 +966,9 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._lopTableAdapter != null) 
-                            && (this._lopTableAdapter.Connection != null))) {
-                    return this._lopTableAdapter.Connection;
+                if (((this._khoaTableAdapter != null) 
+                            && (this._khoaTableAdapter.Connection != null))) {
+                    return this._khoaTableAdapter.Connection;
                 }
                 return null;
             }
@@ -983,7 +983,7 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._lopTableAdapter != null)) {
+                if ((this._khoaTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -995,14 +995,14 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(QuanLySinhVien_UTEDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(QuanLySinhVien_UTEDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._lopTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Lop.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._khoaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Khoa.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._lopTableAdapter.Update(updatedRows));
+                    result = (result + this._khoaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1014,13 +1014,13 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(QuanLySinhVien_UTEDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(QuanLySinhVien_UTEDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._lopTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Lop.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._khoaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Khoa.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._lopTableAdapter.Update(addedRows));
+                    result = (result + this._khoaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1032,13 +1032,13 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(QuanLySinhVien_UTEDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(QuanLySinhVien_UTEDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._lopTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Lop.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._khoaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Khoa.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._lopTableAdapter.Update(deletedRows));
+                    result = (result + this._khoaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1074,15 +1074,15 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(QuanLySinhVien_UTEDataSet dataSet) {
+        public virtual int UpdateAll(QuanLySinhVien_UTEDataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._lopTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._lopTableAdapter.Connection) == false))) {
+            if (((this._khoaTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._khoaTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1118,13 +1118,13 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._lopTableAdapter != null)) {
-                    revertConnections.Add(this._lopTableAdapter, this._lopTableAdapter.Connection);
-                    this._lopTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._lopTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._lopTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._lopTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._lopTableAdapter.Adapter);
+                if ((this._khoaTableAdapter != null)) {
+                    revertConnections.Add(this._khoaTableAdapter, this._khoaTableAdapter.Connection);
+                    this._khoaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._khoaTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._khoaTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._khoaTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._khoaTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1185,9 +1185,9 @@ namespace DBMS_UTEManagement.QuanLySinhVien_UTEDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._lopTableAdapter != null)) {
-                    this._lopTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._lopTableAdapter]));
-                    this._lopTableAdapter.Transaction = null;
+                if ((this._khoaTableAdapter != null)) {
+                    this._khoaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._khoaTableAdapter]));
+                    this._khoaTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

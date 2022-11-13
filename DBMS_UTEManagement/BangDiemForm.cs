@@ -43,7 +43,7 @@ namespace DBMS_UTEManagement
         {
             txt_MaSV.Focus();
             Them = true;
-            btnLuu.Enabled = true;
+            btn_luu.Enabled = true;
             btnHuy.Enabled = true;
         }
 
@@ -95,7 +95,7 @@ namespace DBMS_UTEManagement
             txt_Nam.ResetText();
             txt_Diem.ResetText();
             btnHuy.Enabled = false;
-            btnLuu.Enabled = false;
+            btn_luu.Enabled = false;
             txt_MaSV.Enabled = true;
         }
 
@@ -116,7 +116,7 @@ namespace DBMS_UTEManagement
         {
             Them = false;
             txt_MaMH.Focus();
-            btnLuu.Enabled = true;
+            btn_luu.Enabled = true;
             btnHuy.Enabled = true;
             int r = dgvDiem.CurrentCell.RowIndex;
             string strMaSV =
