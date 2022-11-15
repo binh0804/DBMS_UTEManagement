@@ -123,6 +123,7 @@ namespace DBMS_UTEManagement
             string strMaSV = dgvNganhHoc.Rows[r].Cells[0].Value.ToString();
             txt_MaNganh.Text = strMaSV;
             txt_MaNganh.Enabled = false;
+            txt_TenNganh.Focus();
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -171,13 +172,14 @@ namespace DBMS_UTEManagement
         private void NganhHocForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'quanLySinhVien_UTEDataSet1.Khoa' table. You can move, or remove it, as needed.
-            this.khoaTableAdapter.Fill(this.quanLySinhVien_UTEDataSet1.Khoa);
+            //this.khoaTableAdapter.Fill(this.quanLySinhVien_UTEDataSet1.Khoa);
             LoadData();
         }
         void LoadData()
         {
             try
             {
+                SetUpDataList();
                 dtNganhHoc = new DataTable();
                 dtNganhHoc.Clear();
                 DataSet ds = dbNH.LoadDDNganh();
@@ -186,20 +188,20 @@ namespace DBMS_UTEManagement
                 dgvNganhHoc.DataSource = dtNganhHoc;
                 // Thay đổi độ rộng cột 
                 dgvNganhHoc.AutoResizeColumns();
-                // Xóa trống các đối tượng trong Panel 
-                txt_MaNganh.ResetText();
-                txt_TenNganh.ResetText();
-                cb_makhoa.ResetText();
-                //// Không cho thao tác trên các nút Lưu / Hủy 
-                this.btn_luu.Enabled = false;
-                this.btn_huy.Enabled = false;
+                //// Xóa trống các đối tượng trong Panel 
+                //txt_MaNganh.ResetText();
+                //txt_TenNganh.ResetText();
+                //cb_makhoa.ResetText();
+                ////// Không cho thao tác trên các nút Lưu / Hủy 
+                //this.btn_luu.Enabled = false;
+                //this.btn_huy.Enabled = false;
 
-                //// Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát 
-                this.btn_add.Enabled = true;
-                this.btn_update.Enabled = true;
-                this.btn_delete.Enabled = true;
+                ////// Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát 
+                //this.btn_add.Enabled = true;
+                //this.btn_update.Enabled = true;
+                //this.btn_delete.Enabled = true;
                 //
-                Them = false;
+                //Them = false;
                 //dgvNganhHoc_CellClick(null, null);
             }
             catch (SqlException)
@@ -260,6 +262,15 @@ namespace DBMS_UTEManagement
             this.btn_add.Enabled = false;
             this.btn_update.Enabled = false;
             this.btn_delete.Enabled = false;
+        }
+        private void SetUpDataList()
+        {
+            DBLayer.DBMain db = new DBLayer.DBMain();
+            //SetUp MaLop
+            DataSet dsKhoa = db.ExcuteQueryDataSet($"select MaKhoa,TenKhoa from Khoa", CommandType.Text);
+            cb_makhoa.DataSource = dsKhoa.Tables[0];
+            cb_makhoa.ValueMember = "MaKhoa";
+            cb_makhoa.DisplayMember = "TenKhoa";
         }
     }
 }

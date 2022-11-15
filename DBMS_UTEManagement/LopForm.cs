@@ -170,15 +170,14 @@ namespace DBMS_UTEManagement
         private void LopHocForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'quanLySinhVien_UTEDataSet3.KhoaHoc' table. You can move, or remove it, as needed.
-            this.khoaHocTableAdapter.Fill(this.quanLySinhVien_UTEDataSet3.KhoaHoc);
             // TODO: This line of code loads data into the 'quanLySinhVien_UTEDataSet2.NganhHoc' table. You can move, or remove it, as needed.
-            this.nganhHocTableAdapter.Fill(this.quanLySinhVien_UTEDataSet2.NganhHoc);
             LoadData();
         }
         void LoadData()
         {
             try
             {
+                SetUpDataList();
                 dtLop = new DataTable();
                 dtLop.Clear();
                 DataSet ds = dbLop.LoadDDLop();
@@ -273,6 +272,42 @@ namespace DBMS_UTEManagement
             this.btn_update.Enabled = false;
             this.btn_delete.Enabled = false;
         }
+        private void SetUpDataList()
+        {
+            SetUpDataNganhHoc();
+            SetUpDataHeDaoTao();
+            SetUpDataKhoaHoc();
+        }
+
+
+        private void SetUpDataHeDaoTao()
+        {
+            DBLayer.DBMain db = new DBLayer.DBMain();
+            //SetUp MaLop
+            DataSet dsHe = db.ExcuteQueryDataSet($"select MaHe,TenHe from HeDaoTao", CommandType.Text);
+            cb_MaHe.DataSource = dsHe.Tables[0];
+            cb_MaHe.ValueMember = "MaHe";
+            cb_MaHe.DisplayMember = "TenHe";
+        }
+        private void SetUpDataKhoaHoc()
+        {
+            DBLayer.DBMain db = new DBLayer.DBMain();
+            DataSet dsKhoaHoc = db.ExcuteQueryDataSet($"select MaKhoaHoc,TenKhoaHoc from KhoaHoc", CommandType.Text);
+            cb_makhoahoc.DataSource = dsKhoaHoc.Tables[0];
+            cb_makhoahoc.ValueMember = "MaKhoaHoc";
+            cb_makhoahoc.DisplayMember = "TenKhoaHoc";  
+        }
+
+        private void SetUpDataNganhHoc()
+        {
+            DBLayer.DBMain db = new DBLayer.DBMain();
+            DataSet dsNganh = db.ExcuteQueryDataSet($"select MaNganh,TenNganh from NganhHoc", CommandType.Text);
+            cb_manganh.DataSource = dsNganh.Tables[0];
+            cb_manganh.ValueMember = "MaNganh";
+            cb_manganh.DisplayMember = "TenNganh";
+            
+        }
+        
     }
 }
 

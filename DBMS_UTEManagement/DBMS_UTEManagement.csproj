@@ -91,26 +91,6 @@
     <Compile Include="NganhHocForm.Designer.cs">
       <DependentUpon>NganhHocForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuanLySinhVien_UTEDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLySinhVien_UTEDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLySinhVien_UTEDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLySinhVien_UTEDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLySinhVien_UTEDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLySinhVien_UTEDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="QuanLySinhVien_UTEDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLySinhVien_UTEDataSet3.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SinhVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,50 +147,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QuanLySinhVien_UTEDataSet.xsc">
-      <DependentUpon>QuanLySinhVien_UTEDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLySinhVien_UTEDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet.xss">
-      <DependentUpon>QuanLySinhVien_UTEDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet1.xsc">
-      <DependentUpon>QuanLySinhVien_UTEDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLySinhVien_UTEDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet1.xss">
-      <DependentUpon>QuanLySinhVien_UTEDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet2.xsc">
-      <DependentUpon>QuanLySinhVien_UTEDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLySinhVien_UTEDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet2.xss">
-      <DependentUpon>QuanLySinhVien_UTEDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet3.xsc">
-      <DependentUpon>QuanLySinhVien_UTEDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QuanLySinhVien_UTEDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QuanLySinhVien_UTEDataSet3.xss">
-      <DependentUpon>QuanLySinhVien_UTEDataSet3.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

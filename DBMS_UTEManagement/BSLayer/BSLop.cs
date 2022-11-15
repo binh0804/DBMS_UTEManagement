@@ -22,6 +22,10 @@ namespace DBMS_UTEManagement.BSLayer
         {
             return db.ExcuteQueryDataSet($"select * from fLoadLop()", CommandType.Text);
         }
+        public DataSet LoadMaLop()
+        {
+            return db.ExcuteQueryDataSet($"select MaLop from fLoadLop()", CommandType.Text);
+        }
         public DataSet ADDLopHoc(string MaLop, string TenLop, string MaKhoaHoc, string MaHe, string MaNganh)
         {
             SqlParameter p1 = new SqlParameter("@MaLop", SqlDbType.Char);

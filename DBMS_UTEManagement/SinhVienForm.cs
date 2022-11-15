@@ -24,11 +24,13 @@ namespace DBMS_UTEManagement
         public SinhVienForm()
         {
             InitializeComponent();
+            
             SetUpNormalState();
             cb_gioiTinh.SelectedItem = "Nam";
             dgvSinhVien.ReadOnly = true;
 
         }
+
         private void btn_load_Click(object sender, EventArgs e)
         {
             try
@@ -198,7 +200,7 @@ namespace DBMS_UTEManagement
         private void SinhVienForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'quanLySinhVien_UTEDataSet.Lop' table. You can move, or remove it, as needed.
-            this.lopTableAdapter.Fill(this.quanLySinhVien_UTEDataSet.Lop);
+            //this.lopTableAdapter.Fill(this.quanLySinhVien_UTEDataSet.Lop);
             LoadData();
         }
         void LoadData()
@@ -213,6 +215,7 @@ namespace DBMS_UTEManagement
                 dgvSinhVien.DataSource = dtSinhVien;
                 // Thay đổi độ rộng cột 
                 dgvSinhVien.AutoResizeColumns();
+                SetUpDataList();
             }
             catch (SqlException)
             {
@@ -291,6 +294,16 @@ namespace DBMS_UTEManagement
             this.btn_add.Enabled = false;
             this.btn_update.Enabled = false;
             this.btn_delete.Enabled = false;
+        }
+
+        private void SetUpDataList()
+        {
+            DBLayer.DBMain db = new DBLayer.DBMain();
+            //SetUp MaLop
+            DataSet dsLop = db.ExcuteQueryDataSet($"select MaLop,TenLop from Lop", CommandType.Text);
+            cb_maLop.DataSource = dsLop.Tables[0];
+            cb_maLop.ValueMember = "MaLop";
+            cb_maLop.DisplayMember = "TenLop";
         }
     }
 }
