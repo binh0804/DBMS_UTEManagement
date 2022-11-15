@@ -21,7 +21,7 @@ namespace DBMS_UTEManagement
 
         private void btnSinhVienF_Click(object sender, EventArgs e)
         {
-            Form frm = new SinhVìenForm();
+            Form frm = new SinhVienForm();
             frm.ShowDialog();
         }
 

@@ -46,6 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BSLayer\BSBangDiem.cs" />
+    <Compile Include="BSLayer\BSHeDaoTao.cs" />
+    <Compile Include="BSLayer\BSKhoaHoc.cs" />
+    <Compile Include="BSLayer\BSLop.cs" />
+    <Compile Include="BSLayer\BSMonHoc.cs" />
+    <Compile Include="BSLayer\BSNganhHoc.cs" />
+    <Compile Include="BSLayer\BSSinhVien.cs" />
+    <Compile Include="BSLayer\BSKhoa.cs" />
+    <Compile Include="DBLayer\DBMain.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +66,12 @@
     </Compile>
     <Compile Include="BangDiemForm.Designer.cs">
       <DependentUpon>BangDiemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="KhoaForm.cs">
       <SubType>Form</SubType>
@@ -108,6 +123,9 @@
     <EmbeddedResource Include="KhoaHocForm.resx">
       <DependentUpon>KhoaHocForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LopForm.resx">
       <DependentUpon>LopForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

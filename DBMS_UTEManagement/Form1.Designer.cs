@@ -40,10 +40,9 @@ namespace DBMS_UTEManagement
             // 
             // btnSinhVienF
             // 
-            this.btnSinhVienF.Location = new System.Drawing.Point(11, 11);
-            this.btnSinhVienF.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSinhVienF.Location = new System.Drawing.Point(16, 17);
             this.btnSinhVienF.Name = "btnSinhVienF";
-            this.btnSinhVienF.Size = new System.Drawing.Size(112, 43);
+            this.btnSinhVienF.Size = new System.Drawing.Size(168, 66);
             this.btnSinhVienF.TabIndex = 1;
             this.btnSinhVienF.Text = "SinhVìenForm";
             this.btnSinhVienF.UseVisualStyleBackColor = true;
@@ -51,10 +50,9 @@ namespace DBMS_UTEManagement
             // 
             // btnNganhHocF
             // 
-            this.btnNganhHocF.Location = new System.Drawing.Point(268, 12);
-            this.btnNganhHocF.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNganhHocF.Location = new System.Drawing.Point(402, 18);
             this.btnNganhHocF.Name = "btnNganhHocF";
-            this.btnNganhHocF.Size = new System.Drawing.Size(142, 42);
+            this.btnNganhHocF.Size = new System.Drawing.Size(213, 65);
             this.btnNganhHocF.TabIndex = 1;
             this.btnNganhHocF.Text = "Nganh hoc Form";
             this.btnNganhHocF.UseVisualStyleBackColor = true;
@@ -62,10 +60,9 @@ namespace DBMS_UTEManagement
             // 
             // btnMonHocF
             // 
-            this.btnMonHocF.Location = new System.Drawing.Point(127, 12);
-            this.btnMonHocF.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMonHocF.Location = new System.Drawing.Point(190, 18);
             this.btnMonHocF.Name = "btnMonHocF";
-            this.btnMonHocF.Size = new System.Drawing.Size(137, 42);
+            this.btnMonHocF.Size = new System.Drawing.Size(206, 65);
             this.btnMonHocF.TabIndex = 1;
             this.btnMonHocF.Text = "Mon hoc Form";
             this.btnMonHocF.UseVisualStyleBackColor = true;
@@ -73,9 +70,10 @@ namespace DBMS_UTEManagement
             // 
             // btnLopF
             // 
-            this.btnLopF.Location = new System.Drawing.Point(415, 12);
+            this.btnLopF.Location = new System.Drawing.Point(622, 18);
+            this.btnLopF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnLopF.Name = "btnLopF";
-            this.btnLopF.Size = new System.Drawing.Size(143, 42);
+            this.btnLopF.Size = new System.Drawing.Size(214, 65);
             this.btnLopF.TabIndex = 2;
             this.btnLopF.Text = "Lop form";
             this.btnLopF.UseVisualStyleBackColor = true;
@@ -83,9 +81,10 @@ namespace DBMS_UTEManagement
             // 
             // btnKhoahocF
             // 
-            this.btnKhoahocF.Location = new System.Drawing.Point(12, 59);
+            this.btnKhoahocF.Location = new System.Drawing.Point(18, 91);
+            this.btnKhoahocF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnKhoahocF.Name = "btnKhoahocF";
-            this.btnKhoahocF.Size = new System.Drawing.Size(111, 51);
+            this.btnKhoahocF.Size = new System.Drawing.Size(166, 78);
             this.btnKhoahocF.TabIndex = 3;
             this.btnKhoahocF.Text = "Khoa Hoc form";
             this.btnKhoahocF.UseVisualStyleBackColor = true;
@@ -93,9 +92,10 @@ namespace DBMS_UTEManagement
             // 
             // btnKhoa
             // 
-            this.btnKhoa.Location = new System.Drawing.Point(129, 59);
+            this.btnKhoa.Location = new System.Drawing.Point(194, 91);
+            this.btnKhoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnKhoa.Name = "btnKhoa";
-            this.btnKhoa.Size = new System.Drawing.Size(135, 51);
+            this.btnKhoa.Size = new System.Drawing.Size(202, 78);
             this.btnKhoa.TabIndex = 4;
             this.btnKhoa.Text = "Khoa form";
             this.btnKhoa.UseVisualStyleBackColor = true;
@@ -103,9 +103,10 @@ namespace DBMS_UTEManagement
             // 
             // btnBangDiemF
             // 
-            this.btnBangDiemF.Location = new System.Drawing.Point(268, 59);
+            this.btnBangDiemF.Location = new System.Drawing.Point(402, 91);
+            this.btnBangDiemF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBangDiemF.Name = "btnBangDiemF";
-            this.btnBangDiemF.Size = new System.Drawing.Size(142, 51);
+            this.btnBangDiemF.Size = new System.Drawing.Size(213, 78);
             this.btnBangDiemF.TabIndex = 5;
             this.btnBangDiemF.Text = "Bang diem";
             this.btnBangDiemF.UseVisualStyleBackColor = true;
@@ -113,9 +114,9 @@ namespace DBMS_UTEManagement
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(900, 563);
             this.Controls.Add(this.btnBangDiemF);
             this.Controls.Add(this.btnKhoa);
             this.Controls.Add(this.btnKhoahocF);
@@ -123,7 +124,6 @@ namespace DBMS_UTEManagement
             this.Controls.Add(this.btnMonHocF);
             this.Controls.Add(this.btnNganhHocF);
             this.Controls.Add(this.btnSinhVienF);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
