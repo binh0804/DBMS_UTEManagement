@@ -55,10 +55,10 @@ namespace DBMS_UTEManagement
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDiem = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cb_NamHoc = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cb_HocKy = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.cb_NamHoc = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,7 +70,7 @@ namespace DBMS_UTEManagement
             // 
             this.groupBox4.Controls.Add(this.txt_search);
             this.groupBox4.Controls.Add(this.btnSearch);
-            this.groupBox4.Location = new System.Drawing.Point(674, 204);
+            this.groupBox4.Location = new System.Drawing.Point(827, 204);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(460, 181);
             this.groupBox4.TabIndex = 22;
@@ -111,7 +111,7 @@ namespace DBMS_UTEManagement
             this.groupBox3.Controls.Add(this.btnThem);
             this.groupBox3.Controls.Add(this.btnSua);
             this.groupBox3.Controls.Add(this.btnXoa);
-            this.groupBox3.Location = new System.Drawing.Point(674, 391);
+            this.groupBox3.Location = new System.Drawing.Point(827, 391);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(460, 56);
             this.groupBox3.TabIndex = 21;
@@ -262,7 +262,7 @@ namespace DBMS_UTEManagement
             this.groupBox1.Controls.Add(this.txt_MaSV);
             this.groupBox1.Controls.Add(this.txt_MaMH);
             this.groupBox1.Controls.Add(this.txt_LanThi);
-            this.groupBox1.Location = new System.Drawing.Point(674, 42);
+            this.groupBox1.Location = new System.Drawing.Point(827, 42);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(460, 156);
             this.groupBox1.TabIndex = 20;
@@ -310,29 +310,31 @@ namespace DBMS_UTEManagement
             this.dgvDiem.Location = new System.Drawing.Point(10, 127);
             this.dgvDiem.Name = "dgvDiem";
             this.dgvDiem.RowHeadersWidth = 62;
-            this.dgvDiem.Size = new System.Drawing.Size(658, 320);
+            this.dgvDiem.Size = new System.Drawing.Size(811, 320);
             this.dgvDiem.TabIndex = 19;
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.cb_HocKy);
             this.groupBox2.Controls.Add(this.cb_NamHoc);
             this.groupBox2.Location = new System.Drawing.Point(12, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(656, 73);
+            this.groupBox2.Size = new System.Drawing.Size(809, 73);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kết quả học tập";
             // 
-            // cb_NamHoc
+            // label4
             // 
-            this.cb_NamHoc.FormattingEnabled = true;
-            this.cb_NamHoc.Location = new System.Drawing.Point(75, 30);
-            this.cb_NamHoc.Name = "cb_NamHoc";
-            this.cb_NamHoc.Size = new System.Drawing.Size(121, 21);
-            this.cb_NamHoc.TabIndex = 0;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(230, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Học kỳ:";
             // 
             // label3
             // 
@@ -357,20 +359,20 @@ namespace DBMS_UTEManagement
             this.cb_HocKy.TabIndex = 0;
             this.cb_HocKy.Text = "Tắt cả";
             // 
-            // label4
+            // cb_NamHoc
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(230, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Học kỳ:";
+            this.cb_NamHoc.FormattingEnabled = true;
+            this.cb_NamHoc.Location = new System.Drawing.Point(75, 30);
+            this.cb_NamHoc.Name = "cb_NamHoc";
+            this.cb_NamHoc.Size = new System.Drawing.Size(121, 21);
+            this.cb_NamHoc.TabIndex = 0;
             // 
             // BangDiemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 461);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1299, 461);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);

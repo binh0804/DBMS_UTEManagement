@@ -59,7 +59,7 @@ namespace DBMS_UTEManagement
             this.dgvKhoa.Location = new System.Drawing.Point(12, 37);
             this.dgvKhoa.Name = "dgvKhoa";
             this.dgvKhoa.RowHeadersWidth = 62;
-            this.dgvKhoa.Size = new System.Drawing.Size(658, 415);
+            this.dgvKhoa.Size = new System.Drawing.Size(973, 415);
             this.dgvKhoa.TabIndex = 18;
             this.dgvKhoa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhoa_CellClick);
             // 
@@ -81,7 +81,7 @@ namespace DBMS_UTEManagement
             this.groupBox1.Controls.Add(this.btn_luu);
             this.groupBox1.Controls.Add(this.txt_MaKhoa);
             this.groupBox1.Controls.Add(this.txt_TenKhoa);
-            this.groupBox1.Location = new System.Drawing.Point(676, 37);
+            this.groupBox1.Location = new System.Drawing.Point(991, 37);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(296, 129);
             this.groupBox1.TabIndex = 19;
@@ -178,7 +178,7 @@ namespace DBMS_UTEManagement
             this.groupBox3.Controls.Add(this.btn_add);
             this.groupBox3.Controls.Add(this.btn_update);
             this.groupBox3.Controls.Add(this.btn_delete);
-            this.groupBox3.Location = new System.Drawing.Point(676, 357);
+            this.groupBox3.Location = new System.Drawing.Point(991, 357);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(296, 95);
             this.groupBox3.TabIndex = 21;
@@ -189,7 +189,7 @@ namespace DBMS_UTEManagement
             // 
             this.groupBox2.Controls.Add(this.txt_search);
             this.groupBox2.Controls.Add(this.btnSearch);
-            this.groupBox2.Location = new System.Drawing.Point(676, 172);
+            this.groupBox2.Location = new System.Drawing.Point(991, 172);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(296, 179);
             this.groupBox2.TabIndex = 20;
@@ -229,7 +229,8 @@ namespace DBMS_UTEManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1299, 461);
             this.Controls.Add(this.dgvKhoa);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);

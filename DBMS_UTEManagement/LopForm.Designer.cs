@@ -62,11 +62,10 @@ namespace DBMS_UTEManagement
             // 
             this.dgvLop.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLop.Location = new System.Drawing.Point(16, 52);
-            this.dgvLop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvLop.Location = new System.Drawing.Point(12, 42);
             this.dgvLop.Name = "dgvLop";
             this.dgvLop.RowHeadersWidth = 62;
-            this.dgvLop.Size = new System.Drawing.Size(877, 498);
+            this.dgvLop.Size = new System.Drawing.Size(809, 405);
             this.dgvLop.TabIndex = 13;
             this.dgvLop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLop_CellClick);
             // 
@@ -74,10 +73,9 @@ namespace DBMS_UTEManagement
             // 
             this.lbMaLop.AutoSize = true;
             this.lbMaLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbMaLop.Location = new System.Drawing.Point(13, 37);
-            this.lbMaLop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMaLop.Location = new System.Drawing.Point(10, 30);
             this.lbMaLop.Name = "lbMaLop";
-            this.lbMaLop.Size = new System.Drawing.Size(54, 17);
+            this.lbMaLop.Size = new System.Drawing.Size(42, 13);
             this.lbMaLop.TabIndex = 1;
             this.lbMaLop.Text = "Mã lớp:";
             // 
@@ -95,11 +93,9 @@ namespace DBMS_UTEManagement
             this.groupBox1.Controls.Add(this.lbMaKhoaHoc);
             this.groupBox1.Controls.Add(this.txt_MaLop);
             this.groupBox1.Controls.Add(this.txt_TenLop);
-            this.groupBox1.Location = new System.Drawing.Point(901, 52);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(827, 42);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(613, 192);
+            this.groupBox1.Size = new System.Drawing.Size(460, 156);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết lớp";
@@ -107,19 +103,17 @@ namespace DBMS_UTEManagement
             // cb_makhoahoc
             // 
             this.cb_makhoahoc.FormattingEnabled = true;
-            this.cb_makhoahoc.Location = new System.Drawing.Point(131, 107);
-            this.cb_makhoahoc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_makhoahoc.Location = new System.Drawing.Point(98, 87);
             this.cb_makhoahoc.Name = "cb_makhoahoc";
-            this.cb_makhoahoc.Size = new System.Drawing.Size(156, 24);
+            this.cb_makhoahoc.Size = new System.Drawing.Size(118, 21);
             this.cb_makhoahoc.TabIndex = 48;
             // 
             // cb_manganh
             // 
             this.cb_manganh.FormattingEnabled = true;
-            this.cb_manganh.Location = new System.Drawing.Point(427, 66);
-            this.cb_manganh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_manganh.Location = new System.Drawing.Point(320, 54);
             this.cb_manganh.Name = "cb_manganh";
-            this.cb_manganh.Size = new System.Drawing.Size(160, 24);
+            this.cb_manganh.Size = new System.Drawing.Size(121, 21);
             this.cb_manganh.TabIndex = 48;
             // 
             // cb_MaHe
@@ -128,20 +122,18 @@ namespace DBMS_UTEManagement
             this.cb_MaHe.Items.AddRange(new object[] {
             "DT",
             "CLC"});
-            this.cb_MaHe.Location = new System.Drawing.Point(427, 33);
-            this.cb_MaHe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_MaHe.Location = new System.Drawing.Point(320, 27);
             this.cb_MaHe.Name = "cb_MaHe";
-            this.cb_MaHe.Size = new System.Drawing.Size(160, 24);
+            this.cb_MaHe.Size = new System.Drawing.Size(121, 21);
             this.cb_MaHe.TabIndex = 48;
             // 
             // lbMaNganh
             // 
             this.lbMaNganh.AutoSize = true;
             this.lbMaNganh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbMaNganh.Location = new System.Drawing.Point(333, 74);
-            this.lbMaNganh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMaNganh.Location = new System.Drawing.Point(250, 60);
             this.lbMaNganh.Name = "lbMaNganh";
-            this.lbMaNganh.Size = new System.Drawing.Size(75, 17);
+            this.lbMaNganh.Size = new System.Drawing.Size(58, 13);
             this.lbMaNganh.TabIndex = 1;
             this.lbMaNganh.Text = "Mã ngành:";
             // 
@@ -149,19 +141,17 @@ namespace DBMS_UTEManagement
             // 
             this.lbMaHe.AutoSize = true;
             this.lbMaHe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbMaHe.Location = new System.Drawing.Point(333, 37);
-            this.lbMaHe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMaHe.Location = new System.Drawing.Point(250, 30);
             this.lbMaHe.Name = "lbMaHe";
-            this.lbMaHe.Size = new System.Drawing.Size(51, 17);
+            this.lbMaHe.Size = new System.Drawing.Size(40, 13);
             this.lbMaHe.TabIndex = 1;
             this.lbMaHe.Text = "Mã hệ:";
             // 
             // btn_huy
             // 
-            this.btn_huy.Location = new System.Drawing.Point(427, 154);
-            this.btn_huy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_huy.Location = new System.Drawing.Point(320, 125);
             this.btn_huy.Name = "btn_huy";
-            this.btn_huy.Size = new System.Drawing.Size(115, 28);
+            this.btn_huy.Size = new System.Drawing.Size(86, 23);
             this.btn_huy.TabIndex = 3;
             this.btn_huy.Text = "Hủy";
             this.btn_huy.UseVisualStyleBackColor = true;
@@ -171,19 +161,17 @@ namespace DBMS_UTEManagement
             // 
             this.lbTenLop.AutoSize = true;
             this.lbTenLop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbTenLop.Location = new System.Drawing.Point(13, 74);
-            this.lbTenLop.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTenLop.Location = new System.Drawing.Point(10, 60);
             this.lbTenLop.Name = "lbTenLop";
-            this.lbTenLop.Size = new System.Drawing.Size(60, 17);
+            this.lbTenLop.Size = new System.Drawing.Size(46, 13);
             this.lbTenLop.TabIndex = 1;
             this.lbTenLop.Text = "Tên lớp:";
             // 
             // btn_luu
             // 
-            this.btn_luu.Location = new System.Drawing.Point(131, 154);
-            this.btn_luu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_luu.Location = new System.Drawing.Point(98, 125);
             this.btn_luu.Name = "btn_luu";
-            this.btn_luu.Size = new System.Drawing.Size(115, 28);
+            this.btn_luu.Size = new System.Drawing.Size(86, 23);
             this.btn_luu.TabIndex = 3;
             this.btn_luu.Text = "Lưu";
             this.btn_luu.UseVisualStyleBackColor = true;
@@ -193,35 +181,31 @@ namespace DBMS_UTEManagement
             // 
             this.lbMaKhoaHoc.AutoSize = true;
             this.lbMaKhoaHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.lbMaKhoaHoc.Location = new System.Drawing.Point(13, 111);
-            this.lbMaKhoaHoc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMaKhoaHoc.Location = new System.Drawing.Point(10, 90);
             this.lbMaKhoaHoc.Name = "lbMaKhoaHoc";
-            this.lbMaKhoaHoc.Size = new System.Drawing.Size(93, 17);
+            this.lbMaKhoaHoc.Size = new System.Drawing.Size(73, 13);
             this.lbMaKhoaHoc.TabIndex = 1;
             this.lbMaKhoaHoc.Text = "Mã khóa học:";
             // 
             // txt_MaLop
             // 
-            this.txt_MaLop.Location = new System.Drawing.Point(131, 31);
-            this.txt_MaLop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_MaLop.Location = new System.Drawing.Point(98, 25);
             this.txt_MaLop.Name = "txt_MaLop";
-            this.txt_MaLop.Size = new System.Drawing.Size(156, 22);
+            this.txt_MaLop.Size = new System.Drawing.Size(118, 20);
             this.txt_MaLop.TabIndex = 2;
             // 
             // txt_TenLop
             // 
-            this.txt_TenLop.Location = new System.Drawing.Point(131, 68);
-            this.txt_TenLop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_TenLop.Location = new System.Drawing.Point(98, 55);
             this.txt_TenLop.Name = "txt_TenLop";
-            this.txt_TenLop.Size = new System.Drawing.Size(156, 22);
+            this.txt_TenLop.Size = new System.Drawing.Size(118, 20);
             this.txt_TenLop.TabIndex = 2;
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(131, 23);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_add.Location = new System.Drawing.Point(98, 19);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(115, 28);
+            this.btn_add.Size = new System.Drawing.Size(86, 23);
             this.btn_add.TabIndex = 3;
             this.btn_add.Text = "Thêm lớp";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -229,10 +213,9 @@ namespace DBMS_UTEManagement
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(272, 23);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_update.Location = new System.Drawing.Point(204, 19);
             this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(115, 28);
+            this.btn_update.Size = new System.Drawing.Size(86, 23);
             this.btn_update.TabIndex = 3;
             this.btn_update.Text = "Sửa Lớp";
             this.btn_update.UseVisualStyleBackColor = true;
@@ -240,10 +223,9 @@ namespace DBMS_UTEManagement
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(427, 23);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_delete.Location = new System.Drawing.Point(320, 19);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(115, 28);
+            this.btn_delete.Size = new System.Drawing.Size(86, 23);
             this.btn_delete.TabIndex = 3;
             this.btn_delete.Text = "Xóa Lớp";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -251,10 +233,9 @@ namespace DBMS_UTEManagement
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(8, 23);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoad.Location = new System.Drawing.Point(6, 19);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(115, 28);
+            this.btnLoad.Size = new System.Drawing.Size(86, 23);
             this.btnLoad.TabIndex = 3;
             this.btnLoad.Text = "Load dữ liệu";
             this.btnLoad.UseVisualStyleBackColor = true;
@@ -266,11 +247,9 @@ namespace DBMS_UTEManagement
             this.groupBox3.Controls.Add(this.btn_add);
             this.groupBox3.Controls.Add(this.btn_update);
             this.groupBox3.Controls.Add(this.btn_delete);
-            this.groupBox3.Location = new System.Drawing.Point(901, 481);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Location = new System.Drawing.Point(827, 391);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(613, 69);
+            this.groupBox3.Size = new System.Drawing.Size(460, 56);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chức năng";
@@ -279,10 +258,9 @@ namespace DBMS_UTEManagement
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(381, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(286, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 31);
+            this.label1.Size = new System.Drawing.Size(99, 25);
             this.label1.TabIndex = 12;
             this.label1.Text = "Lớp Học";
             // 
@@ -290,29 +268,27 @@ namespace DBMS_UTEManagement
             // 
             this.groupBox4.Controls.Add(this.txt_search);
             this.groupBox4.Controls.Add(this.btnSearch);
-            this.groupBox4.Location = new System.Drawing.Point(901, 251);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Location = new System.Drawing.Point(827, 204);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox4.Size = new System.Drawing.Size(613, 223);
+            this.groupBox4.Size = new System.Drawing.Size(460, 181);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tìm kiếm và bộ lọc";
             // 
             // txt_search
             // 
-            this.txt_search.Location = new System.Drawing.Point(16, 32);
-            this.txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_search.Location = new System.Drawing.Point(12, 26);
+            this.txt_search.Margin = new System.Windows.Forms.Padding(2);
             this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(157, 22);
+            this.txt_search.Size = new System.Drawing.Size(119, 20);
             this.txt_search.TabIndex = 46;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(205, 28);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Location = new System.Drawing.Point(154, 23);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(205, 28);
+            this.btnSearch.Size = new System.Drawing.Size(154, 23);
             this.btnSearch.TabIndex = 47;
             this.btnSearch.Text = "Tìm kiếm thông tin";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -320,15 +296,15 @@ namespace DBMS_UTEManagement
             // 
             // LopForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1531, 567);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1299, 461);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.dgvLop);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LopForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lớp";

@@ -100,6 +100,7 @@ namespace DBMS_UTEManagement
             this.btn_DangNhap.TabIndex = 3;
             this.btn_DangNhap.Text = "Đăng nhập";
             this.btn_DangNhap.UseVisualStyleBackColor = false;
+            this.btn_DangNhap.Click += new System.EventHandler(this.btn_DangNhap_Click);
             // 
             // label3
             // 

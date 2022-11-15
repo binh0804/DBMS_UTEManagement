@@ -17,5 +17,12 @@ namespace DBMS_UTEManagement
             InitializeComponent();
         }
 
+        private void btn_DangNhap_Click(object sender, EventArgs e)
+        {
+            MainForm fr = new MainForm();
+            fr.ShowDialog();
+            Application.Exit();
+
+        }
     }
 }
