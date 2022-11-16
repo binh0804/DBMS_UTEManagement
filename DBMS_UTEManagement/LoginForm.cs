@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+
+using System.Data.SqlClient;
+using DBMS_UTEManagement.DBLayer;
 
 namespace DBMS_UTEManagement
 {
@@ -17,31 +21,27 @@ namespace DBMS_UTEManagement
             InitializeComponent();
         }
 
-        private void icon_password_MouseClick(object sender, MouseEventArgs e)
+        private void btn_DangNhap_Click(object sender, EventArgs e)
         {
-            if (txt_password.PasswordChar == '*')
+            if (txt_username.Text == "" || txt_password.Text == "")
             {
-                txt_password.PasswordChar = '\0';
+                MessageBox.Show("Please don't leave any textbox is empty");
+            } else if ((txt_username.Text == "QuanTri" && txt_password.Text == "123") || (txt_username.Text == "GiangVien" && txt_password.Text == "123")) {
+                DBMain.username = txt_username.Text;
+                DBMain.password = txt_password.Text;
+                MainForm fr = new MainForm();
+                fr.ShowDialog();
+                Application.Exit();
             }
             else
             {
-                txt_password.PasswordChar = '*';
+                MessageBox.Show("Wrong username or password");
             }
         }
 
-        private void pn_exit_MouseClick(object sender, MouseEventArgs e)
+        private void btn_exit_Click(object sender, EventArgs e)
         {
-            DialogResult traloi;
-            traloi = MessageBox.Show("Bạn có muốn thoát không?", "Trả lời",
-            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (traloi == DialogResult.Yes)
-                Close();
-        }
-
-        private void pn_login_MouseClick(object sender, MouseEventArgs e)
-        {
-            MainForm fr = new MainForm();
-            fr.ShowDialog();
+            this.Close();
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Globalization;
 
 using System.Data.SqlClient;
 using DBMS_UTEManagement.BSLayer;
+using DBMS_UTEManagement.DBLayer;
 
 namespace DBMS_UTEManagement
 {
@@ -18,6 +19,7 @@ namespace DBMS_UTEManagement
     {
         DataTable dtSinhVien = null;
         BSSinhVien dbSV = new BSSinhVien();
+        string username = DBMain.username;
         bool Them = false;
         bool Sua = false;
         string err;
@@ -28,6 +30,11 @@ namespace DBMS_UTEManagement
             SetUpNormalState();
             cb_gioiTinh.SelectedItem = "Nam";
             dgvSinhVien.ReadOnly = true;
+            if (username == "GiangVien")
+            {
+                btn_add.Enabled = false;
+                btn_delete.Enabled = false;
+            }
 
         }
 
@@ -245,6 +252,15 @@ namespace DBMS_UTEManagement
 
         private void SetUpNormalState()
         {
+            if (username == "GiangVien")
+            {
+                this.btn_update.Enabled = true;
+            } else
+            {
+                this.btn_add.Enabled = true;
+                this.btn_update.Enabled = true;
+                this.btn_delete.Enabled = true;
+            }
             Them = Sua = false;
             txt_diachi.Enabled = false;
             txt_hocbong.Enabled = false;
@@ -258,9 +274,7 @@ namespace DBMS_UTEManagement
             btn_luu.Enabled = false;
             btn_huy.Enabled = false;
 
-            this.btn_add.Enabled = true;
-            this.btn_update.Enabled = true;
-            this.btn_delete.Enabled = true;
+            
 
             ResetTextAll();
         }
