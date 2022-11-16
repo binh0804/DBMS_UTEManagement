@@ -33,6 +33,7 @@ namespace DBMS_UTEManagement
             if (username == "GiangVien")
             {
                 btn_add.Enabled = false;
+                btn_update.Enabled = false;
                 btn_delete.Enabled = false;
             }
 
@@ -254,7 +255,10 @@ namespace DBMS_UTEManagement
         {
             if (username == "GiangVien")
             {
-                this.btn_update.Enabled = true;
+                this.btn_add.Enabled = false;
+                this.btn_update.Enabled = false;
+                this.btn_delete.Enabled = false;
+
             } else
             {
                 this.btn_add.Enabled = true;

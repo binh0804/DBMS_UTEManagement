@@ -50,7 +50,10 @@ namespace DBMS_UTEManagement.BSLayer
         }
         public DataSet Search(string thongTin)
         {
-            return db.ExcuteQueryDataSet($"select * from fSearchNganh({thongTin})", CommandType.Text);
+            SqlParameter p1 = new SqlParameter("@string", SqlDbType.NVarChar);
+            p1.Value = thongTin;
+
+            return db.ExcuteQueryDataSetWithParam("SELECT * FROM fSearchNganh(@string)", CommandType.Text, p1);
         }
     }
 }

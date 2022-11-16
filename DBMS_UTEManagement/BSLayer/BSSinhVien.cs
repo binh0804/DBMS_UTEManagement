@@ -23,7 +23,10 @@ namespace DBMS_UTEManagement.BSLayer
         }
         public DataSet SearchSV(string thongTin)
         {
-            return db.ExcuteQueryDataSet($"select * from fSearch({thongTin})", CommandType.Text);
+            SqlParameter p1 = new SqlParameter("@string", SqlDbType.NVarChar);
+            p1.Value = thongTin;
+
+            return db.ExcuteQueryDataSetWithParam("SELECT * FROM fSearch(@string)", CommandType.Text, p1);
         }
         public DataSet AddSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, float HocBong, string MaLop)
         {

@@ -32,6 +32,7 @@ namespace DBMS_UTEManagement
             {
                 btn_add.Enabled = false;
                 btn_delete.Enabled = false;
+                btn_update.Enabled = false;
             }
         }
         private void btn_load_Click(object sender, EventArgs e)
@@ -239,7 +240,9 @@ namespace DBMS_UTEManagement
         {
             if (username == "GiangVien")
             {
-                this.btn_update.Enabled = true;
+                this.btn_add.Enabled = false;
+                this.btn_update.Enabled = false;
+                this.btn_delete.Enabled = false;
             }
             else
             {

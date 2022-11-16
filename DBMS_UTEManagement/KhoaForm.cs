@@ -32,6 +32,7 @@ namespace DBMS_UTEManagement
             {
                 btn_add.Enabled = false;
                 btn_delete.Enabled = false;
+                btn_update.Enabled = false;
             }
         }
         private void btn_load_Click(object sender, EventArgs e)
@@ -196,9 +197,12 @@ namespace DBMS_UTEManagement
                 this.btn_huy.Enabled = false;
 
                 //// Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát 
-                this.btn_add.Enabled = true;
-                this.btn_update.Enabled = true;
-                this.btn_delete.Enabled = true;
+                if (username != "GiangVien")
+                {
+                    this.btn_add.Enabled = true;
+                    this.btn_update.Enabled = true;
+                    this.btn_delete.Enabled = true;
+                }
                 //
                 Them = false;
                 //dgvKhoa_CellClick(null, null);
@@ -231,7 +235,9 @@ namespace DBMS_UTEManagement
         {
             if (username == "GiangVien")
             {
-                this.btn_update.Enabled = true;
+                this.btn_add.Enabled = false;
+                this.btn_update.Enabled = false;
+                this.btn_delete.Enabled = false;
             }
             else
             {

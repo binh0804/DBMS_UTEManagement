@@ -29,6 +29,7 @@ namespace DBMS_UTEManagement
             {
                 btn_add.Enabled = false;
                 btn_delete.Enabled = false;
+                btn_update.Enabled = false;
             }
         }
         private void btn_load_Click(object sender, EventArgs e)
