@@ -11,6 +11,7 @@ using System.Globalization;
 
 using System.Data.SqlClient;
 using DBMS_UTEManagement.BSLayer;
+using DBMS_UTEManagement.DBLayer;
 
 namespace DBMS_UTEManagement
 {
@@ -21,11 +22,17 @@ namespace DBMS_UTEManagement
         bool Them = false;
         bool Sua = false;
         string err;
+        string username = DBMain.username;
         public NganhHocForm()
         {
             InitializeComponent();
             SetUpNormalState();
             dgvNganhHoc.ReadOnly = true;
+            if (username == "GiangVien")
+            {
+                btn_add.Enabled = false;
+                btn_delete.Enabled = false;
+            }
         }
         private void btn_load_Click(object sender, EventArgs e)
         {
@@ -230,6 +237,16 @@ namespace DBMS_UTEManagement
         }
         private void SetUpNormalState()
         {
+            if (username == "GiangVien")
+            {
+                this.btn_update.Enabled = true;
+            }
+            else
+            {
+                this.btn_add.Enabled = true;
+                this.btn_update.Enabled = true;
+                this.btn_delete.Enabled = true;
+            }
             Them = Sua = false;
             txt_MaNganh.Enabled = false;
             txt_TenNganh.Enabled = false;
@@ -237,10 +254,6 @@ namespace DBMS_UTEManagement
 
             btn_luu.Enabled = false;
             btn_huy.Enabled = false;
-
-            this.btn_add.Enabled = true;
-            this.btn_update.Enabled = true;
-            this.btn_delete.Enabled = true;
 
             ResetTextAll();
         }

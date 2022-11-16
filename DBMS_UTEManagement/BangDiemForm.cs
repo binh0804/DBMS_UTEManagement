@@ -11,6 +11,7 @@ using System.Globalization;
 
 using System.Data.SqlClient;
 using DBMS_UTEManagement.BSLayer;
+using DBMS_UTEManagement.DBLayer;
 
 namespace DBMS_UTEManagement
 {
@@ -20,9 +21,15 @@ namespace DBMS_UTEManagement
         BSBangDiem dbDiem = new BSBangDiem();
         bool Them;
         string err;
+        string username = DBMain.username;
         public BangDiemForm()
         {
             InitializeComponent();
+            if (username == "GiangVien")
+            {
+                btn_add.Enabled = false;
+                btn_delete.Enabled = false;
+            }
         }
         private void btn_load_Click(object sender, EventArgs e)
         {

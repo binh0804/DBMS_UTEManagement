@@ -5,12 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace DBMS_UTEManagement.DBLayer
 {
     internal class DBMain
     {
-        string ConnStr = "Data Source=LOJC\\LOJC;Initial Catalog=QuanLySinhVien_UTE;Integrated Security=True";
+        static string un, pwd;
+        public static string username { 
+            get
+            {
+                return un;
+            } set
+            {
+                un = value;
+            } 
+        }
+        public static string password
+        {
+            get { return pwd;}
+            set { pwd = value; }
+        }
+
+        string ConnStr = "Data Source=LAPTOP-A5B24DCR;Initial Catalog=QuanLySinhVien_UTE;User ID="+username+";Password="+password+";";
         SqlConnection conn = null;
         SqlCommand comm = null;
         SqlDataAdapter da = null;
