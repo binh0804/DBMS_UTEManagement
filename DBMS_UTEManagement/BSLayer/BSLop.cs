@@ -30,7 +30,7 @@ namespace DBMS_UTEManagement.BSLayer
         {
             SqlParameter p1 = new SqlParameter("@MaLop", SqlDbType.Char);
             p1.Value = MaLop;
-            SqlParameter p2 = new SqlParameter("@TenLop", SqlDbType.Char);
+            SqlParameter p2 = new SqlParameter("@TenLop", SqlDbType.NVarChar);
             p2.Value = TenLop;
             SqlParameter p3 = new SqlParameter("@MaKhoaHoc", SqlDbType.Char);
             p3.Value = MaKhoaHoc;
@@ -45,7 +45,7 @@ namespace DBMS_UTEManagement.BSLayer
         {
             SqlParameter p1 = new SqlParameter("@MaLop", SqlDbType.Char);
             p1.Value = MaLop;
-            SqlParameter p2 = new SqlParameter("@TenLop", SqlDbType.Char);
+            SqlParameter p2 = new SqlParameter("@TenLop", SqlDbType.NVarChar);
             p2.Value = TenLop;
             SqlParameter p3 = new SqlParameter("@MaKhoaHoc", SqlDbType.Char);
             p3.Value = MaKhoaHoc;

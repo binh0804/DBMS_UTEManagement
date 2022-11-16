@@ -25,7 +25,7 @@ namespace DBMS_UTEManagement.BSLayer
         {
             SqlParameter p1 = new SqlParameter("@MaMH", SqlDbType.Char);
             p1.Value = MaMH;
-            SqlParameter p2 = new SqlParameter("@TenMH", SqlDbType.Char);
+            SqlParameter p2 = new SqlParameter("@TenMH", SqlDbType.NVarChar);
             p2.Value = TenMH;
             SqlParameter p3 = new SqlParameter("@LyThuyet", SqlDbType.Float);
             p3.Value = LyThuyet;
@@ -35,7 +35,7 @@ namespace DBMS_UTEManagement.BSLayer
         }
         public DataSet DeleteMH(string MaMH)
         {
-            SqlParameter p1 = new SqlParameter("@TenMH", SqlDbType.Char);
+            SqlParameter p1 = new SqlParameter("@MaMH", SqlDbType.Char);
             p1.Value = MaMH;
 
             return db.ExcuteQueryDataSetWithParam("DeleteMH", CommandType.StoredProcedure, p1);
@@ -44,7 +44,7 @@ namespace DBMS_UTEManagement.BSLayer
         {
             SqlParameter p1 = new SqlParameter("@MaMH", SqlDbType.Char);
             p1.Value = MaMH;
-            SqlParameter p2 = new SqlParameter("@TenMH", SqlDbType.Char);
+            SqlParameter p2 = new SqlParameter("@TenMH", SqlDbType.NVarChar);
             p2.Value = TenMH;
             SqlParameter p3 = new SqlParameter("@LyThuyet", SqlDbType.Float);
             p3.Value = LyThuyet;

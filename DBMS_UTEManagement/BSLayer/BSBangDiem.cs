@@ -23,11 +23,11 @@ namespace DBMS_UTEManagement.BSLayer
         }
         public DataSet AddDiem(string MaSV, string MaMH, string LanThi, int HocKy, float Diem, int Nam)
         {
-            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.NChar);
+            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
-            SqlParameter p2 = new SqlParameter("@MaMH", SqlDbType.NChar);
+            SqlParameter p2 = new SqlParameter("@MaMH", SqlDbType.Char);
             p2.Value = MaMH;
-            SqlParameter p3 = new SqlParameter("@LanThi", SqlDbType.NChar);
+            SqlParameter p3 = new SqlParameter("@LanThi", SqlDbType.Int);
             p3.Value = LanThi;
             SqlParameter p4 = new SqlParameter("@HocKy", SqlDbType.Int);
             p4.Value = HocKy;
@@ -39,11 +39,11 @@ namespace DBMS_UTEManagement.BSLayer
         }
         public DataSet DeleteDiem(string MaSV, string MaMH, string LanThi, int HocKy, int Nam)
         {
-            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.Char);
+            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
             SqlParameter p2 = new SqlParameter("@MaMH", SqlDbType.Char);
             p2.Value = MaMH;
-            SqlParameter p3 = new SqlParameter("@LanThi", SqlDbType.Char);
+            SqlParameter p3 = new SqlParameter("@LanThi", SqlDbType.Int);
             p3.Value = LanThi;
             SqlParameter p4 = new SqlParameter("@HocKy", SqlDbType.Int);
             p4.Value = HocKy;
@@ -53,11 +53,11 @@ namespace DBMS_UTEManagement.BSLayer
         }
         public DataSet UpdateDiem(string MaSV, string MaMH, string LanThi, int HocKy, float Diem, int Nam)
         {
-            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.NChar);
+            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
-            SqlParameter p2 = new SqlParameter("@MaMH", SqlDbType.NChar);
+            SqlParameter p2 = new SqlParameter("@MaMH", SqlDbType.Char);
             p2.Value = MaMH;
-            SqlParameter p3 = new SqlParameter("@LanThi", SqlDbType.NChar);
+            SqlParameter p3 = new SqlParameter("@LanThi", SqlDbType.Int);
             p3.Value = LanThi;
             SqlParameter p4 = new SqlParameter("@HocKy", SqlDbType.Int);
             p4.Value = HocKy;

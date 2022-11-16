@@ -97,7 +97,7 @@ namespace DBMS_UTEManagement
                 catch(Exception ex)
                 {
                     if (ex is SqlException)
-                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                        MessageBox.Show("Không sửa được, hệ thống đang bị lỗi!");
                     if (ex is FormatException)
                         MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
                     if (ex is NullReferenceException)
@@ -144,8 +144,6 @@ namespace DBMS_UTEManagement
                 // Lấy MaSV của record hiện hành 
                 string strMaKhoaHoc =
                 dgvKhoa.Rows[r].Cells[0].Value.ToString();
-
-                Console.WriteLine(strMaKhoaHoc);
                 // Viết câu lệnh SQL 
                 // Hiện thông báo xác nhận việc xóa mẫu tin 
                 // Khai báo biến traloi 

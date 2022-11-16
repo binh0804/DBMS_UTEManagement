@@ -144,7 +144,7 @@ namespace DBMS_UTEManagement
                 int r = dgvMonHoc.CurrentCell.RowIndex;
                 // Lấy MaSV của record hiện hành 
                 string strMaMH =
-                dgvMonHoc.Rows[r].Cells[0].Value.ToString();
+                dgvMonHoc.Rows[r].Cells[0].Value.ToString().Trim();
                 // Viết câu lệnh SQL 
                 // Hiện thông báo xác nhận việc xóa mẫu tin 
                 // Khai báo biến traloi 

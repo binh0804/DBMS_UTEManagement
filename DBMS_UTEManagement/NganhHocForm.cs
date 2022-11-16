@@ -186,7 +186,7 @@ namespace DBMS_UTEManagement
         {
             try
             {
-                SetUpDataList();
+                //SetUpDataList();
                 dtNganhHoc = new DataTable();
                 dtNganhHoc.Clear();
                 DataSet ds = dbNH.LoadDDNganh();
@@ -276,14 +276,14 @@ namespace DBMS_UTEManagement
             this.btn_update.Enabled = false;
             this.btn_delete.Enabled = false;
         }
-        private void SetUpDataList()
-        {
-            DBLayer.DBMain db = new DBLayer.DBMain();
-            //SetUp MaLop
-            DataSet dsKhoa = db.ExcuteQueryDataSet($"select MaKhoa,TenKhoa from Khoa", CommandType.Text);
-            cb_makhoa.DataSource = dsKhoa.Tables[0];
-            cb_makhoa.ValueMember = "MaKhoa";
-            cb_makhoa.DisplayMember = "TenKhoa";
-        }
+        //private void SetUpDataList()
+        //{
+        //    DBLayer.DBMain db = new DBLayer.DBMain();
+        //    //SetUp MaLop
+        //    DataSet dsKhoa = db.ExcuteQueryDataSet($"select MaKhoa,TenKhoa from Khoa", CommandType.Text);
+        //    cb_makhoa.DataSource = dsKhoa.Tables[0];
+        //    cb_makhoa.ValueMember = "MaKhoa";
+        //    cb_makhoa.DisplayMember = "TenKhoa";
+        //}
     }
 }

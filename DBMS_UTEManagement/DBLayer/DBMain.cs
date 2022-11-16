@@ -26,8 +26,8 @@ namespace DBMS_UTEManagement.DBLayer
             get { return pwd;}
             set { pwd = value; }
         }
-
-        string ConnStr = "Data Source=LAPTOP-A5B24DCR;Initial Catalog=QuanLySinhVien_UTE;User ID="+username+";Password="+password+";";
+        string ConnStr = "Data Source=LAPTOP-A5B24DCR;Initial Catalog=QuanLySinhVien_UTE;Integrated Security=true;";
+        //string ConnStr = "Data Source=LAPTOP-A5B24DCR;Initial Catalog=QuanLySinhVien_UTE;User ID="+username+";Password="+password+";";
         SqlConnection conn = null;
         SqlCommand comm = null;
         SqlDataAdapter da = null;

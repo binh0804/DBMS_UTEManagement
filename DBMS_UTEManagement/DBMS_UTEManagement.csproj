@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BSLayer\BSBangDiem.cs" />
-    <Compile Include="BSLayer\BSHeDaoTao.cs" />
     <Compile Include="BSLayer\BSKhoaHoc.cs" />
     <Compile Include="BSLayer\BSLop.cs" />
     <Compile Include="BSLayer\BSMonHoc.cs" />

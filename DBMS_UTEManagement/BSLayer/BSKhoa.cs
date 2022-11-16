@@ -25,7 +25,7 @@ namespace DBMS_UTEManagement.BSLayer
         {
             SqlParameter p1 = new SqlParameter("@MaKhoa", SqlDbType.Char);
             p1.Value = MaKhoa;
-            SqlParameter p2 = new SqlParameter("@TenKhoac", SqlDbType.Char);
+            SqlParameter p2 = new SqlParameter("@TenKhoa", SqlDbType.NVarChar);
             p2.Value = TenKhoa;
 
             return db.ExcuteQueryDataSetWithParam("AddKhoa", CommandType.StoredProcedure, p1, p2);
@@ -34,14 +34,14 @@ namespace DBMS_UTEManagement.BSLayer
         {
             SqlParameter p1 = new SqlParameter("@MaKhoa", SqlDbType.Char);
             p1.Value = MaKhoa;
-            SqlParameter p2 = new SqlParameter("@TenKhoac", SqlDbType.Char);
+            SqlParameter p2 = new SqlParameter("@TenKhoa", SqlDbType.NVarChar);
             p2.Value = TenKhoa;
 
             return db.ExcuteQueryDataSetWithParam("UpdateKhoa", CommandType.StoredProcedure, p1, p2);
         }
         public DataSet DeleteKhoa(string MaKhoa)
         {
-            SqlParameter p1 = new SqlParameter("@MaKhoaHoc", SqlDbType.Char);
+            SqlParameter p1 = new SqlParameter("@MaKhoa", SqlDbType.Char);
             p1.Value = MaKhoa;
 
             return db.ExcuteQueryDataSetWithParam("DeleteKhoa", CommandType.StoredProcedure, p1);
