@@ -35,8 +35,14 @@ namespace DBMS_UTEManagement
             this.txt_username = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn_DangNhap = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.ic_username = new System.Windows.Forms.PictureBox();
+            this.icon_password = new System.Windows.Forms.PictureBox();
+            this.pn_exit = new System.Windows.Forms.Panel();
+            this.pn_login = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ic_username)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_password)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pn_login)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -90,18 +96,6 @@ namespace DBMS_UTEManagement
             this.label2.TabIndex = 2;
             this.label2.Text = "Mật khẩu";
             // 
-            // btn_DangNhap
-            // 
-            this.btn_DangNhap.BackColor = System.Drawing.Color.Transparent;
-            this.btn_DangNhap.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btn_DangNhap.Location = new System.Drawing.Point(361, 250);
-            this.btn_DangNhap.Name = "btn_DangNhap";
-            this.btn_DangNhap.Size = new System.Drawing.Size(117, 30);
-            this.btn_DangNhap.TabIndex = 3;
-            this.btn_DangNhap.Text = "Đăng nhập";
-            this.btn_DangNhap.UseVisualStyleBackColor = false;
-            this.btn_DangNhap.Click += new System.EventHandler(this.btn_DangNhap_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -113,14 +107,59 @@ namespace DBMS_UTEManagement
             this.label3.TabIndex = 4;
             this.label3.Text = "Quản lý sinh viên";
             // 
+            // ic_username
+            // 
+            this.ic_username.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ic_username.BackgroundImage")));
+            this.ic_username.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ic_username.Location = new System.Drawing.Point(540, 139);
+            this.ic_username.Name = "ic_username";
+            this.ic_username.Size = new System.Drawing.Size(20, 20);
+            this.ic_username.TabIndex = 5;
+            this.ic_username.TabStop = false;
+            // 
+            // icon_password
+            // 
+            this.icon_password.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_password.BackgroundImage")));
+            this.icon_password.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.icon_password.Location = new System.Drawing.Point(540, 211);
+            this.icon_password.Name = "icon_password";
+            this.icon_password.Size = new System.Drawing.Size(20, 20);
+            this.icon_password.TabIndex = 6;
+            this.icon_password.TabStop = false;
+            this.icon_password.MouseClick += new System.Windows.Forms.MouseEventHandler(this.icon_password_MouseClick);
+            // 
+            // pn_exit
+            // 
+            this.pn_exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pn_exit.BackgroundImage")));
+            this.pn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pn_exit.Location = new System.Drawing.Point(586, 328);
+            this.pn_exit.Name = "pn_exit";
+            this.pn_exit.Size = new System.Drawing.Size(57, 48);
+            this.pn_exit.TabIndex = 8;
+            this.pn_exit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_exit_MouseClick);
+            // 
+            // pn_login
+            // 
+            this.pn_login.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pn_login.BackgroundImage")));
+            this.pn_login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pn_login.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_login.Location = new System.Drawing.Point(480, 249);
+            this.pn_login.Name = "pn_login";
+            this.pn_login.Size = new System.Drawing.Size(80, 40);
+            this.pn_login.TabIndex = 9;
+            this.pn_login.TabStop = false;
+            this.pn_login.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_login_MouseClick);
+            // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(655, 388);
+            this.Controls.Add(this.pn_login);
+            this.Controls.Add(this.pn_exit);
+            this.Controls.Add(this.icon_password);
+            this.Controls.Add(this.ic_username);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btn_DangNhap);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_username);
@@ -130,6 +169,9 @@ namespace DBMS_UTEManagement
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.ic_username)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_password)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pn_login)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,7 +184,10 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.TextBox txt_username;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btn_DangNhap;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox ic_username;
+        private System.Windows.Forms.PictureBox icon_password;
+        private System.Windows.Forms.Panel pn_exit;
+        private System.Windows.Forms.PictureBox pn_login;
     }
 }

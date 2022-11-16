@@ -15,8 +15,8 @@ namespace DBMS_UTEManagement
         public MainForm()
         {
             InitializeComponent();
-            lb_SinhVien.ForeColor = Color.White;
-            pn_SinhVien.BackColor = Color.FromArgb(53, 73, 93);
+            lb_SinhVien.ForeColor = Color.FromArgb(40, 123, 247);
+            pn_SinhVien.BackColor = Color.White;
             OpenChildForm(new SinhVienForm());
         }
 
@@ -51,67 +51,68 @@ namespace DBMS_UTEManagement
         private void pn_SinhVien_MouseClick(object sender, MouseEventArgs e)
         {
             ResetColor();
-            lb_SinhVien.ForeColor = Color.White;
-            pn_SinhVien.BackColor = Color.FromArgb(53, 73, 93);
+            lb_SinhVien.ForeColor = Color.FromArgb(40, 123, 247);
+            pn_SinhVien.BackColor = Color.White;
             OpenChildForm(new SinhVienForm());
         }
 
         private void pn_NganhHoc_MouseClick(object sender, MouseEventArgs e)
         {
             ResetColor();
-            lb_NganhHoc.ForeColor = Color.White;
-            pn_NganhHoc.BackColor = Color.FromArgb(53, 73, 93);
+            lb_NganhHoc.ForeColor = Color.FromArgb(40, 123, 247);
+            pn_NganhHoc.BackColor = Color.White;
             OpenChildForm(new NganhHocForm());
         }
 
         private void pn_Khoa_MouseClick(object sender, MouseEventArgs e)
         {
             ResetColor();
-            lb_Khoa.ForeColor = Color.White;
-            pn_Khoa.BackColor = Color.FromArgb(53, 73, 93);
+            lb_Khoa.ForeColor = Color.FromArgb(40, 123, 247);
+            pn_Khoa.BackColor = Color.White;
             OpenChildForm(new KhoaForm());
         }
 
         private void pn_Lop_MouseClick(object sender, MouseEventArgs e)
         {
             ResetColor();
-            lb_Lop.ForeColor = Color.White;
-            pn_Lop.BackColor = Color.FromArgb(53, 73, 93);
+            lb_Lop.ForeColor = Color.FromArgb(40, 123, 247);
+            pn_Lop.BackColor = Color.White;
             OpenChildForm(new LopForm());
         }
 
         private void pn_MonHoc_MouseClick(object sender, MouseEventArgs e)
         {
             ResetColor();
-            lb_MonHoc.ForeColor = Color.White;
-            pn_MonHoc.BackColor = Color.FromArgb(53, 73, 93);
+            lb_MonHoc.ForeColor = Color.FromArgb(40, 123, 247);
+            pn_MonHoc.BackColor = Color.White;
             OpenChildForm(new MonHocForm());
         }
 
         private void pn_KhoaHoc_MouseClick(object sender, MouseEventArgs e)
         {
             ResetColor();
-            lb_KhoaHoc.ForeColor = Color.White;
-            pn_KhoaHoc.BackColor = Color.FromArgb(53, 73, 93);
+            lb_KhoaHoc.ForeColor = Color.FromArgb(40, 123, 247);
+            pn_KhoaHoc.BackColor = Color.White;
             OpenChildForm(new KhoaHocForm());
         }
         private void ResetColor()
         {
-            lb_SinhVien.ForeColor = Color.FromArgb(203, 207, 210);
-            lb_NganhHoc.ForeColor = Color.FromArgb(203, 207, 210);
-            lb_Lop.ForeColor = Color.FromArgb(203, 207, 210);
-            lb_Khoa.ForeColor = Color.FromArgb(203, 207, 210);
-            lb_MonHoc.ForeColor = Color.FromArgb(203, 207, 210);
-            lb_KhoaHoc.ForeColor = Color.FromArgb(203, 207, 210);
+            lb_SinhVien.ForeColor = Color.White;
+            lb_NganhHoc.ForeColor = Color.White;
+            lb_Lop.ForeColor = Color.White;
+            lb_Khoa.ForeColor = Color.White;
+            lb_MonHoc.ForeColor = Color.White;
+            lb_KhoaHoc.ForeColor = Color.White;
 
 
-            pn_SinhVien.BackColor = Color.FromArgb(42, 63, 84);
-            pn_NganhHoc.BackColor = Color.FromArgb(42, 63, 84);
-            pn_Khoa.BackColor = Color.FromArgb(42, 63, 84);
-            pn_Lop.BackColor = Color.FromArgb(42, 63, 84);
-            pn_MonHoc.BackColor = Color.FromArgb(42, 63, 84);
-            pn_KhoaHoc.BackColor = Color.FromArgb(42, 63, 84);
+            pn_SinhVien.BackColor = Color.FromArgb(40, 123, 247);
+            pn_NganhHoc.BackColor = Color.FromArgb(40, 123, 247);
+            pn_Khoa.BackColor = Color.FromArgb(40, 123, 247);
+            pn_Lop.BackColor = Color.FromArgb(40, 123, 247);
+            pn_MonHoc.BackColor = Color.FromArgb(40, 123, 247);
+            pn_KhoaHoc.BackColor = Color.FromArgb(40, 123, 247);
 
         }
+
     }
 }

@@ -17,12 +17,31 @@ namespace DBMS_UTEManagement
             InitializeComponent();
         }
 
-        private void btn_DangNhap_Click(object sender, EventArgs e)
+        private void icon_password_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (txt_password.PasswordChar == '*')
+            {
+                txt_password.PasswordChar = '\0';
+            }
+            else
+            {
+                txt_password.PasswordChar = '*';
+            }
+        }
+
+        private void pn_exit_MouseClick(object sender, MouseEventArgs e)
+        {
+            DialogResult traloi;
+            traloi = MessageBox.Show("Bạn có muốn thoát không?", "Trả lời",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (traloi == DialogResult.Yes)
+                Close();
+        }
+
+        private void pn_login_MouseClick(object sender, MouseEventArgs e)
         {
             MainForm fr = new MainForm();
             fr.ShowDialog();
-            Application.Exit();
-
         }
     }
 }
