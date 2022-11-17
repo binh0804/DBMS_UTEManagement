@@ -30,52 +30,41 @@ namespace DBMS_UTEManagement
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.btnBangDiemF = new System.Windows.Forms.Button();
             this.panel_Body = new System.Windows.Forms.Panel();
             this.pn_SinhVien = new System.Windows.Forms.Panel();
+            this.icon_sinhvien = new System.Windows.Forms.PictureBox();
             this.lb_SinhVien = new System.Windows.Forms.Label();
             this.pn_NganhHoc = new System.Windows.Forms.Panel();
+            this.image_NganhHoc = new System.Windows.Forms.PictureBox();
             this.lb_NganhHoc = new System.Windows.Forms.Label();
             this.pn_Khoa = new System.Windows.Forms.Panel();
+            this.icon_khoa = new System.Windows.Forms.PictureBox();
             this.lb_Khoa = new System.Windows.Forms.Label();
             this.pn_Lop = new System.Windows.Forms.Panel();
+            this.icon_class = new System.Windows.Forms.PictureBox();
             this.lb_Lop = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pn_logo = new System.Windows.Forms.Panel();
             this.pn_KhoaHoc = new System.Windows.Forms.Panel();
+            this.icon_KhoaHoc = new System.Windows.Forms.PictureBox();
             this.lb_KhoaHoc = new System.Windows.Forms.Label();
             this.pn_MonHoc = new System.Windows.Forms.Panel();
-            this.lb_MonHoc = new System.Windows.Forms.Label();
-            this.icon_sinhvien = new System.Windows.Forms.PictureBox();
-            this.image_NganhHoc = new System.Windows.Forms.PictureBox();
-            this.icon_class = new System.Windows.Forms.PictureBox();
-            this.icon_khoa = new System.Windows.Forms.PictureBox();
             this.icon_monhoc = new System.Windows.Forms.PictureBox();
-            this.icon_KhoaHoc = new System.Windows.Forms.PictureBox();
+            this.lb_MonHoc = new System.Windows.Forms.Label();
             this.pn_SinhVien.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_sinhvien)).BeginInit();
             this.pn_NganhHoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image_NganhHoc)).BeginInit();
             this.pn_Khoa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_khoa)).BeginInit();
             this.pn_Lop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_class)).BeginInit();
             this.panel1.SuspendLayout();
             this.pn_KhoaHoc.SuspendLayout();
-            this.pn_MonHoc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_sinhvien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image_NganhHoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_class)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_khoa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_monhoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_KhoaHoc)).BeginInit();
+            this.pn_MonHoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_monhoc)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnBangDiemF
-            // 
-            this.btnBangDiemF.Location = new System.Drawing.Point(216, 115);
-            this.btnBangDiemF.Name = "btnBangDiemF";
-            this.btnBangDiemF.Size = new System.Drawing.Size(139, 28);
-            this.btnBangDiemF.TabIndex = 5;
-            this.btnBangDiemF.Text = "Bang diem";
-            this.btnBangDiemF.UseVisualStyleBackColor = true;
-            this.btnBangDiemF.Click += new System.EventHandler(this.btnBangDiemF_Click);
             // 
             // panel_Body
             // 
@@ -94,6 +83,17 @@ namespace DBMS_UTEManagement
             this.pn_SinhVien.Size = new System.Drawing.Size(220, 40);
             this.pn_SinhVien.TabIndex = 7;
             this.pn_SinhVien.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_SinhVien_MouseClick);
+            // 
+            // icon_sinhvien
+            // 
+            this.icon_sinhvien.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_sinhvien.BackgroundImage")));
+            this.icon_sinhvien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.icon_sinhvien.Location = new System.Drawing.Point(20, 5);
+            this.icon_sinhvien.Name = "icon_sinhvien";
+            this.icon_sinhvien.Size = new System.Drawing.Size(30, 30);
+            this.icon_sinhvien.TabIndex = 7;
+            this.icon_sinhvien.TabStop = false;
+            this.icon_sinhvien.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_SinhVien_MouseClick);
             // 
             // lb_SinhVien
             // 
@@ -119,6 +119,17 @@ namespace DBMS_UTEManagement
             this.pn_NganhHoc.TabIndex = 7;
             this.pn_NganhHoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_NganhHoc_MouseClick);
             // 
+            // image_NganhHoc
+            // 
+            this.image_NganhHoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("image_NganhHoc.BackgroundImage")));
+            this.image_NganhHoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.image_NganhHoc.Location = new System.Drawing.Point(20, 5);
+            this.image_NganhHoc.Name = "image_NganhHoc";
+            this.image_NganhHoc.Size = new System.Drawing.Size(30, 30);
+            this.image_NganhHoc.TabIndex = 7;
+            this.image_NganhHoc.TabStop = false;
+            this.image_NganhHoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_NganhHoc_MouseClick);
+            // 
             // lb_NganhHoc
             // 
             this.lb_NganhHoc.AutoSize = true;
@@ -142,6 +153,17 @@ namespace DBMS_UTEManagement
             this.pn_Khoa.TabIndex = 7;
             this.pn_Khoa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_Khoa_MouseClick);
             // 
+            // icon_khoa
+            // 
+            this.icon_khoa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_khoa.BackgroundImage")));
+            this.icon_khoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.icon_khoa.Location = new System.Drawing.Point(20, 5);
+            this.icon_khoa.Name = "icon_khoa";
+            this.icon_khoa.Size = new System.Drawing.Size(30, 30);
+            this.icon_khoa.TabIndex = 8;
+            this.icon_khoa.TabStop = false;
+            this.icon_khoa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_Khoa_MouseClick);
+            // 
             // lb_Khoa
             // 
             this.lb_Khoa.AutoSize = true;
@@ -164,6 +186,17 @@ namespace DBMS_UTEManagement
             this.pn_Lop.Size = new System.Drawing.Size(220, 40);
             this.pn_Lop.TabIndex = 7;
             this.pn_Lop.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_Lop_MouseClick);
+            // 
+            // icon_class
+            // 
+            this.icon_class.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_class.BackgroundImage")));
+            this.icon_class.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.icon_class.Location = new System.Drawing.Point(20, 5);
+            this.icon_class.Name = "icon_class";
+            this.icon_class.Size = new System.Drawing.Size(30, 30);
+            this.icon_class.TabIndex = 7;
+            this.icon_class.TabStop = false;
+            this.icon_class.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_Lop_MouseClick);
             // 
             // lb_Lop
             // 
@@ -212,6 +245,17 @@ namespace DBMS_UTEManagement
             this.pn_KhoaHoc.TabIndex = 9;
             this.pn_KhoaHoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_KhoaHoc_MouseClick);
             // 
+            // icon_KhoaHoc
+            // 
+            this.icon_KhoaHoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_KhoaHoc.BackgroundImage")));
+            this.icon_KhoaHoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.icon_KhoaHoc.Location = new System.Drawing.Point(20, 5);
+            this.icon_KhoaHoc.Name = "icon_KhoaHoc";
+            this.icon_KhoaHoc.Size = new System.Drawing.Size(30, 30);
+            this.icon_KhoaHoc.TabIndex = 9;
+            this.icon_KhoaHoc.TabStop = false;
+            this.icon_KhoaHoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_KhoaHoc_MouseClick);
+            // 
             // lb_KhoaHoc
             // 
             this.lb_KhoaHoc.AutoSize = true;
@@ -235,6 +279,17 @@ namespace DBMS_UTEManagement
             this.pn_MonHoc.TabIndex = 8;
             this.pn_MonHoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_MonHoc_MouseClick);
             // 
+            // icon_monhoc
+            // 
+            this.icon_monhoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_monhoc.BackgroundImage")));
+            this.icon_monhoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.icon_monhoc.Location = new System.Drawing.Point(20, 5);
+            this.icon_monhoc.Name = "icon_monhoc";
+            this.icon_monhoc.Size = new System.Drawing.Size(30, 30);
+            this.icon_monhoc.TabIndex = 8;
+            this.icon_monhoc.TabStop = false;
+            this.icon_monhoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_MonHoc_MouseClick);
+            // 
             // lb_MonHoc
             // 
             this.lb_MonHoc.AutoSize = true;
@@ -247,72 +302,6 @@ namespace DBMS_UTEManagement
             this.lb_MonHoc.Text = "Môn học";
             this.lb_MonHoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_MonHoc_MouseClick);
             // 
-            // icon_sinhvien
-            // 
-            this.icon_sinhvien.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_sinhvien.BackgroundImage")));
-            this.icon_sinhvien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.icon_sinhvien.Location = new System.Drawing.Point(20, 5);
-            this.icon_sinhvien.Name = "icon_sinhvien";
-            this.icon_sinhvien.Size = new System.Drawing.Size(30, 30);
-            this.icon_sinhvien.TabIndex = 7;
-            this.icon_sinhvien.TabStop = false;
-            this.icon_sinhvien.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_SinhVien_MouseClick);
-            // 
-            // image_NganhHoc
-            // 
-            this.image_NganhHoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("image_NganhHoc.BackgroundImage")));
-            this.image_NganhHoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.image_NganhHoc.Location = new System.Drawing.Point(20, 5);
-            this.image_NganhHoc.Name = "image_NganhHoc";
-            this.image_NganhHoc.Size = new System.Drawing.Size(30, 30);
-            this.image_NganhHoc.TabIndex = 7;
-            this.image_NganhHoc.TabStop = false;
-            this.image_NganhHoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_NganhHoc_MouseClick);
-            // 
-            // icon_class
-            // 
-            this.icon_class.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_class.BackgroundImage")));
-            this.icon_class.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.icon_class.Location = new System.Drawing.Point(20, 5);
-            this.icon_class.Name = "icon_class";
-            this.icon_class.Size = new System.Drawing.Size(30, 30);
-            this.icon_class.TabIndex = 7;
-            this.icon_class.TabStop = false;
-            this.icon_class.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_Lop_MouseClick);
-            // 
-            // icon_khoa
-            // 
-            this.icon_khoa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_khoa.BackgroundImage")));
-            this.icon_khoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.icon_khoa.Location = new System.Drawing.Point(20, 5);
-            this.icon_khoa.Name = "icon_khoa";
-            this.icon_khoa.Size = new System.Drawing.Size(30, 30);
-            this.icon_khoa.TabIndex = 8;
-            this.icon_khoa.TabStop = false;
-            this.icon_khoa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_Khoa_MouseClick);
-            // 
-            // icon_monhoc
-            // 
-            this.icon_monhoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_monhoc.BackgroundImage")));
-            this.icon_monhoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.icon_monhoc.Location = new System.Drawing.Point(20, 5);
-            this.icon_monhoc.Name = "icon_monhoc";
-            this.icon_monhoc.Size = new System.Drawing.Size(30, 30);
-            this.icon_monhoc.TabIndex = 8;
-            this.icon_monhoc.TabStop = false;
-            this.icon_monhoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_MonHoc_MouseClick);
-            // 
-            // icon_KhoaHoc
-            // 
-            this.icon_KhoaHoc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_KhoaHoc.BackgroundImage")));
-            this.icon_KhoaHoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.icon_KhoaHoc.Location = new System.Drawing.Point(20, 5);
-            this.icon_KhoaHoc.Name = "icon_KhoaHoc";
-            this.icon_KhoaHoc.Size = new System.Drawing.Size(30, 30);
-            this.icon_KhoaHoc.TabIndex = 9;
-            this.icon_KhoaHoc.TabStop = false;
-            this.icon_KhoaHoc.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_KhoaHoc_MouseClick);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,7 +310,6 @@ namespace DBMS_UTEManagement
             this.ClientSize = new System.Drawing.Size(1544, 661);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_Body);
-            this.Controls.Add(this.btnBangDiemF);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
@@ -329,29 +317,28 @@ namespace DBMS_UTEManagement
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.pn_SinhVien.ResumeLayout(false);
             this.pn_SinhVien.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_sinhvien)).EndInit();
             this.pn_NganhHoc.ResumeLayout(false);
             this.pn_NganhHoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image_NganhHoc)).EndInit();
             this.pn_Khoa.ResumeLayout(false);
             this.pn_Khoa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_khoa)).EndInit();
             this.pn_Lop.ResumeLayout(false);
             this.pn_Lop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_class)).EndInit();
             this.panel1.ResumeLayout(false);
             this.pn_KhoaHoc.ResumeLayout(false);
             this.pn_KhoaHoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_KhoaHoc)).EndInit();
             this.pn_MonHoc.ResumeLayout(false);
             this.pn_MonHoc.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_sinhvien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.image_NganhHoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_class)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_khoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_monhoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_KhoaHoc)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnBangDiemF;
         private System.Windows.Forms.Panel panel_Body;
         private System.Windows.Forms.Panel pn_SinhVien;
         private System.Windows.Forms.Label lb_SinhVien;

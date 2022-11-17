@@ -13,10 +13,14 @@ using System.Data.SqlClient;
 using DBMS_UTEManagement.BSLayer;
 using DBMS_UTEManagement.DBLayer;
 
+using System.IO;
+using OfficeOpenXml;
+using Excel = Microsoft.Office.Interop.Excel;
 namespace DBMS_UTEManagement
 {
     public partial class SinhVienForm : Form
     {
+
         DataTable dtSinhVien = null;
         BSSinhVien dbSV = new BSSinhVien();
         string username = DBMain.username;
@@ -323,6 +327,58 @@ namespace DBMS_UTEManagement
             cb_maLop.DataSource = dsLop.Tables[0];
             cb_maLop.ValueMember = "MaLop";
             cb_maLop.DisplayMember = "TenLop";
+        }
+
+        private void btn_BangDiem_Click(object sender, EventArgs e)
+        {
+            if(txt_masv.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn 1 sinh viên");
+            }
+            else
+            {
+                BangDiemForm bd = new BangDiemForm(txt_masv.Text.ToString().Trim(),txt_tensv.Text.ToString().Trim());
+                bd.Show();
+            }
+
+        }
+        private void ExportExcel(string path)
+        {
+            Excel.Application application = new Excel.Application();
+            application.Application.Workbooks.Add(Type.Missing);
+            for(int i=0; i<dgvSinhVien.Columns.Count; i++)
+            {
+                application.Cells[1, i + 1] = dgvSinhVien.Columns[i].HeaderText;
+            }
+            for(int i=0; i<dgvSinhVien.Rows.Count; i++)
+            {
+                for (int j = 0; j < dgvSinhVien.Columns.Count; j++)
+                {
+                    application.Cells[i + 2, j + 1] = dgvSinhVien.Rows[i].Cells[j].Value;
+                }
+            }
+            application.Columns.AutoFit();
+            application.ActiveWorkbook.SaveCopyAs(path);
+            application.ActiveWorkbook.Saved = true;
+        }
+
+        private void btn_XuatFile_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003 (*.xls)|*.xls";
+            if(saveFileDialog.ShowDialog()==DialogResult.OK)
+            {
+                try
+                {
+                    ExportExcel(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất file thành công!");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Xuất file không thành công!\n" + ex.Message);
+                }
+            }
         }
     }
 }

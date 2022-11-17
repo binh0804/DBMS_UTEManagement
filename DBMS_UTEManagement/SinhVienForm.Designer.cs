@@ -49,6 +49,7 @@ namespace DBMS_UTEManagement
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_load = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_BangDiem = new System.Windows.Forms.Button();
             this.dtp_ngaySinh = new System.Windows.Forms.DateTimePicker();
             this.cb_gioiTinh = new System.Windows.Forms.ComboBox();
             this.cb_maLop = new System.Windows.Forms.ComboBox();
@@ -58,6 +59,7 @@ namespace DBMS_UTEManagement
             this.btnSearchTTSV = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSinhVien = new System.Windows.Forms.DataGridView();
+            this.btn_XuatFile = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -67,18 +69,19 @@ namespace DBMS_UTEManagement
             // malop
             // 
             this.malop.AutoSize = true;
-            this.malop.Location = new System.Drawing.Point(307, 148);
+            this.malop.Location = new System.Drawing.Point(230, 120);
+            this.malop.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.malop.Name = "malop";
-            this.malop.Size = new System.Drawing.Size(59, 17);
+            this.malop.Size = new System.Drawing.Size(46, 13);
             this.malop.TabIndex = 43;
             this.malop.Text = "Mã Lớp:";
             // 
             // btn_huy
             // 
-            this.btn_huy.Location = new System.Drawing.Point(391, 194);
-            this.btn_huy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_huy.Location = new System.Drawing.Point(330, 158);
+            this.btn_huy.Margin = new System.Windows.Forms.Padding(2);
             this.btn_huy.Name = "btn_huy";
-            this.btn_huy.Size = new System.Drawing.Size(124, 28);
+            this.btn_huy.Size = new System.Drawing.Size(70, 25);
             this.btn_huy.TabIndex = 42;
             this.btn_huy.Text = "Hủy";
             this.btn_huy.UseVisualStyleBackColor = true;
@@ -86,10 +89,10 @@ namespace DBMS_UTEManagement
             // 
             // btn_luu
             // 
-            this.btn_luu.Location = new System.Drawing.Point(153, 194);
-            this.btn_luu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_luu.Location = new System.Drawing.Point(256, 158);
+            this.btn_luu.Margin = new System.Windows.Forms.Padding(2);
             this.btn_luu.Name = "btn_luu";
-            this.btn_luu.Size = new System.Drawing.Size(124, 28);
+            this.btn_luu.Size = new System.Drawing.Size(70, 25);
             this.btn_luu.TabIndex = 41;
             this.btn_luu.Text = "Lưu";
             this.btn_luu.UseVisualStyleBackColor = true;
@@ -97,113 +100,120 @@ namespace DBMS_UTEManagement
             // 
             // txt_hocbong
             // 
-            this.txt_hocbong.Location = new System.Drawing.Point(391, 111);
-            this.txt_hocbong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_hocbong.Location = new System.Drawing.Point(293, 90);
+            this.txt_hocbong.Margin = new System.Windows.Forms.Padding(2);
             this.txt_hocbong.Name = "txt_hocbong";
-            this.txt_hocbong.Size = new System.Drawing.Size(147, 22);
+            this.txt_hocbong.Size = new System.Drawing.Size(111, 20);
             this.txt_hocbong.TabIndex = 40;
             // 
             // HocBong
             // 
             this.HocBong.AutoSize = true;
-            this.HocBong.Location = new System.Drawing.Point(307, 111);
+            this.HocBong.Location = new System.Drawing.Point(230, 90);
+            this.HocBong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.HocBong.Name = "HocBong";
-            this.HocBong.Size = new System.Drawing.Size(73, 17);
+            this.HocBong.Size = new System.Drawing.Size(57, 13);
             this.HocBong.TabIndex = 39;
             this.HocBong.Text = "Học bổng:";
             // 
             // DiaChi
             // 
             this.DiaChi.AutoSize = true;
-            this.DiaChi.Location = new System.Drawing.Point(13, 148);
+            this.DiaChi.Location = new System.Drawing.Point(10, 120);
+            this.DiaChi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DiaChi.Name = "DiaChi";
-            this.DiaChi.Size = new System.Drawing.Size(55, 17);
+            this.DiaChi.Size = new System.Drawing.Size(43, 13);
             this.DiaChi.TabIndex = 38;
             this.DiaChi.Text = "Địa chỉ:";
             // 
             // NgaySinh
             // 
             this.NgaySinh.AutoSize = true;
-            this.NgaySinh.Location = new System.Drawing.Point(13, 111);
+            this.NgaySinh.Location = new System.Drawing.Point(10, 90);
+            this.NgaySinh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.Size = new System.Drawing.Size(75, 17);
+            this.NgaySinh.Size = new System.Drawing.Size(57, 13);
             this.NgaySinh.TabIndex = 37;
             this.NgaySinh.Text = "Ngày sinh:";
             // 
             // NoiSinh
             // 
             this.NoiSinh.AutoSize = true;
-            this.NoiSinh.Location = new System.Drawing.Point(307, 74);
+            this.NoiSinh.Location = new System.Drawing.Point(230, 60);
+            this.NoiSinh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.NoiSinh.Name = "NoiSinh";
-            this.NoiSinh.Size = new System.Drawing.Size(63, 17);
+            this.NoiSinh.Size = new System.Drawing.Size(48, 13);
             this.NoiSinh.TabIndex = 36;
             this.NoiSinh.Text = "Nơi sinh:";
             // 
             // GioiTinh
             // 
             this.GioiTinh.AutoSize = true;
-            this.GioiTinh.Location = new System.Drawing.Point(307, 37);
+            this.GioiTinh.Location = new System.Drawing.Point(230, 30);
+            this.GioiTinh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.Size = new System.Drawing.Size(64, 17);
+            this.GioiTinh.Size = new System.Drawing.Size(50, 13);
             this.GioiTinh.TabIndex = 35;
             this.GioiTinh.Text = "Giới tính:";
             // 
             // TenSV
             // 
             this.TenSV.AutoSize = true;
-            this.TenSV.Location = new System.Drawing.Point(13, 74);
+            this.TenSV.Location = new System.Drawing.Point(10, 60);
+            this.TenSV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TenSV.Name = "TenSV";
-            this.TenSV.Size = new System.Drawing.Size(97, 17);
+            this.TenSV.Size = new System.Drawing.Size(74, 13);
             this.TenSV.TabIndex = 34;
             this.TenSV.Text = "Tên sinh viên:";
             // 
             // MaSV
             // 
             this.MaSV.AutoSize = true;
-            this.MaSV.Location = new System.Drawing.Point(13, 37);
+            this.MaSV.Location = new System.Drawing.Point(10, 30);
+            this.MaSV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MaSV.Name = "MaSV";
-            this.MaSV.Size = new System.Drawing.Size(91, 17);
+            this.MaSV.Size = new System.Drawing.Size(70, 13);
             this.MaSV.TabIndex = 33;
             this.MaSV.Text = "Mã sinh viên:";
             // 
             // txt_diachi
             // 
-            this.txt_diachi.Location = new System.Drawing.Point(119, 144);
-            this.txt_diachi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_diachi.Location = new System.Drawing.Point(89, 117);
+            this.txt_diachi.Margin = new System.Windows.Forms.Padding(2);
             this.txt_diachi.Name = "txt_diachi";
-            this.txt_diachi.Size = new System.Drawing.Size(157, 22);
+            this.txt_diachi.Size = new System.Drawing.Size(119, 20);
             this.txt_diachi.TabIndex = 32;
             // 
             // txt_noisinh
             // 
-            this.txt_noisinh.Location = new System.Drawing.Point(391, 74);
-            this.txt_noisinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_noisinh.Location = new System.Drawing.Point(293, 60);
+            this.txt_noisinh.Margin = new System.Windows.Forms.Padding(2);
             this.txt_noisinh.Name = "txt_noisinh";
-            this.txt_noisinh.Size = new System.Drawing.Size(147, 22);
+            this.txt_noisinh.Size = new System.Drawing.Size(111, 20);
             this.txt_noisinh.TabIndex = 30;
             // 
             // txt_tensv
             // 
-            this.txt_tensv.Location = new System.Drawing.Point(119, 69);
-            this.txt_tensv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_tensv.Location = new System.Drawing.Point(89, 56);
+            this.txt_tensv.Margin = new System.Windows.Forms.Padding(2);
             this.txt_tensv.Name = "txt_tensv";
-            this.txt_tensv.Size = new System.Drawing.Size(157, 22);
+            this.txt_tensv.Size = new System.Drawing.Size(119, 20);
             this.txt_tensv.TabIndex = 28;
             // 
             // txt_masv
             // 
-            this.txt_masv.Location = new System.Drawing.Point(119, 37);
-            this.txt_masv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_masv.Location = new System.Drawing.Point(89, 30);
+            this.txt_masv.Margin = new System.Windows.Forms.Padding(2);
             this.txt_masv.Name = "txt_masv";
-            this.txt_masv.Size = new System.Drawing.Size(157, 22);
+            this.txt_masv.Size = new System.Drawing.Size(119, 20);
             this.txt_masv.TabIndex = 27;
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(413, 22);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_delete.Location = new System.Drawing.Point(310, 18);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(2);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(124, 28);
+            this.btn_delete.Size = new System.Drawing.Size(93, 23);
             this.btn_delete.TabIndex = 26;
             this.btn_delete.Text = "Xóa Sinh Viên";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -211,10 +221,10 @@ namespace DBMS_UTEManagement
             // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(284, 22);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_update.Location = new System.Drawing.Point(213, 18);
+            this.btn_update.Margin = new System.Windows.Forms.Padding(2);
             this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(124, 28);
+            this.btn_update.Size = new System.Drawing.Size(93, 23);
             this.btn_update.TabIndex = 25;
             this.btn_update.Text = "Sửa Sinh Viên";
             this.btn_update.UseVisualStyleBackColor = true;
@@ -222,10 +232,10 @@ namespace DBMS_UTEManagement
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(156, 22);
-            this.btn_add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_add.Location = new System.Drawing.Point(117, 18);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(124, 28);
+            this.btn_add.Size = new System.Drawing.Size(93, 23);
             this.btn_add.TabIndex = 24;
             this.btn_add.Text = "Thêm Sinh Viên";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -233,10 +243,10 @@ namespace DBMS_UTEManagement
             // 
             // btn_load
             // 
-            this.btn_load.Location = new System.Drawing.Point(27, 22);
-            this.btn_load.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_load.Location = new System.Drawing.Point(20, 18);
+            this.btn_load.Margin = new System.Windows.Forms.Padding(2);
             this.btn_load.Name = "btn_load";
-            this.btn_load.Size = new System.Drawing.Size(124, 28);
+            this.btn_load.Size = new System.Drawing.Size(93, 23);
             this.btn_load.TabIndex = 23;
             this.btn_load.Text = "Load Sinh Vien";
             this.btn_load.UseVisualStyleBackColor = true;
@@ -244,6 +254,7 @@ namespace DBMS_UTEManagement
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_BangDiem);
             this.groupBox1.Controls.Add(this.dtp_ngaySinh);
             this.groupBox1.Controls.Add(this.cb_gioiTinh);
             this.groupBox1.Controls.Add(this.cb_maLop);
@@ -262,23 +273,31 @@ namespace DBMS_UTEManagement
             this.groupBox1.Controls.Add(this.NgaySinh);
             this.groupBox1.Controls.Add(this.NoiSinh);
             this.groupBox1.Controls.Add(this.txt_diachi);
-            this.groupBox1.Location = new System.Drawing.Point(1161, 42);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(871, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(548, 236);
+            this.groupBox1.Size = new System.Drawing.Size(411, 192);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết sinh viên";
+            // 
+            // btn_BangDiem
+            // 
+            this.btn_BangDiem.Location = new System.Drawing.Point(138, 158);
+            this.btn_BangDiem.Name = "btn_BangDiem";
+            this.btn_BangDiem.Size = new System.Drawing.Size(70, 25);
+            this.btn_BangDiem.TabIndex = 47;
+            this.btn_BangDiem.Text = "Bảng điểm";
+            this.btn_BangDiem.UseVisualStyleBackColor = true;
+            this.btn_BangDiem.Click += new System.EventHandler(this.btn_BangDiem_Click);
             // 
             // dtp_ngaySinh
             // 
             this.dtp_ngaySinh.CustomFormat = "yyyy/MM/dd";
             this.dtp_ngaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_ngaySinh.Location = new System.Drawing.Point(119, 110);
-            this.dtp_ngaySinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtp_ngaySinh.Location = new System.Drawing.Point(89, 89);
+            this.dtp_ngaySinh.Margin = new System.Windows.Forms.Padding(2);
             this.dtp_ngaySinh.Name = "dtp_ngaySinh";
-            this.dtp_ngaySinh.Size = new System.Drawing.Size(157, 22);
+            this.dtp_ngaySinh.Size = new System.Drawing.Size(119, 20);
             this.dtp_ngaySinh.TabIndex = 46;
             this.dtp_ngaySinh.Value = new System.DateTime(2022, 11, 12, 0, 8, 30, 0);
             // 
@@ -288,20 +307,20 @@ namespace DBMS_UTEManagement
             this.cb_gioiTinh.Items.AddRange(new object[] {
             "Nam ",
             "Nữ"});
-            this.cb_gioiTinh.Location = new System.Drawing.Point(391, 30);
-            this.cb_gioiTinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_gioiTinh.Location = new System.Drawing.Point(293, 24);
+            this.cb_gioiTinh.Margin = new System.Windows.Forms.Padding(2);
             this.cb_gioiTinh.Name = "cb_gioiTinh";
-            this.cb_gioiTinh.Size = new System.Drawing.Size(143, 24);
+            this.cb_gioiTinh.Size = new System.Drawing.Size(111, 21);
             this.cb_gioiTinh.TabIndex = 45;
             // 
             // cb_maLop
             // 
             this.cb_maLop.DisplayMember = "Lop.MaLop";
             this.cb_maLop.FormattingEnabled = true;
-            this.cb_maLop.Location = new System.Drawing.Point(391, 148);
-            this.cb_maLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cb_maLop.Location = new System.Drawing.Point(293, 120);
+            this.cb_maLop.Margin = new System.Windows.Forms.Padding(2);
             this.cb_maLop.Name = "cb_maLop";
-            this.cb_maLop.Size = new System.Drawing.Size(147, 24);
+            this.cb_maLop.Size = new System.Drawing.Size(111, 21);
             this.cb_maLop.TabIndex = 44;
             this.cb_maLop.ValueMember = "Lop.MaLop";
             // 
@@ -311,42 +330,39 @@ namespace DBMS_UTEManagement
             this.groupBox2.Controls.Add(this.btn_load);
             this.groupBox2.Controls.Add(this.btn_add);
             this.groupBox2.Controls.Add(this.btn_update);
-            this.groupBox2.Location = new System.Drawing.Point(1157, 484);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(868, 393);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(552, 70);
+            this.groupBox2.Size = new System.Drawing.Size(414, 57);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_XuatFile);
             this.groupBox3.Controls.Add(this.txt_searchSV);
             this.groupBox3.Controls.Add(this.btnSearchTTSV);
-            this.groupBox3.Location = new System.Drawing.Point(1157, 286);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Location = new System.Drawing.Point(868, 232);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(552, 191);
+            this.groupBox3.Size = new System.Drawing.Size(414, 155);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm kiếm và bộ lọc";
             // 
             // txt_searchSV
             // 
-            this.txt_searchSV.Location = new System.Drawing.Point(124, 25);
-            this.txt_searchSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_searchSV.Location = new System.Drawing.Point(16, 21);
+            this.txt_searchSV.Margin = new System.Windows.Forms.Padding(2);
             this.txt_searchSV.Name = "txt_searchSV";
-            this.txt_searchSV.Size = new System.Drawing.Size(157, 22);
+            this.txt_searchSV.Size = new System.Drawing.Size(215, 20);
             this.txt_searchSV.TabIndex = 45;
             // 
             // btnSearchTTSV
             // 
-            this.btnSearchTTSV.Location = new System.Drawing.Point(313, 22);
-            this.btnSearchTTSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearchTTSV.Location = new System.Drawing.Point(235, 18);
+            this.btnSearchTTSV.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearchTTSV.Name = "btnSearchTTSV";
-            this.btnSearchTTSV.Size = new System.Drawing.Size(205, 28);
+            this.btnSearchTTSV.Size = new System.Drawing.Size(154, 23);
             this.btnSearchTTSV.TabIndex = 45;
             this.btnSearchTTSV.Text = "Tìm kiếm thông tin";
             this.btnSearchTTSV.UseVisualStyleBackColor = true;
@@ -356,10 +372,9 @@ namespace DBMS_UTEManagement
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(533, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(400, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 31);
+            this.label1.Size = new System.Drawing.Size(110, 25);
             this.label1.TabIndex = 48;
             this.label1.Text = "Sinh viên";
             // 
@@ -367,26 +382,34 @@ namespace DBMS_UTEManagement
             // 
             this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSinhVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSinhVien.Location = new System.Drawing.Point(16, 42);
-            this.dgvSinhVien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSinhVien.Location = new System.Drawing.Point(12, 34);
             this.dgvSinhVien.Name = "dgvSinhVien";
             this.dgvSinhVien.RowHeadersWidth = 62;
-            this.dgvSinhVien.Size = new System.Drawing.Size(1133, 511);
+            this.dgvSinhVien.Size = new System.Drawing.Size(850, 415);
             this.dgvSinhVien.TabIndex = 49;
             this.dgvSinhVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinhVien_CellClick);
             // 
+            // btn_XuatFile
+            // 
+            this.btn_XuatFile.Location = new System.Drawing.Point(16, 77);
+            this.btn_XuatFile.Name = "btn_XuatFile";
+            this.btn_XuatFile.Size = new System.Drawing.Size(75, 23);
+            this.btn_XuatFile.TabIndex = 46;
+            this.btn_XuatFile.Text = "Xuất file";
+            this.btn_XuatFile.UseVisualStyleBackColor = true;
+            this.btn_XuatFile.Click += new System.EventHandler(this.btn_XuatFile_Click);
+            // 
             // SinhVienForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.ClientSize = new System.Drawing.Size(1732, 567);
+            this.ClientSize = new System.Drawing.Size(1299, 461);
             this.Controls.Add(this.dgvSinhVien);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SinhVienForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sinh viên";
@@ -432,5 +455,7 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.ComboBox cb_maLop;
         private System.Windows.Forms.DateTimePicker dtp_ngaySinh;
         private System.Windows.Forms.ComboBox cb_gioiTinh;
+        private System.Windows.Forms.Button btn_BangDiem;
+        private System.Windows.Forms.Button btn_XuatFile;
     }
 }

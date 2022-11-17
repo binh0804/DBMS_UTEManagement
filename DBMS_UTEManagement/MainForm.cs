@@ -38,10 +38,10 @@ namespace DBMS_UTEManagement
             childForm.Show();
         }
 
-        private void btnBangDiemF_Click(object sender, EventArgs e)
+/*        private void btnBangDiemF_Click(object sender, EventArgs e)
         {
             OpenChildForm(new BangDiemForm());
-        }
+        }*/
 
 
 

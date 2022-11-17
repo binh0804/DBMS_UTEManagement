@@ -29,6 +29,7 @@ namespace DBMS_UTEManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BangDiemForm));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@ namespace DBMS_UTEManagement
             this.cb_HocKyChiTiet = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_LanThi = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvDiem = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_KetQua = new System.Windows.Forms.Button();
@@ -60,15 +60,21 @@ namespace DBMS_UTEManagement
             this.label3 = new System.Windows.Forms.Label();
             this.cb_HocKy = new System.Windows.Forms.ComboBox();
             this.cb_NamHoc = new System.Windows.Forms.ComboBox();
+            this.image_Back = new System.Windows.Forms.PictureBox();
+            this.lb_ketqua = new System.Windows.Forms.Label();
+            this.lb_infoSV = new System.Windows.Forms.Label();
+            this.btn_XuatFile = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiem)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image_Back)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btn_XuatFile);
             this.groupBox4.Controls.Add(this.txt_search);
             this.groupBox4.Controls.Add(this.btnSearch);
             this.groupBox4.Location = new System.Drawing.Point(827, 204);
@@ -109,7 +115,6 @@ namespace DBMS_UTEManagement
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btn_add);
-            this.groupBox3.Controls.Add(this.btnLoad);
             this.groupBox3.Controls.Add(this.btn_update);
             this.groupBox3.Controls.Add(this.btn_delete);
             this.groupBox3.Location = new System.Drawing.Point(827, 391);
@@ -131,11 +136,11 @@ namespace DBMS_UTEManagement
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(6, 19);
+            this.btnLoad.Location = new System.Drawing.Point(552, 30);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(86, 23);
             this.btnLoad.TabIndex = 3;
-            this.btnLoad.Text = "Load dữ liệu";
+            this.btnLoad.Text = "Tất cả điểm";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btn_load_Click);
             // 
@@ -311,16 +316,6 @@ namespace DBMS_UTEManagement
             this.txt_LanThi.Size = new System.Drawing.Size(118, 20);
             this.txt_LanThi.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(284, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 25);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Bảng điểm";
-            // 
             // dgvDiem
             // 
             this.dgvDiem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -336,6 +331,7 @@ namespace DBMS_UTEManagement
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.btn_KetQua);
+            this.groupBox2.Controls.Add(this.btnLoad);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.cb_HocKy);
@@ -349,7 +345,7 @@ namespace DBMS_UTEManagement
             // 
             // btn_KetQua
             // 
-            this.btn_KetQua.Location = new System.Drawing.Point(433, 30);
+            this.btn_KetQua.Location = new System.Drawing.Point(420, 30);
             this.btn_KetQua.Name = "btn_KetQua";
             this.btn_KetQua.Size = new System.Drawing.Size(93, 23);
             this.btn_KetQua.TabIndex = 2;
@@ -378,6 +374,7 @@ namespace DBMS_UTEManagement
             // 
             this.cb_HocKy.FormattingEnabled = true;
             this.cb_HocKy.Items.AddRange(new object[] {
+            "",
             "1",
             "2",
             "3"});
@@ -390,24 +387,76 @@ namespace DBMS_UTEManagement
             // cb_NamHoc
             // 
             this.cb_NamHoc.FormattingEnabled = true;
+            this.cb_NamHoc.Items.AddRange(new object[] {
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025"});
             this.cb_NamHoc.Location = new System.Drawing.Point(75, 30);
             this.cb_NamHoc.Name = "cb_NamHoc";
             this.cb_NamHoc.Size = new System.Drawing.Size(121, 21);
             this.cb_NamHoc.TabIndex = 0;
             this.cb_NamHoc.Text = "Tất cả";
             // 
+            // image_Back
+            // 
+            this.image_Back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("image_Back.BackgroundImage")));
+            this.image_Back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.image_Back.Location = new System.Drawing.Point(1247, 12);
+            this.image_Back.Name = "image_Back";
+            this.image_Back.Size = new System.Drawing.Size(30, 30);
+            this.image_Back.TabIndex = 24;
+            this.image_Back.TabStop = false;
+            this.image_Back.MouseClick += new System.Windows.Forms.MouseEventHandler(this.image_Back_MouseClick);
+            // 
+            // lb_ketqua
+            // 
+            this.lb_ketqua.AutoSize = true;
+            this.lb_ketqua.Location = new System.Drawing.Point(28, 12);
+            this.lb_ketqua.Name = "lb_ketqua";
+            this.lb_ketqua.Size = new System.Drawing.Size(106, 13);
+            this.lb_ketqua.TabIndex = 25;
+            this.lb_ketqua.Text = "Bảng điểm sinh viên:";
+            // 
+            // lb_infoSV
+            // 
+            this.lb_infoSV.AutoSize = true;
+            this.lb_infoSV.Location = new System.Drawing.Point(152, 12);
+            this.lb_infoSV.Name = "lb_infoSV";
+            this.lb_infoSV.Size = new System.Drawing.Size(35, 13);
+            this.lb_infoSV.TabIndex = 26;
+            this.lb_infoSV.Text = "label1";
+            // 
+            // btn_XuatFile
+            // 
+            this.btn_XuatFile.Location = new System.Drawing.Point(13, 73);
+            this.btn_XuatFile.Name = "btn_XuatFile";
+            this.btn_XuatFile.Size = new System.Drawing.Size(75, 23);
+            this.btn_XuatFile.TabIndex = 48;
+            this.btn_XuatFile.Text = "Xuất file";
+            this.btn_XuatFile.UseVisualStyleBackColor = true;
+            this.btn_XuatFile.Click += new System.EventHandler(this.btn_XuatFile_Click);
+            // 
             // BangDiemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1283, 461);
+            this.ClientSize = new System.Drawing.Size(1297, 461);
+            this.Controls.Add(this.lb_infoSV);
+            this.Controls.Add(this.lb_ketqua);
+            this.Controls.Add(this.image_Back);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDiem);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "BangDiemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
@@ -420,6 +469,7 @@ namespace DBMS_UTEManagement
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiem)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image_Back)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,7 +493,6 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.TextBox txt_MaSV;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txt_LanThi;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvDiem;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Button btnSearch;
@@ -458,5 +507,9 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.Button btn_KetQua;
         private System.Windows.Forms.ComboBox cb_MaMonHoc;
         private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.PictureBox image_Back;
+        private System.Windows.Forms.Label lb_ketqua;
+        private System.Windows.Forms.Label lb_infoSV;
+        private System.Windows.Forms.Button btn_XuatFile;
     }
 }

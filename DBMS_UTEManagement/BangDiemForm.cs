@@ -13,6 +13,9 @@ using System.Data.SqlClient;
 using DBMS_UTEManagement.BSLayer;
 using DBMS_UTEManagement.DBLayer;
 
+using System.IO;
+using OfficeOpenXml;
+using Excel = Microsoft.Office.Interop.Excel;
 namespace DBMS_UTEManagement
 {
     public partial class BangDiemForm : Form
@@ -21,19 +24,21 @@ namespace DBMS_UTEManagement
         BSBangDiem dbDiem = new BSBangDiem();
         bool Them = false;
         bool Sua = false;
-
+        string checkMSSV;
         string username = DBMain.username;
-        public BangDiemForm()
+        public BangDiemForm(string MSSV, string TenSV)
         {
             InitializeComponent();
-            SetUpNormalState();
             dgvDiem.ReadOnly = true;
+            checkMSSV = MSSV;
+            SetUpNormalState();
+            txt_MaSV.Text = checkMSSV;
+
+            lb_infoSV.Text = TenSV + " - " + MSSV; 
 
             if (username == "GiangVien")
             {
-                btn_add.Enabled = false;
                 btn_delete.Enabled = false;
-                btn_update.Enabled = false;
             }
         }
         private void btn_load_Click(object sender, EventArgs e)
@@ -41,7 +46,7 @@ namespace DBMS_UTEManagement
             try
             {
                 dtDiem = new DataTable();
-                DataSet ds = dbDiem.LoadDDMH("20110252");
+                DataSet ds = dbDiem.LoadDDMH(checkMSSV);
                 dtDiem = ds.Tables[0];
                 dgvDiem.DataSource = dtDiem;
             }
@@ -56,6 +61,7 @@ namespace DBMS_UTEManagement
             txt_MaSV.Focus();
             Them = true;
             SetUpAddState();
+            txt_MaSV.Enabled = false;
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -181,10 +187,9 @@ namespace DBMS_UTEManagement
         {
             if (username == "GiangVien")
             {
-                this.btn_add.Enabled = false;
-                this.btn_update.Enabled = false;
+                this.btn_add.Enabled = true;
+                this.btn_update.Enabled = true;
                 this.btn_delete.Enabled = false;
-
             }
             else
             {
@@ -246,15 +251,15 @@ namespace DBMS_UTEManagement
 
         private void BangDiemForm_Load(object sender, EventArgs e)
         {
-            LoadData();
-        }
+/*            LoadData();
+*/        }
         void LoadData()
         {
             try
             {
                 dtDiem = new DataTable();
                 dtDiem.Clear();
-                DataSet ds = dbDiem.LoadDDMH("20110252");
+                DataSet ds = dbDiem.LoadDDMH(checkMSSV);
                 dtDiem = ds.Tables[0];
                 // Đưa dữ liệu lên DataGridView 
                 dgvDiem.DataSource = dtDiem;
@@ -281,6 +286,48 @@ namespace DBMS_UTEManagement
             cb_HocKyChiTiet.SelectedText = dgvDiem.Rows[r].Cells[3].Value.ToString().Trim();
             txt_Diem.Text = dgvDiem.Rows[r].Cells[4].Value.ToString().Trim();
             cb_NamChiTiet.SelectedText = dgvDiem.Rows[r].Cells[5].Value.ToString().Trim();
+        }
+
+        private void image_Back_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Close();
+        }
+        private void ExportExcel(string path)
+        {
+            Excel.Application application = new Excel.Application();
+            application.Application.Workbooks.Add(Type.Missing);
+            for (int i = 0; i < dgvDiem.Columns.Count; i++)
+            {
+                application.Cells[1, i + 1] = dgvDiem.Columns[i].HeaderText;
+            }
+            for (int i = 0; i < dgvDiem.Rows.Count; i++)
+            {
+                for (int j = 0; j < dgvDiem.Columns.Count; j++)
+                {
+                    application.Cells[i + 2, j + 1] = dgvDiem.Rows[i].Cells[j].Value;
+                }
+            }
+            application.Columns.AutoFit();
+            application.ActiveWorkbook.SaveCopyAs(path);
+            application.ActiveWorkbook.Saved = true;
+        }
+        private void btn_XuatFile_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003 (*.xls)|*.xls";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ExportExcel(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất file thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Xuất file không thành công!\n" + ex.Message);
+                }
+            }
         }
     }
 }

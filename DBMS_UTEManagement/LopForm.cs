@@ -185,8 +185,7 @@ namespace DBMS_UTEManagement
 
         private void LopHocForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLySinhVien_UTEDataSet3.KhoaHoc' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'quanLySinhVien_UTEDataSet2.NganhHoc' table. You can move, or remove it, as needed.
+
             LoadData();
         }
         void LoadData()
