@@ -72,7 +72,7 @@ namespace DBMS_UTEManagement.BSLayer
             p7.Value = MaLop;
             SqlParameter p8 = new SqlParameter("@HocBong", SqlDbType.Int);
             p8.Value = HocBong;
-            return db.ExcuteQueryDataSetWithParam("UpdateSV", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6, p7, p8);
+            return db.ExcuteQueryDataSetWithParam("UpdateStudentTransaction", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6, p7, p8);
         }
         public DataSet LoadDSSVLop(string MaLop)
         {

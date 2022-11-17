@@ -19,12 +19,16 @@ namespace DBMS_UTEManagement
     {
         DataTable dtDiem = null;
         BSBangDiem dbDiem = new BSBangDiem();
-        bool Them;
-        string err;
+        bool Them = false;
+        bool Sua = false;
+
         string username = DBMain.username;
         public BangDiemForm()
         {
             InitializeComponent();
+            SetUpNormalState();
+            dgvDiem.ReadOnly = true;
+
             if (username == "GiangVien")
             {
                 btn_add.Enabled = false;
@@ -37,7 +41,7 @@ namespace DBMS_UTEManagement
             try
             {
                 dtDiem = new DataTable();
-                DataSet ds = dbDiem.LoadDDMH();
+                DataSet ds = dbDiem.LoadDDMH("20110252");
                 dtDiem = ds.Tables[0];
                 dgvDiem.DataSource = dtDiem;
             }
@@ -51,8 +55,7 @@ namespace DBMS_UTEManagement
         {
             txt_MaSV.Focus();
             Them = true;
-            btn_luu.Enabled = true;
-            btnHuy.Enabled = true;
+            SetUpAddState();
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -64,82 +67,72 @@ namespace DBMS_UTEManagement
                     BSBangDiem BSSV = new BSBangDiem();
                     // Thực hiện lệnh 
                     BSSV.AddDiem(txt_MaSV.Text.Trim(),
-                                txt_MaMH.Text.Trim(), 
-                                txt_LanThi.Text.Trim(), 
-                                int.Parse(txt_HocKy.Text.Trim()),  
+                                cb_MaMonHoc.SelectedValue.ToString().Trim(), 
+                                int.Parse(txt_LanThi.Text.Trim()), 
+                                int.Parse(cb_HocKyChiTiet.Text.Trim()),  
                                 float.Parse(txt_Diem.Text.Trim()), 
-                                int.Parse(txt_Nam.Text.Trim()));
-                    // Load lại dữ liệu trên DataGridView 
-                    //LoadData();
+                                int.Parse(cb_NamChiTiet.Text.Trim()));
                     // Thông báo 
                     MessageBox.Show("Đã thêm xong!");
                 }
-                catch (SqlException)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Không thêm được. Lỗi rồi!");
+                    if (ex is SqlException)
+                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                    if (ex is FormatException)
+                        MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
+                    if (ex is NullReferenceException)
+                        MessageBox.Show("Không được bỏ trống các mục!");
                 }
             }
-            else
+            else if(Sua)
             {
                 try
                 {
                     // Thực hiện lệnh 
                     BSBangDiem BSSV = new BSBangDiem();
                     BSSV.UpdateDiem(txt_MaSV.Text.Trim(),
-                                txt_MaMH.Text.Trim(),
-                                txt_LanThi.Text.Trim(),
-                                int.Parse(txt_HocKy.Text.Trim()),
+                                cb_MaMonHoc.SelectedValue.ToString().Trim(),
+                                int.Parse(txt_LanThi.Text.Trim()),
+                                int.Parse(cb_HocKyChiTiet.Text.Trim()),
                                 float.Parse(txt_Diem.Text.Trim()),
-                                int.Parse(txt_Nam.Text.Trim()));
+                                int.Parse(cb_NamChiTiet.Text.Trim()));
                     // Load lại dữ liệu trên DataGridView 
                     //LoadData();
                     // Thông báo 
                     MessageBox.Show("Đã sửa xong!");
                 }
-                catch (FormatException)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Không Update được, lỗi rồi!");
+                    if (ex is SqlException)
+                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                    if (ex is FormatException)
+                        MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
+                    if (ex is NullReferenceException)
+                        MessageBox.Show("Không được bỏ trống các mục!");
                 }
             }
+        SetUpNormalState();
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            txt_MaSV.ResetText();
-            txt_MaMH.ResetText();
-            txt_LanThi.ResetText();
-            txt_HocKy.ResetText();
-            txt_Nam.ResetText();
-            txt_Diem.ResetText();
-            btnHuy.Enabled = false;
-            btn_luu.Enabled = false;
-            txt_MaSV.Enabled = true;
+            SetUpNormalState();
         }
 
-        private void dgvDiem_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Thứ tự dòng hiện hành 
-            int r = dgvDiem.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel 
-            txt_MaSV.Text = dgvDiem.Rows[r].Cells[0].Value.ToString().Trim();
-            txt_MaMH.Text = dgvDiem.Rows[r].Cells[1].Value.ToString().Trim();
-            txt_LanThi.Text = dgvDiem.Rows[r].Cells[2].Value.ToString().Trim();
-            txt_HocKy.Text = dgvDiem.Rows[r].Cells[3].Value.ToString().Trim();
-            txt_Nam.Text = dgvDiem.Rows[r].Cells[4].Value.ToString().Trim();
-            txt_Diem.Text = dgvDiem.Rows[r].Cells[5].Value.ToString().Trim();
-        }
+
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            Them = false;
-            txt_MaMH.Focus();
-            btn_luu.Enabled = true;
-            btnHuy.Enabled = true;
+            Sua = true;
+            SetUpAddState();
+            //Khoá mã sinh viên
+            txt_MaSV.Enabled = false;
+            cb_MaMonHoc.Enabled = false;
             int r = dgvDiem.CurrentCell.RowIndex;
             string strMaSV =
                 dgvDiem.Rows[r].Cells[0].Value.ToString();
             txt_MaSV.Text = strMaSV;
-            txt_MaSV.Enabled = false;
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -150,15 +143,13 @@ namespace DBMS_UTEManagement
                 // Lấy thứ tự record hiện hành 
                 int r = dgvDiem.CurrentCell.RowIndex;
                 // Lấy MaSV của record hiện hành 
-                string strMaSV =
-                dgvDiem.Rows[r].Cells[0].Value.ToString();
-                string strMaMH =
-                dgvDiem.Rows[r].Cells[1].Value.ToString();
-                string strLanThi =
-                dgvDiem.Rows[r].Cells[2].Value.ToString();
-                int strHocKy = int.Parse(dgvDiem.Rows[r].Cells[3].Value.ToString());
-                int strNam = int.Parse(dgvDiem.Rows[r].Cells[4].Value.ToString());
+                string strMaSV = dgvDiem.Rows[r].Cells[0].Value.ToString().Trim();
+                string strMaMH = dgvDiem.Rows[r].Cells[1].Value.ToString().Trim();
+                int strLanThi =  int.Parse(dgvDiem.Rows[r].Cells[2].Value.ToString().Trim());
+                int strHocKy = int.Parse(dgvDiem.Rows[r].Cells[3].Value.ToString().Trim());
+                int strNam = int.Parse(dgvDiem.Rows[r].Cells[5].Value.ToString().Trim());
                 // Viết câu lệnh SQL 
+                Console.WriteLine(strMaSV + " " +strMaMH + " " + strLanThi + " " + strHocKy +"  " + strNam);
                 // Hiện thông báo xác nhận việc xóa mẫu tin 
                 // Khai báo biến traloi 
                 DialogResult traloi;
@@ -184,51 +175,112 @@ namespace DBMS_UTEManagement
             {
                 MessageBox.Show("Không xóa được. Lỗi rồi!");
             }
+            SetUpNormalState();
+        }
+        private void SetUpNormalState()
+        {
+            if (username == "GiangVien")
+            {
+                this.btn_add.Enabled = false;
+                this.btn_update.Enabled = false;
+                this.btn_delete.Enabled = false;
+
+            }
+            else
+            {
+                this.btn_add.Enabled = true;
+                this.btn_update.Enabled = true;
+                this.btn_delete.Enabled = true;
+            }
+            Them = Sua = false;
+            txt_Diem.Enabled = false;
+            txt_LanThi.Enabled = false;
+            txt_MaSV.Enabled = false;
+            cb_HocKyChiTiet.Enabled = false;
+            cb_NamChiTiet.Enabled = false;
+            cb_MaMonHoc.Enabled = false;
+
+            btn_luu.Enabled = false;
+            btn_huy.Enabled = false;
+
+            ResetTextAll();
+            LoadData();
         }
 
-        //private void SinhVienForm_Load(object sender, EventArgs e)
-        //{
-        //    LoadData();
-        //}
-        //void LoadData()
-        //{
-        //    try
-        //    {
-        //        dtDiem = new DataTable();
-        //        dtDiem.Clear();
-        //        DataSet ds = dbDiem.LoadDDSV();
-        //        dtDiem = ds.Tables[0];
-        //        // Đưa dữ liệu lên DataGridView 
-        //        dgvDiem.DataSource = dtDiem;
-        //        // Thay đổi độ rộng cột 
-        //        dgvDiem.AutoResizeColumns();
-        //        // Xóa trống các đối tượng trong Panel 
-        //        txt_MaSV.ResetText();
-        //        txt_MaMH.ResetText();
-        //        txt_LanThi.ResetText();
-        //        txt_HocKy.ResetText();
-        //        txt_Nam.ResetText();
-        //        txt_Diem.ResetText();
-        //        txt_hocbong.ResetText();
-        //        txt_malop.ResetText();
-        //        //// Không cho thao tác trên các nút Lưu / Hủy 
-        //        this.btnLuu.Enabled = false;
-        //        this.btnHuy.Enabled = false;
+        private void ResetTextAll()
+        {
+            txt_Diem.ResetText();
+            txt_LanThi.ResetText();
+            txt_MaSV.ResetText();
+            cb_HocKyChiTiet.ResetText();
+            cb_NamChiTiet.ResetText();
+            cb_MaMonHoc.ResetText();
+        }
 
-        //        //// Cho thao tác trên các nút Thêm / Sửa / Xóa /Thoát 
-        //        this.btn_add.Enabled = true;
-        //        this.btn_update.Enabled = true;
-        //        this.btn_delete.Enabled = true;
-        //        //
-        //        Them = false;
-        //        //dgvDiem_CellClick(null, null);
-        //    }
-        //    catch (SqlException)
-        //    {
-        //        MessageBox.Show("Không lấy được nội dung trong table Sản phẩm. Lỗi rồi!!!");
-        //    }
-        //}
+        private void SetUpAddState()
+        {
+            txt_Diem.Enabled = true;
+            txt_LanThi.Enabled = true;
+            txt_MaSV.Enabled = true;
+            cb_HocKyChiTiet.Enabled = true;
+            cb_NamChiTiet.Enabled = true;
+            cb_MaMonHoc.Enabled = true;
 
-        
+            btn_luu.Enabled = true;
+            btn_huy.Enabled = true;
+
+            this.btn_add.Enabled = false;
+            this.btn_update.Enabled = false;
+            this.btn_delete.Enabled = false;
+        }
+
+        private void SetUpDataList()
+        {
+            DBLayer.DBMain db = new DBLayer.DBMain();
+            //SetUp MaLop
+            DataSet dsLop = db.ExcuteQueryDataSet($"select MaMH,TenMH from MonHoc", CommandType.Text);
+            cb_MaMonHoc.DataSource = dsLop.Tables[0];
+            cb_MaMonHoc.ValueMember = "MaMH";
+            cb_MaMonHoc.DisplayMember = "TenMH";
+        }
+
+        private void BangDiemForm_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+        void LoadData()
+        {
+            try
+            {
+                dtDiem = new DataTable();
+                dtDiem.Clear();
+                DataSet ds = dbDiem.LoadDDMH("20110252");
+                dtDiem = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView 
+                dgvDiem.DataSource = dtDiem;
+                // Thay đổi độ rộng cột 
+                dgvDiem.AutoResizeColumns();
+                SetUpDataList();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không lấy được nội dung trong table Sản phẩm. Lỗi rồi!!!");
+            }
+        }
+
+        private void dgvDiem_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ResetTextAll();
+            SetUpDataList();
+            // Thứ tự dòng hiện hành 
+            int r = dgvDiem.CurrentCell.RowIndex;
+            // Chuyển thông tin lên panel 
+            txt_MaSV.Text = dgvDiem.Rows[r].Cells[0].Value.ToString().Trim();
+            cb_MaMonHoc.SelectedValue = dgvDiem.Rows[r].Cells[1].Value.ToString().Trim();
+            txt_LanThi.Text = dgvDiem.Rows[r].Cells[2].Value.ToString().Trim();
+            cb_HocKyChiTiet.SelectedText = dgvDiem.Rows[r].Cells[3].Value.ToString().Trim();
+            txt_Diem.Text = dgvDiem.Rows[r].Cells[4].Value.ToString().Trim();
+            cb_NamChiTiet.SelectedText = dgvDiem.Rows[r].Cells[5].Value.ToString().Trim();
+        }
     }
 }

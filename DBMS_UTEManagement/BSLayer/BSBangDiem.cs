@@ -17,11 +17,14 @@ namespace DBMS_UTEManagement.BSLayer
         {
             db = new DBMain();
         }
-        public DataSet LoadDDMH()
+        public DataSet LoadDDMH(string MSSV)
         {
-            return db.ExcuteQueryDataSet($"select * from fLoadMH()", CommandType.Text);
+            SqlParameter p1 = new SqlParameter("@string", SqlDbType.NVarChar);
+            p1.Value = MSSV;
+
+            return db.ExcuteQueryDataSetWithParam("SELECT * FROM fLoadDiem(@string)", CommandType.Text, p1);
         }
-        public DataSet AddDiem(string MaSV, string MaMH, string LanThi, int HocKy, float Diem, int Nam)
+        public DataSet AddDiem(string MaSV, string MaMH, int LanThi, int HocKy, float Diem, int Nam)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -34,10 +37,10 @@ namespace DBMS_UTEManagement.BSLayer
             SqlParameter p5 = new SqlParameter("@Diem", SqlDbType.Float);
             p5.Value = Diem;
             SqlParameter p6 = new SqlParameter("@Nam", SqlDbType.Int);
-            p5.Value = Nam;
+            p6.Value = Nam;
             return db.ExcuteQueryDataSetWithParam("Add", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6);
         }
-        public DataSet DeleteDiem(string MaSV, string MaMH, string LanThi, int HocKy, int Nam)
+        public DataSet DeleteDiem(string MaSV, string MaMH, int LanThi, int HocKy, int Nam)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -51,7 +54,7 @@ namespace DBMS_UTEManagement.BSLayer
             p5.Value = Nam;
             return db.ExcuteQueryDataSetWithParam("DeleteDiem", CommandType.StoredProcedure, p1,p2,p3,p4, p5);
         }
-        public DataSet UpdateDiem(string MaSV, string MaMH, string LanThi, int HocKy, float Diem, int Nam)
+        public DataSet UpdateDiem(string MaSV, string MaMH, int LanThi, int HocKy, float Diem, int Nam)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -64,7 +67,7 @@ namespace DBMS_UTEManagement.BSLayer
             SqlParameter p5 = new SqlParameter("@Diem", SqlDbType.Float);
             p5.Value = Diem;
             SqlParameter p6 = new SqlParameter("@Nam", SqlDbType.Int);
-            p5.Value = Nam;
+            p6.Value = Nam;
             return db.ExcuteQueryDataSetWithParam("UpdateDiem", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6);
         }
     }
