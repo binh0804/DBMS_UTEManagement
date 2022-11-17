@@ -65,7 +65,11 @@ namespace DBMS_UTEManagement
                 {
                     BSLop BSNH = new BSLop();
                     // Thực hiện lệnh 
-                    BSNH.ADDLopHoc(txt_MaLop.Text, txt_TenLop.Text, cb_makhoahoc.Text, cb_MaHe.Text, cb_manganh.Text);
+                    BSNH.ADDLopHoc( txt_MaLop.Text.Trim(),
+                                    txt_TenLop.Text.Trim(),
+                                    cb_makhoahoc.SelectedValue.ToString().Trim(),
+                                    cb_MaHe.Text.Trim(),
+                                    cb_manganh.SelectedValue.ToString().Trim());
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
                     // Thông báo 
@@ -87,7 +91,11 @@ namespace DBMS_UTEManagement
                 {
                     // Thực hiện lệnh 
                     BSLop BSNH = new BSLop();
-                    BSNH.UpdateLopHoc(txt_MaLop.Text, txt_TenLop.Text, cb_makhoahoc.Text, cb_MaHe.Text, cb_manganh.Text);
+                    BSNH.UpdateLopHoc(txt_MaLop.Text.Trim(), 
+                                        txt_TenLop.Text.Trim(), 
+                                        cb_makhoahoc.SelectedValue.ToString().Trim(), 
+                                        cb_MaHe.Text.Trim(), 
+                                        cb_manganh.SelectedValue.ToString().Trim());
 
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
@@ -117,11 +125,11 @@ namespace DBMS_UTEManagement
             // Thứ tự dòng hiện hành 
             int r = dgvLop.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel 
-            txt_MaLop.Text = dgvLop.Rows[r].Cells[0].Value.ToString();
-            txt_TenLop.Text = dgvLop.Rows[r].Cells[1].Value.ToString();
-            cb_makhoahoc.Text = dgvLop.Rows[r].Cells[2].Value.ToString();
-            cb_MaHe.Text = dgvLop.Rows[r].Cells[3].Value.ToString();
-            cb_manganh.Text = dgvLop.Rows[r].Cells[4].Value.ToString();
+            txt_MaLop.Text = dgvLop.Rows[r].Cells[0].Value.ToString().Trim();
+            txt_TenLop.Text = dgvLop.Rows[r].Cells[1].Value.ToString().Trim();
+            cb_makhoahoc.Text = dgvLop.Rows[r].Cells[2].Value.ToString().Trim();
+            cb_MaHe.Text = dgvLop.Rows[r].Cells[3].Value.ToString().Trim();
+            cb_manganh.Text = dgvLop.Rows[r].Cells[4].Value.ToString().Trim();
         }
 
         private void btn_update_Click(object sender, EventArgs e)

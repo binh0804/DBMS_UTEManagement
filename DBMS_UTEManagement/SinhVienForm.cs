@@ -85,16 +85,20 @@ namespace DBMS_UTEManagement
                 {
                     BSSinhVien BSSV = new BSSinhVien();
                     // Thực hiện lệnh 
-                   
+                    Console.WriteLine(cb_gioiTinh.Text.ToString().Trim());
+                    Console.WriteLine(cb_maLop.SelectedValue.ToString().Trim());
+                    Console.WriteLine(dtp_ngaySinh.Value.Date);
+                    Console.WriteLine(float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat));
                     BSSV.AddSV( txt_masv.Text.Trim(), 
                                 txt_tensv.Text.Trim(),
                                 cb_gioiTinh.Text.ToString().Trim(), 
                                 dtp_ngaySinh.Value.Date,
                                 txt_noisinh.Text.Trim(), 
-                                txt_diachi.Text.Trim(), 
-                                float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat), 
-                                cb_maLop.SelectedValue.ToString().Trim());
+                                txt_diachi.Text.Trim(),
+                                cb_maLop.SelectedValue.ToString().Trim(),
+                                float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat));
                     // Load lại dữ liệu trên DataGridView 
+
                     LoadData();
                     // Thông báo 
                     MessageBox.Show("Đã thêm xong!");
@@ -116,15 +120,14 @@ namespace DBMS_UTEManagement
                 {
                     // Thực hiện lệnh 
                     BSSinhVien BSSV = new BSSinhVien();
-                    BSSV.UpdateSV(  txt_masv.Text.Trim(), 
-                                    txt_tensv.Text.Trim(), 
+                    BSSV.UpdateSV(txt_masv.Text.Trim(),
+                                    txt_tensv.Text.Trim(),
                                     cb_gioiTinh.Text.Trim(),
                                     dtp_ngaySinh.Value.Date,
-                                    txt_noisinh.Text.Trim(), 
-                                    txt_diachi.Text.Trim(), 
-                                    float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat), 
-                                    cb_maLop.SelectedValue.ToString().Trim());
-
+                                    txt_noisinh.Text.Trim(),
+                                    txt_diachi.Text.Trim(),
+                                    cb_maLop.SelectedValue.ToString().Trim(),
+                                    float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat));
                     // Load lại dữ liệu trên DataGridView 
                     // Thông báo 
                     LoadData();
@@ -160,7 +163,9 @@ namespace DBMS_UTEManagement
             dtp_ngaySinh.Text = dgvSinhVien.Rows[r].Cells[3].Value.ToString().Trim();
             txt_noisinh.Text = dgvSinhVien.Rows[r].Cells[4].Value.ToString().Trim();
             txt_diachi.Text = dgvSinhVien.Rows[r].Cells[5].Value.ToString().Trim();
-            cb_maLop.SelectedValue = dgvSinhVien.Rows[r].Cells[6].Value.ToString();
+            cb_maLop.SelectedValue = dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim();
+            Console.WriteLine(" cb " +cb_maLop.SelectedValue);
+            Console.WriteLine(dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim());
             txt_hocbong.Text = dgvSinhVien.Rows[r].Cells[7].Value.ToString().Trim();
         }
 
@@ -207,8 +212,6 @@ namespace DBMS_UTEManagement
 
         private void SinhVienForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'quanLySinhVien_UTEDataSet.Lop' table. You can move, or remove it, as needed.
-            //this.lopTableAdapter.Fill(this.quanLySinhVien_UTEDataSet.Lop);
             LoadData();
         }
         void LoadData()
@@ -278,8 +281,6 @@ namespace DBMS_UTEManagement
             btn_luu.Enabled = false;
             btn_huy.Enabled = false;
 
-            
-
             ResetTextAll();
         }
 
@@ -321,7 +322,7 @@ namespace DBMS_UTEManagement
             DataSet dsLop = db.ExcuteQueryDataSet($"select MaLop,TenLop from Lop", CommandType.Text);
             cb_maLop.DataSource = dsLop.Tables[0];
             cb_maLop.ValueMember = "MaLop";
-            cb_maLop.DisplayMember = "MaLop";
+            cb_maLop.DisplayMember = "TenLop";
         }
     }
 }

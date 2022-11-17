@@ -65,7 +65,9 @@ namespace DBMS_UTEManagement
                 {
                     BSNganhHoc BSNH = new BSNganhHoc();
                     // Thực hiện lệnh 
-                    BSNH.AddNganh(txt_MaNganh.Text, txt_TenNganh.Text, cb_makhoa.Text);
+                    BSNH.AddNganh(  txt_MaNganh.Text.Trim(),
+                                    txt_TenNganh.Text.Trim(), 
+                                    cb_makhoa.SelectedValue.ToString().Trim());
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
                     // Thông báo 
@@ -87,7 +89,9 @@ namespace DBMS_UTEManagement
                 {
                     // Thực hiện lệnh 
                     BSNganhHoc BSNH = new BSNganhHoc();
-                    BSNH.UpdateNganh(txt_MaNganh.Text.Trim(), txt_TenNganh.Text.Trim(),cb_makhoa.Text.Trim());
+                    BSNH.UpdateNganh(txt_MaNganh.Text.Trim(),
+                                    txt_TenNganh.Text.Trim(),
+                                    cb_makhoa.SelectedValue.ToString().Trim());
 
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
@@ -118,8 +122,8 @@ namespace DBMS_UTEManagement
             // Thứ tự dòng hiện hành 
             int r = dgvNganhHoc.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel 
-            txt_MaNganh.Text = dgvNganhHoc.Rows[r].Cells[0].Value.ToString();
-            txt_TenNganh.Text = dgvNganhHoc.Rows[r].Cells[1].Value.ToString();
+            txt_MaNganh.Text = dgvNganhHoc.Rows[r].Cells[0].Value.ToString().Trim();
+            txt_TenNganh.Text = dgvNganhHoc.Rows[r].Cells[1].Value.ToString().Trim();
             cb_makhoa.SelectedValue = dgvNganhHoc.Rows[r].Cells[2].Value.ToString().Trim();
         }
 
@@ -211,6 +215,7 @@ namespace DBMS_UTEManagement
                 //
                 //Them = false;
                 //dgvNganhHoc_CellClick(null, null);
+                SetUpDataList();
             }
             catch (SqlException)
             {
@@ -279,14 +284,14 @@ namespace DBMS_UTEManagement
             this.btn_update.Enabled = false;
             this.btn_delete.Enabled = false;
         }
-        //private void SetUpDataList()
-        //{
-        //    DBLayer.DBMain db = new DBLayer.DBMain();
-        //    //SetUp MaLop
-        //    DataSet dsKhoa = db.ExcuteQueryDataSet($"select MaKhoa,TenKhoa from Khoa", CommandType.Text);
-        //    cb_makhoa.DataSource = dsKhoa.Tables[0];
-        //    cb_makhoa.ValueMember = "MaKhoa";
-        //    cb_makhoa.DisplayMember = "TenKhoa";
-        //}
+        private void SetUpDataList()
+        {
+            DBLayer.DBMain db = new DBLayer.DBMain();
+            //SetUp MaLop
+            DataSet dsKhoa = db.ExcuteQueryDataSet($"select MaKhoa,TenKhoa from Khoa", CommandType.Text);
+            cb_makhoa.DataSource = dsKhoa.Tables[0];
+            cb_makhoa.ValueMember = "MaKhoa";
+            cb_makhoa.DisplayMember = "TenKhoa";
+        }
     }
 }

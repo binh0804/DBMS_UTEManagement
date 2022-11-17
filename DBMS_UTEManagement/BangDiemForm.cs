@@ -63,7 +63,12 @@ namespace DBMS_UTEManagement
                 {
                     BSBangDiem BSSV = new BSBangDiem();
                     // Thực hiện lệnh 
-                    BSSV.AddDiem(txt_MaSV.Text, txt_MaMH.Text, txt_LanThi.Text, int.Parse(txt_HocKy.Text),  float.Parse(txt_Diem.Text), int.Parse(txt_Nam.Text));
+                    BSSV.AddDiem(txt_MaSV.Text.Trim(),
+                                txt_MaMH.Text.Trim(), 
+                                txt_LanThi.Text.Trim(), 
+                                int.Parse(txt_HocKy.Text.Trim()),  
+                                float.Parse(txt_Diem.Text.Trim()), 
+                                int.Parse(txt_Nam.Text.Trim()));
                     // Load lại dữ liệu trên DataGridView 
                     //LoadData();
                     // Thông báo 
@@ -80,8 +85,12 @@ namespace DBMS_UTEManagement
                 {
                     // Thực hiện lệnh 
                     BSBangDiem BSSV = new BSBangDiem();
-                    BSSV.UpdateDiem(txt_MaSV.Text, txt_MaMH.Text, txt_LanThi.Text, int.Parse(txt_HocKy.Text), float.Parse(txt_Diem.Text), int.Parse(txt_Nam.Text));
-
+                    BSSV.UpdateDiem(txt_MaSV.Text.Trim(),
+                                txt_MaMH.Text.Trim(),
+                                txt_LanThi.Text.Trim(),
+                                int.Parse(txt_HocKy.Text.Trim()),
+                                float.Parse(txt_Diem.Text.Trim()),
+                                int.Parse(txt_Nam.Text.Trim()));
                     // Load lại dữ liệu trên DataGridView 
                     //LoadData();
                     // Thông báo 

@@ -65,7 +65,10 @@ namespace DBMS_UTEManagement
                 {
                     BSMonHoc BSNH = new BSMonHoc();
                     // Thực hiện lệnh 
-                    BSNH.AddMH(txtMaMH.Text, txtTenMH.Text, float.Parse(txtLyThuyet.Text.Trim()), float.Parse(txtThucHanh.Text.Trim()));
+                    BSNH.AddMH( txtMaMH.Text.Trim(), 
+                                txtTenMH.Text.Trim(),
+                                float.Parse(txtLyThuyet.Text.Trim()), 
+                                float.Parse(txtThucHanh.Text.Trim()));
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
                     // Thông báo 
@@ -87,7 +90,10 @@ namespace DBMS_UTEManagement
                 {
                     // Thực hiện lệnh 
                     BSMonHoc BSNH = new BSMonHoc();
-                    BSNH.UpdateMH(txtMaMH.Text.Trim(), txtTenMH.Text.Trim(), float.Parse(txtLyThuyet.Text.Trim()), float.Parse(txtThucHanh.Text.Trim()));
+                    BSNH.UpdateMH(  txtMaMH.Text.Trim(), 
+                                    txtTenMH.Text.Trim(), 
+                                    float.Parse(txtLyThuyet.Text.Trim()), 
+                                    float.Parse(txtThucHanh.Text.Trim()));
 
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
@@ -117,10 +123,10 @@ namespace DBMS_UTEManagement
             // Thứ tự dòng hiện hành 
             int r = dgvMonHoc.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel 
-            txtMaMH.Text = dgvMonHoc.Rows[r].Cells[0].Value.ToString();
-            txtTenMH.Text = dgvMonHoc.Rows[r].Cells[1].Value.ToString();
-            txtLyThuyet.Text = dgvMonHoc.Rows[r].Cells[2].Value.ToString();
-            txtThucHanh.Text = dgvMonHoc.Rows[r].Cells[3].Value.ToString();
+            txtMaMH.Text = dgvMonHoc.Rows[r].Cells[0].Value.ToString().Trim();
+            txtTenMH.Text = dgvMonHoc.Rows[r].Cells[1].Value.ToString().Trim();
+            txtLyThuyet.Text = dgvMonHoc.Rows[r].Cells[2].Value.ToString().Trim();
+            txtThucHanh.Text = dgvMonHoc.Rows[r].Cells[3].Value.ToString().Trim();
         }
 
         private void btn_update_Click(object sender, EventArgs e)

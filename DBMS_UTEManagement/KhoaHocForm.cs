@@ -65,7 +65,8 @@ namespace DBMS_UTEManagement
                 {
                     BSKhoaHoc BSNH = new BSKhoaHoc();
                     // Thực hiện lệnh 
-                    BSNH.AddKhoaHoc(txt_MaKhoaHoc.Text, txt_TenKhoaHoc.Text);
+                    BSNH.AddKhoaHoc(txt_MaKhoaHoc.Text.Trim(),
+                                    txt_TenKhoaHoc.Text.Trim());
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
                     // Thông báo 
@@ -82,7 +83,8 @@ namespace DBMS_UTEManagement
                 {
                     // Thực hiện lệnh 
                     BSKhoaHoc BSNH = new BSKhoaHoc();
-                    BSNH.UpdateKhoaHoc(txt_MaKhoaHoc.Text, txt_TenKhoaHoc.Text);
+                    BSNH.UpdateKhoaHoc(txt_MaKhoaHoc.Text.Trim(),
+                                        txt_TenKhoaHoc.Text.Trim());
 
                     // Load lại dữ liệu trên DataGridView 
                     LoadData();
@@ -113,8 +115,8 @@ namespace DBMS_UTEManagement
             // Thứ tự dòng hiện hành 
             int r = dgvKhoaHoc.CurrentCell.RowIndex;
             // Chuyển thông tin lên panel 
-            txt_MaKhoaHoc.Text = dgvKhoaHoc.Rows[r].Cells[0].Value.ToString();
-            txt_TenKhoaHoc.Text = dgvKhoaHoc.Rows[r].Cells[1].Value.ToString();
+            txt_MaKhoaHoc.Text = dgvKhoaHoc.Rows[r].Cells[0].Value.ToString().Trim();
+            txt_TenKhoaHoc.Text = dgvKhoaHoc.Rows[r].Cells[1].Value.ToString().Trim();
         }
 
         private void btn_update_Click(object sender, EventArgs e)
