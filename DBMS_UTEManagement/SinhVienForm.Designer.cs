@@ -55,11 +55,16 @@ namespace DBMS_UTEManagement
             this.cb_maLop = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_SetHocBong = new System.Windows.Forms.Button();
+            this.btn_DTBlop = new System.Windows.Forms.Button();
+            this.btn_XuatFile = new System.Windows.Forms.Button();
             this.txt_searchSV = new System.Windows.Forms.TextBox();
+            this.cb_DTBlop = new System.Windows.Forms.ComboBox();
             this.btnSearchTTSV = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSinhVien = new System.Windows.Forms.DataGridView();
-            this.btn_XuatFile = new System.Windows.Forms.Button();
+            this.cb_DiemKhoa = new System.Windows.Forms.ComboBox();
+            this.btn_DTBtheokhoa = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -339,8 +344,13 @@ namespace DBMS_UTEManagement
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cb_DiemKhoa);
+            this.groupBox3.Controls.Add(this.btn_SetHocBong);
+            this.groupBox3.Controls.Add(this.btn_DTBtheokhoa);
+            this.groupBox3.Controls.Add(this.btn_DTBlop);
             this.groupBox3.Controls.Add(this.btn_XuatFile);
             this.groupBox3.Controls.Add(this.txt_searchSV);
+            this.groupBox3.Controls.Add(this.cb_DTBlop);
             this.groupBox3.Controls.Add(this.btnSearchTTSV);
             this.groupBox3.Location = new System.Drawing.Point(868, 232);
             this.groupBox3.Name = "groupBox3";
@@ -348,6 +358,38 @@ namespace DBMS_UTEManagement
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm kiếm và bộ lọc";
+            // 
+            // btn_SetHocBong
+            // 
+            this.btn_SetHocBong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btn_SetHocBong.Location = new System.Drawing.Point(213, 126);
+            this.btn_SetHocBong.Name = "btn_SetHocBong";
+            this.btn_SetHocBong.Size = new System.Drawing.Size(95, 23);
+            this.btn_SetHocBong.TabIndex = 48;
+            this.btn_SetHocBong.Text = "Set học bổng";
+            this.btn_SetHocBong.UseVisualStyleBackColor = false;
+            this.btn_SetHocBong.Click += new System.EventHandler(this.btn_SetHocBong_Click);
+            // 
+            // btn_DTBlop
+            // 
+            this.btn_DTBlop.Location = new System.Drawing.Point(132, 46);
+            this.btn_DTBlop.Name = "btn_DTBlop";
+            this.btn_DTBlop.Size = new System.Drawing.Size(100, 23);
+            this.btn_DTBlop.TabIndex = 47;
+            this.btn_DTBlop.Text = "ĐTB theo lớp";
+            this.btn_DTBlop.UseVisualStyleBackColor = true;
+            this.btn_DTBlop.Click += new System.EventHandler(this.btn_DTBlop_Click);
+            // 
+            // btn_XuatFile
+            // 
+            this.btn_XuatFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btn_XuatFile.Location = new System.Drawing.Point(314, 126);
+            this.btn_XuatFile.Name = "btn_XuatFile";
+            this.btn_XuatFile.Size = new System.Drawing.Size(75, 23);
+            this.btn_XuatFile.TabIndex = 46;
+            this.btn_XuatFile.Text = "Xuất file";
+            this.btn_XuatFile.UseVisualStyleBackColor = false;
+            this.btn_XuatFile.Click += new System.EventHandler(this.btn_XuatFile_Click);
             // 
             // txt_searchSV
             // 
@@ -357,9 +399,20 @@ namespace DBMS_UTEManagement
             this.txt_searchSV.Size = new System.Drawing.Size(215, 20);
             this.txt_searchSV.TabIndex = 45;
             // 
+            // cb_DTBlop
+            // 
+            this.cb_DTBlop.DisplayMember = "Lop.MaLop";
+            this.cb_DTBlop.FormattingEnabled = true;
+            this.cb_DTBlop.Location = new System.Drawing.Point(16, 48);
+            this.cb_DTBlop.Margin = new System.Windows.Forms.Padding(2);
+            this.cb_DTBlop.Name = "cb_DTBlop";
+            this.cb_DTBlop.Size = new System.Drawing.Size(111, 21);
+            this.cb_DTBlop.TabIndex = 44;
+            this.cb_DTBlop.ValueMember = "Lop.MaLop";
+            // 
             // btnSearchTTSV
             // 
-            this.btnSearchTTSV.Location = new System.Drawing.Point(235, 18);
+            this.btnSearchTTSV.Location = new System.Drawing.Point(237, 21);
             this.btnSearchTTSV.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearchTTSV.Name = "btnSearchTTSV";
             this.btnSearchTTSV.Size = new System.Drawing.Size(154, 23);
@@ -380,7 +433,7 @@ namespace DBMS_UTEManagement
             // 
             // dgvSinhVien
             // 
-            this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvSinhVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSinhVien.Location = new System.Drawing.Point(12, 34);
             this.dgvSinhVien.Name = "dgvSinhVien";
@@ -389,15 +442,23 @@ namespace DBMS_UTEManagement
             this.dgvSinhVien.TabIndex = 49;
             this.dgvSinhVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinhVien_CellClick);
             // 
-            // btn_XuatFile
+            // cb_DiemKhoa
             // 
-            this.btn_XuatFile.Location = new System.Drawing.Point(16, 77);
-            this.btn_XuatFile.Name = "btn_XuatFile";
-            this.btn_XuatFile.Size = new System.Drawing.Size(75, 23);
-            this.btn_XuatFile.TabIndex = 46;
-            this.btn_XuatFile.Text = "Xuất file";
-            this.btn_XuatFile.UseVisualStyleBackColor = true;
-            this.btn_XuatFile.Click += new System.EventHandler(this.btn_XuatFile_Click);
+            this.cb_DiemKhoa.FormattingEnabled = true;
+            this.cb_DiemKhoa.Location = new System.Drawing.Point(16, 75);
+            this.cb_DiemKhoa.Name = "cb_DiemKhoa";
+            this.cb_DiemKhoa.Size = new System.Drawing.Size(111, 21);
+            this.cb_DiemKhoa.TabIndex = 49;
+            // 
+            // btn_DTBtheokhoa
+            // 
+            this.btn_DTBtheokhoa.Location = new System.Drawing.Point(133, 73);
+            this.btn_DTBtheokhoa.Name = "btn_DTBtheokhoa";
+            this.btn_DTBtheokhoa.Size = new System.Drawing.Size(100, 23);
+            this.btn_DTBtheokhoa.TabIndex = 47;
+            this.btn_DTBtheokhoa.Text = "ĐTB theo khoa";
+            this.btn_DTBtheokhoa.UseVisualStyleBackColor = true;
+            this.btn_DTBtheokhoa.Click += new System.EventHandler(this.btn_DTBtheokhoa_Click);
             // 
             // SinhVienForm
             // 
@@ -457,5 +518,10 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.ComboBox cb_gioiTinh;
         private System.Windows.Forms.Button btn_BangDiem;
         private System.Windows.Forms.Button btn_XuatFile;
+        private System.Windows.Forms.Button btn_DTBlop;
+        private System.Windows.Forms.ComboBox cb_DTBlop;
+        private System.Windows.Forms.Button btn_SetHocBong;
+        private System.Windows.Forms.ComboBox cb_DiemKhoa;
+        private System.Windows.Forms.Button btn_DTBtheokhoa;
     }
 }

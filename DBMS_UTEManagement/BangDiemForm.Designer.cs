@@ -31,14 +31,15 @@ namespace DBMS_UTEManagement
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BangDiemForm));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btn_XuatFile = new System.Windows.Forms.Button();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lbMaSV = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_add = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.lbDiem = new System.Windows.Forms.Label();
             this.lbHocKy = new System.Windows.Forms.Label();
             this.btn_huy = new System.Windows.Forms.Button();
@@ -55,15 +56,13 @@ namespace DBMS_UTEManagement
             this.txt_LanThi = new System.Windows.Forms.TextBox();
             this.dgvDiem = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_KetQua = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cb_HocKy = new System.Windows.Forms.ComboBox();
-            this.cb_NamHoc = new System.Windows.Forms.ComboBox();
+            this.btn_Loc = new System.Windows.Forms.Button();
             this.image_Back = new System.Windows.Forms.PictureBox();
             this.lb_ketqua = new System.Windows.Forms.Label();
             this.lb_infoSV = new System.Windows.Forms.Label();
-            this.btn_XuatFile = new System.Windows.Forms.Button();
+            this.rd_Nam = new System.Windows.Forms.RadioButton();
+            this.rd_NamvaHocKy = new System.Windows.Forms.RadioButton();
+            this.cb_ChonNam = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -83,6 +82,17 @@ namespace DBMS_UTEManagement
             this.groupBox4.TabIndex = 22;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tìm kiếm và bộ lọc";
+            // 
+            // btn_XuatFile
+            // 
+            this.btn_XuatFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btn_XuatFile.Location = new System.Drawing.Point(375, 152);
+            this.btn_XuatFile.Name = "btn_XuatFile";
+            this.btn_XuatFile.Size = new System.Drawing.Size(75, 23);
+            this.btn_XuatFile.TabIndex = 48;
+            this.btn_XuatFile.Text = "Xuất file";
+            this.btn_XuatFile.UseVisualStyleBackColor = false;
+            this.btn_XuatFile.Click += new System.EventHandler(this.btn_XuatFile_Click);
             // 
             // txt_search
             // 
@@ -126,7 +136,7 @@ namespace DBMS_UTEManagement
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(130, 19);
+            this.btn_add.Location = new System.Drawing.Point(13, 19);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(86, 23);
             this.btn_add.TabIndex = 48;
@@ -134,19 +144,9 @@ namespace DBMS_UTEManagement
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
-            // btnLoad
-            // 
-            this.btnLoad.Location = new System.Drawing.Point(552, 30);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(86, 23);
-            this.btnLoad.TabIndex = 3;
-            this.btnLoad.Text = "Tất cả điểm";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btn_load_Click);
-            // 
             // btn_update
             // 
-            this.btn_update.Location = new System.Drawing.Point(253, 19);
+            this.btn_update.Location = new System.Drawing.Point(130, 19);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(86, 23);
             this.btn_update.TabIndex = 3;
@@ -156,13 +156,23 @@ namespace DBMS_UTEManagement
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(368, 19);
+            this.btn_delete.Location = new System.Drawing.Point(253, 19);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(86, 23);
             this.btn_delete.TabIndex = 3;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Location = new System.Drawing.Point(483, 36);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(138, 23);
+            this.btnLoad.TabIndex = 3;
+            this.btnLoad.Text = "Chi tiết điểm từng môn";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btn_load_Click);
             // 
             // lbDiem
             // 
@@ -330,12 +340,11 @@ namespace DBMS_UTEManagement
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.Controls.Add(this.btn_KetQua);
+            this.groupBox2.Controls.Add(this.cb_ChonNam);
+            this.groupBox2.Controls.Add(this.rd_NamvaHocKy);
+            this.groupBox2.Controls.Add(this.rd_Nam);
+            this.groupBox2.Controls.Add(this.btn_Loc);
             this.groupBox2.Controls.Add(this.btnLoad);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.cb_HocKy);
-            this.groupBox2.Controls.Add(this.cb_NamHoc);
             this.groupBox2.Location = new System.Drawing.Point(12, 42);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(809, 73);
@@ -343,65 +352,15 @@ namespace DBMS_UTEManagement
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kết quả học tập";
             // 
-            // btn_KetQua
+            // btn_Loc
             // 
-            this.btn_KetQua.Location = new System.Drawing.Point(420, 30);
-            this.btn_KetQua.Name = "btn_KetQua";
-            this.btn_KetQua.Size = new System.Drawing.Size(93, 23);
-            this.btn_KetQua.TabIndex = 2;
-            this.btn_KetQua.Text = "Lọc";
-            this.btn_KetQua.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(230, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Học kỳ:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Năm học:";
-            // 
-            // cb_HocKy
-            // 
-            this.cb_HocKy.FormattingEnabled = true;
-            this.cb_HocKy.Items.AddRange(new object[] {
-            "",
-            "1",
-            "2",
-            "3"});
-            this.cb_HocKy.Location = new System.Drawing.Point(280, 30);
-            this.cb_HocKy.Name = "cb_HocKy";
-            this.cb_HocKy.Size = new System.Drawing.Size(121, 21);
-            this.cb_HocKy.TabIndex = 0;
-            this.cb_HocKy.Text = "Tất cả";
-            // 
-            // cb_NamHoc
-            // 
-            this.cb_NamHoc.FormattingEnabled = true;
-            this.cb_NamHoc.Items.AddRange(new object[] {
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
-            "2024",
-            "2025"});
-            this.cb_NamHoc.Location = new System.Drawing.Point(75, 30);
-            this.cb_NamHoc.Name = "cb_NamHoc";
-            this.cb_NamHoc.Size = new System.Drawing.Size(121, 21);
-            this.cb_NamHoc.TabIndex = 0;
-            this.cb_NamHoc.Text = "Tất cả";
+            this.btn_Loc.Location = new System.Drawing.Point(335, 35);
+            this.btn_Loc.Name = "btn_Loc";
+            this.btn_Loc.Size = new System.Drawing.Size(128, 23);
+            this.btn_Loc.TabIndex = 2;
+            this.btn_Loc.Text = "Lọc điểm trung bình";
+            this.btn_Loc.UseVisualStyleBackColor = true;
+            this.btn_Loc.Click += new System.EventHandler(this.btn_Loc_Click);
             // 
             // image_Back
             // 
@@ -432,15 +391,46 @@ namespace DBMS_UTEManagement
             this.lb_infoSV.TabIndex = 26;
             this.lb_infoSV.Text = "label1";
             // 
-            // btn_XuatFile
+            // rd_Nam
             // 
-            this.btn_XuatFile.Location = new System.Drawing.Point(13, 73);
-            this.btn_XuatFile.Name = "btn_XuatFile";
-            this.btn_XuatFile.Size = new System.Drawing.Size(75, 23);
-            this.btn_XuatFile.TabIndex = 48;
-            this.btn_XuatFile.Text = "Xuất file";
-            this.btn_XuatFile.UseVisualStyleBackColor = true;
-            this.btn_XuatFile.Click += new System.EventHandler(this.btn_XuatFile_Click);
+            this.rd_Nam.AutoSize = true;
+            this.rd_Nam.Location = new System.Drawing.Point(19, 36);
+            this.rd_Nam.Name = "rd_Nam";
+            this.rd_Nam.Size = new System.Drawing.Size(47, 17);
+            this.rd_Nam.TabIndex = 4;
+            this.rd_Nam.TabStop = true;
+            this.rd_Nam.Text = "Năm";
+            this.rd_Nam.UseVisualStyleBackColor = true;
+            // 
+            // rd_NamvaHocKy
+            // 
+            this.rd_NamvaHocKy.AutoSize = true;
+            this.rd_NamvaHocKy.Location = new System.Drawing.Point(90, 36);
+            this.rd_NamvaHocKy.Name = "rd_NamvaHocKy";
+            this.rd_NamvaHocKy.Size = new System.Drawing.Size(97, 17);
+            this.rd_NamvaHocKy.TabIndex = 5;
+            this.rd_NamvaHocKy.TabStop = true;
+            this.rd_NamvaHocKy.Text = "Năm và học kỳ";
+            this.rd_NamvaHocKy.UseVisualStyleBackColor = true;
+            // 
+            // cb_ChonNam
+            // 
+            this.cb_ChonNam.FormattingEnabled = true;
+            this.cb_ChonNam.Items.AddRange(new object[] {
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025"});
+            this.cb_ChonNam.Location = new System.Drawing.Point(193, 35);
+            this.cb_ChonNam.Name = "cb_ChonNam";
+            this.cb_ChonNam.Size = new System.Drawing.Size(121, 21);
+            this.cb_ChonNam.TabIndex = 6;
+            this.cb_ChonNam.Text = "2022";
             // 
             // BangDiemForm
             // 
@@ -498,18 +488,17 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cb_HocKy;
-        private System.Windows.Forms.ComboBox cb_NamHoc;
         private System.Windows.Forms.ComboBox cb_HocKyChiTiet;
         private System.Windows.Forms.ComboBox cb_NamChiTiet;
-        private System.Windows.Forms.Button btn_KetQua;
+        private System.Windows.Forms.Button btn_Loc;
         private System.Windows.Forms.ComboBox cb_MaMonHoc;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.PictureBox image_Back;
         private System.Windows.Forms.Label lb_ketqua;
         private System.Windows.Forms.Label lb_infoSV;
         private System.Windows.Forms.Button btn_XuatFile;
+        private System.Windows.Forms.RadioButton rd_NamvaHocKy;
+        private System.Windows.Forms.RadioButton rd_Nam;
+        private System.Windows.Forms.ComboBox cb_ChonNam;
     }
 }

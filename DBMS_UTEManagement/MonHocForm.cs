@@ -27,6 +27,8 @@ namespace DBMS_UTEManagement
         {
             InitializeComponent();
             SetUpNormalState();
+            this.dgvMonHoc.DefaultCellStyle.Font = new Font("Cambria", 10);
+
             dgvMonHoc.ReadOnly = true;
             if (username == "GiangVien")
             {

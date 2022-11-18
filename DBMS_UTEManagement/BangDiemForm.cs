@@ -25,6 +25,7 @@ namespace DBMS_UTEManagement
         bool Them = false;
         bool Sua = false;
         string checkMSSV;
+        bool check_dgv = false;
         string username = DBMain.username;
         public BangDiemForm(string MSSV, string TenSV)
         {
@@ -33,6 +34,7 @@ namespace DBMS_UTEManagement
             checkMSSV = MSSV;
             SetUpNormalState();
             txt_MaSV.Text = checkMSSV;
+            this.dgvDiem.DefaultCellStyle.Font = new Font("Cambria", 10);
 
             lb_infoSV.Text = TenSV + " - " + MSSV; 
 
@@ -49,6 +51,7 @@ namespace DBMS_UTEManagement
                 DataSet ds = dbDiem.LoadDDMH(checkMSSV);
                 dtDiem = ds.Tables[0];
                 dgvDiem.DataSource = dtDiem;
+                SetUpNormalState();
             }
             catch (SqlException)
             {
@@ -204,7 +207,7 @@ namespace DBMS_UTEManagement
             cb_HocKyChiTiet.Enabled = false;
             cb_NamChiTiet.Enabled = false;
             cb_MaMonHoc.Enabled = false;
-
+            check_dgv = false;
             btn_luu.Enabled = false;
             btn_huy.Enabled = false;
 
@@ -277,15 +280,22 @@ namespace DBMS_UTEManagement
         {
             ResetTextAll();
             SetUpDataList();
-            // Thứ tự dòng hiện hành 
-            int r = dgvDiem.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel 
-            txt_MaSV.Text = dgvDiem.Rows[r].Cells[0].Value.ToString().Trim();
-            cb_MaMonHoc.SelectedValue = dgvDiem.Rows[r].Cells[1].Value.ToString().Trim();
-            txt_LanThi.Text = dgvDiem.Rows[r].Cells[2].Value.ToString().Trim();
-            cb_HocKyChiTiet.SelectedText = dgvDiem.Rows[r].Cells[3].Value.ToString().Trim();
-            txt_Diem.Text = dgvDiem.Rows[r].Cells[4].Value.ToString().Trim();
-            cb_NamChiTiet.SelectedText = dgvDiem.Rows[r].Cells[5].Value.ToString().Trim();
+            if (check_dgv == true)
+            {
+
+            }
+            else
+            {
+                // Thứ tự dòng hiện hành 
+                int r = dgvDiem.CurrentCell.RowIndex;
+                // Chuyển thông tin lên panel 
+                txt_MaSV.Text = dgvDiem.Rows[r].Cells[0].Value.ToString().Trim();
+                cb_MaMonHoc.SelectedValue = dgvDiem.Rows[r].Cells[1].Value.ToString().Trim();
+                txt_LanThi.Text = dgvDiem.Rows[r].Cells[2].Value.ToString().Trim();
+                cb_HocKyChiTiet.SelectedText = dgvDiem.Rows[r].Cells[3].Value.ToString().Trim();
+                txt_Diem.Text = dgvDiem.Rows[r].Cells[4].Value.ToString().Trim();
+                cb_NamChiTiet.SelectedText = dgvDiem.Rows[r].Cells[5].Value.ToString().Trim();
+            }
         }
 
         private void image_Back_MouseClick(object sender, MouseEventArgs e)
@@ -326,6 +336,47 @@ namespace DBMS_UTEManagement
                 catch (Exception ex)
                 {
                     MessageBox.Show("Xuất file không thành công!\n" + ex.Message);
+                }
+            }
+        }
+
+        private void btn_Loc_Click(object sender, EventArgs e)
+        {
+            check_dgv = true;
+            if(rd_Nam.Checked == true)
+            {
+                try
+                {
+                    dtDiem = new DataTable();
+                    dtDiem.Clear();
+                    DataSet ds = dbDiem.LoadDTBTheoNam(checkMSSV);
+                    dtDiem = ds.Tables[0];
+                    // Đưa dữ liệu lên DataGridView 
+                    dgvDiem.DataSource = dtDiem;
+                    // Thay đổi độ rộng cột 
+                    dgvDiem.AutoResizeColumns();
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Lỗi rồi!!!");
+                }
+            }
+            else if(rd_NamvaHocKy.Checked == true)
+            {
+                try
+                {
+                    dtDiem = new DataTable();
+                    dtDiem.Clear();
+                    DataSet ds = dbDiem.fLoadDTBTheoNamHocKy(checkMSSV,int.Parse(cb_ChonNam.Text.ToString()));
+                    dtDiem = ds.Tables[0];
+                    // Đưa dữ liệu lên DataGridView 
+                    dgvDiem.DataSource = dtDiem;
+                    // Thay đổi độ rộng cột 
+                    dgvDiem.AutoResizeColumns();
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Lỗi rồi!!!");
                 }
             }
         }

@@ -27,11 +27,14 @@ namespace DBMS_UTEManagement
         bool Them = false;
         bool Sua = false;
         string err;
+        bool dtb = false;
         public SinhVienForm()
         {
             InitializeComponent();
             
             SetUpNormalState();
+            this.dgvSinhVien.DefaultCellStyle.Font = new Font("Cambria", 10);
+            this.dgvSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             cb_gioiTinh.SelectedItem = "Nam";
             dgvSinhVien.ReadOnly = true;
             if (username == "GiangVien")
@@ -51,6 +54,7 @@ namespace DBMS_UTEManagement
                 DataSet ds = dbSV.LoadDDSV();
                 dtSinhVien = ds.Tables[0];
                 dgvSinhVien.DataSource = dtSinhVien;
+                SetUpNormalState();
             }
             catch (SqlException)
             {
@@ -159,18 +163,25 @@ namespace DBMS_UTEManagement
         {
             ResetTextAll();
             // Thứ tự dòng hiện hành 
-            int r = dgvSinhVien.CurrentCell.RowIndex;
-            // Chuyển thông tin lên panel 
-            txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
-            txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
-            cb_gioiTinh.SelectedItem = cb_gioiTinh.SelectedValue = cb_gioiTinh.Text =  dgvSinhVien.Rows[r].Cells[2].Value.ToString().Trim();
-            dtp_ngaySinh.Text = dgvSinhVien.Rows[r].Cells[3].Value.ToString().Trim();
-            txt_noisinh.Text = dgvSinhVien.Rows[r].Cells[4].Value.ToString().Trim();
-            txt_diachi.Text = dgvSinhVien.Rows[r].Cells[5].Value.ToString().Trim();
-            cb_maLop.SelectedValue = dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim();
-            Console.WriteLine(" cb " +cb_maLop.SelectedValue);
-            Console.WriteLine(dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim());
-            txt_hocbong.Text = dgvSinhVien.Rows[r].Cells[7].Value.ToString().Trim();
+            if(dtb==true)
+            {
+
+            }
+            else
+            {
+                int r = dgvSinhVien.CurrentCell.RowIndex;
+                // Chuyển thông tin lên panel 
+                txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
+                txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
+                cb_gioiTinh.SelectedItem = cb_gioiTinh.SelectedValue = cb_gioiTinh.Text =  dgvSinhVien.Rows[r].Cells[2].Value.ToString().Trim();
+                dtp_ngaySinh.Text = dgvSinhVien.Rows[r].Cells[3].Value.ToString().Trim();
+                txt_noisinh.Text = dgvSinhVien.Rows[r].Cells[4].Value.ToString().Trim();
+                txt_diachi.Text = dgvSinhVien.Rows[r].Cells[5].Value.ToString().Trim();
+                cb_maLop.SelectedValue = dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim();
+                Console.WriteLine(" cb " +cb_maLop.SelectedValue);
+                Console.WriteLine(dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim());
+                txt_hocbong.Text = dgvSinhVien.Rows[r].Cells[7].Value.ToString().Trim();
+            }
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -230,6 +241,7 @@ namespace DBMS_UTEManagement
                 dgvSinhVien.DataSource = dtSinhVien;
                 // Thay đổi độ rộng cột 
                 dgvSinhVien.AutoResizeColumns();
+                SetUpNormalState();
                 SetUpDataList();
             }
             catch (SqlException)
@@ -251,6 +263,7 @@ namespace DBMS_UTEManagement
                 // Thay đổi độ rộng cột 
                 dgvSinhVien.AutoResizeColumns();
                 txt_searchSV.ResetText();
+                SetUpNormalState();
             }
             catch (SqlException)
             {
@@ -281,9 +294,11 @@ namespace DBMS_UTEManagement
             cb_gioiTinh.Enabled = false;
             cb_maLop.Enabled = false;
             dtp_ngaySinh.Enabled = false;
+            dtb = false;
 
             btn_luu.Enabled = false;
             btn_huy.Enabled = false;
+            this.dgvSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             ResetTextAll();
         }
@@ -327,6 +342,15 @@ namespace DBMS_UTEManagement
             cb_maLop.DataSource = dsLop.Tables[0];
             cb_maLop.ValueMember = "MaLop";
             cb_maLop.DisplayMember = "TenLop";
+
+            cb_DTBlop.DataSource = dsLop.Tables[0];
+            cb_DTBlop.ValueMember = "MaLop";
+            cb_DTBlop.DisplayMember = "TenLop";
+
+            DataSet dsKhoa = db.ExcuteQueryDataSet($"select MaKhoa,TenKhoa from Khoa", CommandType.Text);
+            cb_DiemKhoa.DataSource = dsKhoa.Tables[0];
+            cb_DiemKhoa.ValueMember = "MaKhoa";
+            cb_DiemKhoa.DisplayMember = "TenKhoa";
         }
 
         private void btn_BangDiem_Click(object sender, EventArgs e)
@@ -378,6 +402,75 @@ namespace DBMS_UTEManagement
                 {
                     MessageBox.Show("Xuất file không thành công!\n" + ex.Message);
                 }
+            }
+        }
+
+        private void btn_DTBlop_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtb = true;
+                dtSinhVien = new DataTable();
+                dtSinhVien.Clear();
+                DataSet ds = dbSV.DTBtheoLop(cb_DTBlop.SelectedValue.ToString().Trim());
+                dtSinhVien = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView 
+                dgvSinhVien.DataSource = dtSinhVien;
+                this.dgvSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                // Thay đổi độ rộng cột 
+                dgvSinhVien.AutoResizeColumns();
+
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Lỗi rồi");
+            }
+        }
+
+        private void btn_DTBtheokhoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtb = true;
+                dtSinhVien = new DataTable();
+                dtSinhVien.Clear();
+                DataSet ds = dbSV.DTBtheoKhoa(cb_DiemKhoa.SelectedValue.ToString().Trim());
+                dtSinhVien = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView 
+                dgvSinhVien.DataSource = dtSinhVien;
+                this.dgvSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                // Thay đổi độ rộng cột 
+                dgvSinhVien.AutoResizeColumns();
+
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Lỗi rồi");
+            }
+        }
+
+        private void btn_SetHocBong_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dtb = false;
+                dtSinhVien = new DataTable();
+                dtSinhVien.Clear();
+                dbSV.SetHocBongTop5(12675000);
+                DataSet ds = dbSV.LoadDSHocBongTop5();
+                dtSinhVien = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView 
+                dgvSinhVien.DataSource = dtSinhVien;
+                this.dgvSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                // Thay đổi độ rộng cột 
+                dgvSinhVien.AutoResizeColumns();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Lỗi rồi");
             }
         }
     }

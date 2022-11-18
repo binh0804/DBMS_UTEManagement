@@ -80,5 +80,36 @@ namespace DBMS_UTEManagement.BSLayer
             p1.Value = MaLop;
             return db.ExcuteQueryDataSetWithParam("LoadTTLop", CommandType.StoredProcedure, p1);
         }
+
+        public DataSet DTBtheoLop(string Malop)
+        {
+            SqlParameter p1 = new SqlParameter("@string", SqlDbType.Char);
+            p1.Value = Malop;
+
+            return db.ExcuteQueryDataSetWithParam("SELECT * FROM fLoadDTBTheoLop(@string)", CommandType.Text, p1);
+        }
+
+        public DataSet DTBtheoKhoa(string MaKhoa)
+        {
+            SqlParameter p1 = new SqlParameter("@string", SqlDbType.Char);
+            p1.Value = MaKhoa;
+
+            return db.ExcuteQueryDataSetWithParam("SELECT * FROM fLoadDTBTheoKhoa(@string)", CommandType.Text, p1);
+        }
+
+        public DataSet LoadDSHocBongTop5()
+        {
+            return db.ExcuteQueryDataSet($"select * from fLoadHocBongTop5()", CommandType.Text);
+        }
+
+        public bool SetHocBongTop5(int Tien)
+        {
+            SqlParameter p1 = new SqlParameter("@SoTien", SqlDbType.Int);
+            p1.Value = Tien;
+
+            db.ExcuteQueryDataSetWithParam("SetHocBongXuatSac", CommandType.StoredProcedure, p1);
+            return true;
+
+        }
     }
 }

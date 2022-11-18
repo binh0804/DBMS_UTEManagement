@@ -70,5 +70,22 @@ namespace DBMS_UTEManagement.BSLayer
             p6.Value = Nam;
             return db.ExcuteQueryDataSetWithParam("UpdateDiem", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6);
         }
+
+        public DataSet LoadDTBTheoNam(string MSSV)
+        {
+            SqlParameter p1 = new SqlParameter("@string", SqlDbType.NVarChar);
+            p1.Value = MSSV;
+
+            return db.ExcuteQueryDataSetWithParam("SELECT * FROM fLoadDTBTheoNam(@string)", CommandType.Text, p1);
+        }
+
+        public DataSet fLoadDTBTheoNamHocKy(string MSSV,int Nam)
+        {
+            SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.NVarChar);
+            p1.Value = MSSV;
+            SqlParameter p2 = new SqlParameter("@Nam", SqlDbType.Int);
+            p2.Value = Nam;
+            return db.ExcuteQueryDataSetWithParam("SELECT * FROM fLoadDTBTheoNamHocKy(@MaSV,@Nam)", CommandType.Text, p1,p2);
+        }
     }
 }
