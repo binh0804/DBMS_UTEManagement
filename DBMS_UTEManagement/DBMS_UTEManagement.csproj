@@ -73,6 +73,7 @@
     <Compile Include="BSLayer\BSNganhHoc.cs" />
     <Compile Include="BSLayer\BSSinhVien.cs" />
     <Compile Include="BSLayer\BSKhoa.cs" />
+    <Compile Include="BSLayer\BSLogin.cs" />
     <Compile Include="DBLayer\DBMain.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

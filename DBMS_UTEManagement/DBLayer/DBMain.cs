@@ -139,5 +139,26 @@ namespace DBMS_UTEManagement.DBLayer
             }
             return k;
         }
+        public int KiemTra(string strSQL, CommandType ct)
+        {
+            int k = 0;
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
+            conn.Open();
+            comm.CommandText = strSQL;
+            comm.CommandType = ct;
+            try
+            {
+                k = Int32.Parse(comm.ExecuteScalar().ToString());
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return k;
+        }
     }
 }
