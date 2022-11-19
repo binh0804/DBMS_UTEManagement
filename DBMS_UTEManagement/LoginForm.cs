@@ -16,9 +16,11 @@ namespace DBMS_UTEManagement
 {
     public partial class LoginForm : Form
     {
+
         public LoginForm()
         {
             InitializeComponent();
+            DBMain.string_ConnStr = "Data Source = LOJC\\LOJC; Initial Catalog = QuanLySinhVien_UTE; Integrated Security = true";
         }
 
         private void btn_DangNhap_Click(object sender, EventArgs e)
@@ -29,6 +31,7 @@ namespace DBMS_UTEManagement
             } else if ((txt_username.Text == "QuanTri" && txt_password.Text == "123") || (txt_username.Text == "GiangVien" && txt_password.Text == "123")) {
                 DBMain.username = txt_username.Text;
                 DBMain.password = txt_password.Text;
+                DBMain.string_ConnStr = "Data Source=LOJC\\LOJC;Initial Catalog=QuanLySinhVien_UTE;User ID=" + DBMain.username + ";Password=" + DBMain.password + ";";
                 MainForm fr = new MainForm();
                 fr.ShowDialog();
                 Application.Exit();

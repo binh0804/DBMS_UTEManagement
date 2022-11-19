@@ -165,7 +165,10 @@ namespace DBMS_UTEManagement
             // Thứ tự dòng hiện hành 
             if(dtb==true)
             {
-
+                int r = dgvSinhVien.CurrentCell.RowIndex;
+                // Chuyển thông tin lên panel 
+                txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
+                txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
             }
             else
             {
@@ -471,6 +474,26 @@ namespace DBMS_UTEManagement
             catch (SqlException)
             {
                 MessageBox.Show("Lỗi rồi");
+            }
+        }
+
+        private void txt_searchSV_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dtSinhVien = new DataTable();
+                dtSinhVien.Clear();
+                DataSet ds = dbSV.SearchSV(txt_searchSV.Text.Trim());
+                dtSinhVien = ds.Tables[0];
+                // Đưa dữ liệu lên DataGridView 
+                dgvSinhVien.DataSource = dtSinhVien;
+                // Thay đổi độ rộng cột 
+                dgvSinhVien.AutoResizeColumns();
+                SetUpNormalState();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không lấy được nội dung trong table Sinh Vien. Lỗi rồi!!!");
             }
         }
     }

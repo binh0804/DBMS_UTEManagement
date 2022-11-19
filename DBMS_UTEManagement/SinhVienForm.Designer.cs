@@ -55,16 +55,16 @@ namespace DBMS_UTEManagement
             this.cb_maLop = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cb_DiemKhoa = new System.Windows.Forms.ComboBox();
             this.btn_SetHocBong = new System.Windows.Forms.Button();
+            this.btn_DTBtheokhoa = new System.Windows.Forms.Button();
             this.btn_DTBlop = new System.Windows.Forms.Button();
             this.btn_XuatFile = new System.Windows.Forms.Button();
             this.txt_searchSV = new System.Windows.Forms.TextBox();
             this.cb_DTBlop = new System.Windows.Forms.ComboBox();
-            this.btnSearchTTSV = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSinhVien = new System.Windows.Forms.DataGridView();
-            this.cb_DiemKhoa = new System.Windows.Forms.ComboBox();
-            this.btn_DTBtheokhoa = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -344,6 +344,7 @@ namespace DBMS_UTEManagement
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.cb_DiemKhoa);
             this.groupBox3.Controls.Add(this.btn_SetHocBong);
             this.groupBox3.Controls.Add(this.btn_DTBtheokhoa);
@@ -351,13 +352,20 @@ namespace DBMS_UTEManagement
             this.groupBox3.Controls.Add(this.btn_XuatFile);
             this.groupBox3.Controls.Add(this.txt_searchSV);
             this.groupBox3.Controls.Add(this.cb_DTBlop);
-            this.groupBox3.Controls.Add(this.btnSearchTTSV);
             this.groupBox3.Location = new System.Drawing.Point(868, 232);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(414, 155);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm kiếm và bộ lọc";
+            // 
+            // cb_DiemKhoa
+            // 
+            this.cb_DiemKhoa.FormattingEnabled = true;
+            this.cb_DiemKhoa.Location = new System.Drawing.Point(16, 75);
+            this.cb_DiemKhoa.Name = "cb_DiemKhoa";
+            this.cb_DiemKhoa.Size = new System.Drawing.Size(111, 21);
+            this.cb_DiemKhoa.TabIndex = 49;
             // 
             // btn_SetHocBong
             // 
@@ -369,6 +377,16 @@ namespace DBMS_UTEManagement
             this.btn_SetHocBong.Text = "Set học bổng";
             this.btn_SetHocBong.UseVisualStyleBackColor = false;
             this.btn_SetHocBong.Click += new System.EventHandler(this.btn_SetHocBong_Click);
+            // 
+            // btn_DTBtheokhoa
+            // 
+            this.btn_DTBtheokhoa.Location = new System.Drawing.Point(133, 73);
+            this.btn_DTBtheokhoa.Name = "btn_DTBtheokhoa";
+            this.btn_DTBtheokhoa.Size = new System.Drawing.Size(100, 23);
+            this.btn_DTBtheokhoa.TabIndex = 47;
+            this.btn_DTBtheokhoa.Text = "ĐTB theo khoa";
+            this.btn_DTBtheokhoa.UseVisualStyleBackColor = true;
+            this.btn_DTBtheokhoa.Click += new System.EventHandler(this.btn_DTBtheokhoa_Click);
             // 
             // btn_DTBlop
             // 
@@ -393,11 +411,12 @@ namespace DBMS_UTEManagement
             // 
             // txt_searchSV
             // 
-            this.txt_searchSV.Location = new System.Drawing.Point(16, 21);
+            this.txt_searchSV.Location = new System.Drawing.Point(75, 21);
             this.txt_searchSV.Margin = new System.Windows.Forms.Padding(2);
             this.txt_searchSV.Name = "txt_searchSV";
-            this.txt_searchSV.Size = new System.Drawing.Size(215, 20);
+            this.txt_searchSV.Size = new System.Drawing.Size(328, 20);
             this.txt_searchSV.TabIndex = 45;
+            this.txt_searchSV.TextChanged += new System.EventHandler(this.txt_searchSV_TextChanged);
             // 
             // cb_DTBlop
             // 
@@ -409,17 +428,6 @@ namespace DBMS_UTEManagement
             this.cb_DTBlop.Size = new System.Drawing.Size(111, 21);
             this.cb_DTBlop.TabIndex = 44;
             this.cb_DTBlop.ValueMember = "Lop.MaLop";
-            // 
-            // btnSearchTTSV
-            // 
-            this.btnSearchTTSV.Location = new System.Drawing.Point(237, 21);
-            this.btnSearchTTSV.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSearchTTSV.Name = "btnSearchTTSV";
-            this.btnSearchTTSV.Size = new System.Drawing.Size(154, 23);
-            this.btnSearchTTSV.TabIndex = 45;
-            this.btnSearchTTSV.Text = "Tìm kiếm thông tin";
-            this.btnSearchTTSV.UseVisualStyleBackColor = true;
-            this.btnSearchTTSV.Click += new System.EventHandler(this.btnSearchTTSV_Click);
             // 
             // label1
             // 
@@ -442,23 +450,14 @@ namespace DBMS_UTEManagement
             this.dgvSinhVien.TabIndex = 49;
             this.dgvSinhVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSinhVien_CellClick);
             // 
-            // cb_DiemKhoa
+            // label2
             // 
-            this.cb_DiemKhoa.FormattingEnabled = true;
-            this.cb_DiemKhoa.Location = new System.Drawing.Point(16, 75);
-            this.cb_DiemKhoa.Name = "cb_DiemKhoa";
-            this.cb_DiemKhoa.Size = new System.Drawing.Size(111, 21);
-            this.cb_DiemKhoa.TabIndex = 49;
-            // 
-            // btn_DTBtheokhoa
-            // 
-            this.btn_DTBtheokhoa.Location = new System.Drawing.Point(133, 73);
-            this.btn_DTBtheokhoa.Name = "btn_DTBtheokhoa";
-            this.btn_DTBtheokhoa.Size = new System.Drawing.Size(100, 23);
-            this.btn_DTBtheokhoa.TabIndex = 47;
-            this.btn_DTBtheokhoa.Text = "ĐTB theo khoa";
-            this.btn_DTBtheokhoa.UseVisualStyleBackColor = true;
-            this.btn_DTBtheokhoa.Click += new System.EventHandler(this.btn_DTBtheokhoa_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "Tìm kiếm:";
             // 
             // SinhVienForm
             // 
@@ -511,7 +510,6 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSinhVien;
-        private System.Windows.Forms.Button btnSearchTTSV;
         private System.Windows.Forms.TextBox txt_searchSV;
         private System.Windows.Forms.ComboBox cb_maLop;
         private System.Windows.Forms.DateTimePicker dtp_ngaySinh;
@@ -523,5 +521,6 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.Button btn_SetHocBong;
         private System.Windows.Forms.ComboBox cb_DiemKhoa;
         private System.Windows.Forms.Button btn_DTBtheokhoa;
+        private System.Windows.Forms.Label label2;
     }
 }

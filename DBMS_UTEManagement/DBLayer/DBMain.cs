@@ -12,28 +12,42 @@ namespace DBMS_UTEManagement.DBLayer
     internal class DBMain
     {
         static string un, pwd;
-        public static string username { 
+        static string str_ConnStr;
+        public static string string_ConnStr
+        {
+            get
+            {
+                return str_ConnStr;
+            }
+            set
+            {
+                str_ConnStr = value;
+            }
+        }
+        public static string username {
             get
             {
                 return un;
             } set
             {
                 un = value;
-            } 
+            }
         }
         public static string password
         {
-            get { return pwd;}
+            get { return pwd; }
             set { pwd = value; }
         }
-        string ConnStr = "Data Source=LOJC\\LOJC;Initial Catalog=QuanLySinhVien_UTE;Integrated Security=true;";
+
+
+        //string ConnStr = "Data Source=LOJC\\LOJC;Initial Catalog=QuanLySinhVien_UTE;Integrated Security=true;";
         //string ConnStr = "Data Source=LAPTOP-A5B24DCR;Initial Catalog=QuanLySinhVien_UTE;User ID="+username+";Password="+password+";";
         SqlConnection conn = null;
         SqlCommand comm = null;
         SqlDataAdapter da = null;
         public DBMain()
         {
-            conn = new SqlConnection(ConnStr);
+            conn = new SqlConnection(string_ConnStr);
             comm = conn.CreateCommand();
         }
         public DataSet ExcuteQueryDataSet(string strSQL, CommandType commType)
