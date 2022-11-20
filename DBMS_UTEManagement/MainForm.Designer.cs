@@ -73,9 +73,9 @@ namespace DBMS_UTEManagement
             // 
             // panel_Body
             // 
-            this.panel_Body.Location = new System.Drawing.Point(216, 149);
+            this.panel_Body.Location = new System.Drawing.Point(219, 12);
             this.panel_Body.Name = "panel_Body";
-            this.panel_Body.Size = new System.Drawing.Size(1315, 500);
+            this.panel_Body.Size = new System.Drawing.Size(1315, 575);
             this.panel_Body.TabIndex = 6;
             // 
             // pn_SinhVien
@@ -83,7 +83,7 @@ namespace DBMS_UTEManagement
             this.pn_SinhVien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pn_SinhVien.Controls.Add(this.icon_sinhvien);
             this.pn_SinhVien.Controls.Add(this.lb_SinhVien);
-            this.pn_SinhVien.Location = new System.Drawing.Point(0, 250);
+            this.pn_SinhVien.Location = new System.Drawing.Point(0, 210);
             this.pn_SinhVien.Name = "pn_SinhVien";
             this.pn_SinhVien.Size = new System.Drawing.Size(220, 40);
             this.pn_SinhVien.TabIndex = 7;
@@ -118,7 +118,7 @@ namespace DBMS_UTEManagement
             this.pn_NganhHoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pn_NganhHoc.Controls.Add(this.image_NganhHoc);
             this.pn_NganhHoc.Controls.Add(this.lb_NganhHoc);
-            this.pn_NganhHoc.Location = new System.Drawing.Point(0, 300);
+            this.pn_NganhHoc.Location = new System.Drawing.Point(0, 260);
             this.pn_NganhHoc.Name = "pn_NganhHoc";
             this.pn_NganhHoc.Size = new System.Drawing.Size(220, 40);
             this.pn_NganhHoc.TabIndex = 7;
@@ -152,7 +152,7 @@ namespace DBMS_UTEManagement
             this.pn_Khoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pn_Khoa.Controls.Add(this.icon_khoa);
             this.pn_Khoa.Controls.Add(this.lb_Khoa);
-            this.pn_Khoa.Location = new System.Drawing.Point(0, 350);
+            this.pn_Khoa.Location = new System.Drawing.Point(0, 310);
             this.pn_Khoa.Name = "pn_Khoa";
             this.pn_Khoa.Size = new System.Drawing.Size(220, 40);
             this.pn_Khoa.TabIndex = 7;
@@ -186,7 +186,7 @@ namespace DBMS_UTEManagement
             this.pn_Lop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pn_Lop.Controls.Add(this.icon_class);
             this.pn_Lop.Controls.Add(this.lb_Lop);
-            this.pn_Lop.Location = new System.Drawing.Point(0, 400);
+            this.pn_Lop.Location = new System.Drawing.Point(0, 360);
             this.pn_Lop.Name = "pn_Lop";
             this.pn_Lop.Size = new System.Drawing.Size(220, 40);
             this.pn_Lop.TabIndex = 7;
@@ -236,7 +236,7 @@ namespace DBMS_UTEManagement
             this.pn_LogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pn_LogOut.Controls.Add(this.icon_LogOut);
             this.pn_LogOut.Controls.Add(this.lb_LogOut);
-            this.pn_LogOut.Location = new System.Drawing.Point(0, 630);
+            this.pn_LogOut.Location = new System.Drawing.Point(0, 581);
             this.pn_LogOut.Name = "pn_LogOut";
             this.pn_LogOut.Size = new System.Drawing.Size(220, 40);
             this.pn_LogOut.TabIndex = 10;
@@ -279,7 +279,7 @@ namespace DBMS_UTEManagement
             this.pn_KhoaHoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pn_KhoaHoc.Controls.Add(this.icon_KhoaHoc);
             this.pn_KhoaHoc.Controls.Add(this.lb_KhoaHoc);
-            this.pn_KhoaHoc.Location = new System.Drawing.Point(0, 500);
+            this.pn_KhoaHoc.Location = new System.Drawing.Point(0, 460);
             this.pn_KhoaHoc.Name = "pn_KhoaHoc";
             this.pn_KhoaHoc.Size = new System.Drawing.Size(220, 40);
             this.pn_KhoaHoc.TabIndex = 9;
@@ -313,7 +313,7 @@ namespace DBMS_UTEManagement
             this.pn_MonHoc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pn_MonHoc.Controls.Add(this.icon_monhoc);
             this.pn_MonHoc.Controls.Add(this.lb_MonHoc);
-            this.pn_MonHoc.Location = new System.Drawing.Point(0, 450);
+            this.pn_MonHoc.Location = new System.Drawing.Point(0, 410);
             this.pn_MonHoc.Name = "pn_MonHoc";
             this.pn_MonHoc.Size = new System.Drawing.Size(220, 40);
             this.pn_MonHoc.TabIndex = 8;
@@ -347,7 +347,7 @@ namespace DBMS_UTEManagement
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(1544, 661);
+            this.ClientSize = new System.Drawing.Size(1544, 598);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_Body);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

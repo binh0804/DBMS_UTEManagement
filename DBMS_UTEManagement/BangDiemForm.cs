@@ -34,7 +34,7 @@ namespace DBMS_UTEManagement
             checkMSSV = MSSV;
             SetUpNormalState();
             txt_MaSV.Text = checkMSSV;
-            this.dgvDiem.DefaultCellStyle.Font = new Font("Cambria", 10);
+            this.dgvDiem.DefaultCellStyle.Font = new Font("Cambria", 12);
 
             lb_infoSV.Text = TenSV + " - " + MSSV; 
 

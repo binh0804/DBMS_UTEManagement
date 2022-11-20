@@ -11,6 +11,7 @@ namespace DBMS_UTEManagement.DBLayer
 {
     internal class DBMain
     {
+
         static string un, pwd;
         static string str_ConnStr;
         public static string string_ConnStr
@@ -159,6 +160,28 @@ namespace DBMS_UTEManagement.DBLayer
                 conn.Close();
             }
             return k;
+        }
+
+        public byte[] Image(string strSQL, CommandType ct)
+        {
+            byte[] b = null;
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
+            conn.Open();
+            comm.CommandText = strSQL;
+            comm.CommandType = ct;
+            try
+            {
+                b = (byte[])comm.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return b;
         }
     }
 }

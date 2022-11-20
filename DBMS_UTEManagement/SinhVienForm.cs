@@ -31,9 +31,9 @@ namespace DBMS_UTEManagement
         public SinhVienForm()
         {
             InitializeComponent();
-            
+           
             SetUpNormalState();
-            this.dgvSinhVien.DefaultCellStyle.Font = new Font("Cambria", 10);
+            this.dgvSinhVien.DefaultCellStyle.Font = new Font("Cambria", 12);
             this.dgvSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             cb_gioiTinh.SelectedItem = "Nam";
             dgvSinhVien.ReadOnly = true;
@@ -87,6 +87,8 @@ namespace DBMS_UTEManagement
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
+            byte[] ImageSinhVien = ImageToByteArray(AnhSinhVien.Image);
+
             if (Them)
             {
                 try
@@ -104,7 +106,8 @@ namespace DBMS_UTEManagement
                                 txt_noisinh.Text.Trim(), 
                                 txt_diachi.Text.Trim(),
                                 cb_maLop.SelectedValue.ToString().Trim(),
-                                float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat));
+                                float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat),
+                                ImageSinhVien);
                     // Load lại dữ liệu trên DataGridView 
 
                     LoadData();
@@ -135,7 +138,8 @@ namespace DBMS_UTEManagement
                                     txt_noisinh.Text.Trim(),
                                     txt_diachi.Text.Trim(),
                                     cb_maLop.SelectedValue.ToString().Trim(),
-                                    float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat));
+                                    float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat),
+                                    ImageSinhVien);
                     // Load lại dữ liệu trên DataGridView 
                     // Thông báo 
                     LoadData();
@@ -161,6 +165,7 @@ namespace DBMS_UTEManagement
 
         private void dgvSinhVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            BSSinhVien BSSV = new BSSinhVien();
             ResetTextAll();
             // Thứ tự dòng hiện hành 
             if(dtb==true)
@@ -169,10 +174,14 @@ namespace DBMS_UTEManagement
                 // Chuyển thông tin lên panel 
                 txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
                 txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
+                AnhSinhVien.Image = ByteArrayToImage(BSSV.SelectImage(txt_masv.Text));
+
             }
             else
             {
                 int r = dgvSinhVien.CurrentCell.RowIndex;
+
+
                 // Chuyển thông tin lên panel 
                 txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
                 txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
@@ -181,9 +190,10 @@ namespace DBMS_UTEManagement
                 txt_noisinh.Text = dgvSinhVien.Rows[r].Cells[4].Value.ToString().Trim();
                 txt_diachi.Text = dgvSinhVien.Rows[r].Cells[5].Value.ToString().Trim();
                 cb_maLop.SelectedValue = dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim();
-                Console.WriteLine(" cb " +cb_maLop.SelectedValue);
-                Console.WriteLine(dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim());
                 txt_hocbong.Text = dgvSinhVien.Rows[r].Cells[7].Value.ToString().Trim();
+
+                // Ảnh từ database lên
+                AnhSinhVien.Image = ByteArrayToImage(BSSV.SelectImage(txt_masv.Text));
             }
         }
 
@@ -289,6 +299,7 @@ namespace DBMS_UTEManagement
                 this.btn_delete.Enabled = true;
             }
             Them = Sua = false;
+            btn_ThemAnh.Enabled = false;
             txt_diachi.Enabled = false;
             txt_hocbong.Enabled = false;
             txt_masv.Enabled = false;
@@ -302,7 +313,7 @@ namespace DBMS_UTEManagement
             btn_luu.Enabled = false;
             btn_huy.Enabled = false;
             this.dgvSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
+            AnhSinhVien.Image = null;
             ResetTextAll();
         }
 
@@ -328,7 +339,7 @@ namespace DBMS_UTEManagement
             cb_gioiTinh.Enabled = true;
             cb_maLop.Enabled = true;
             dtp_ngaySinh.Enabled = true;
-
+            btn_ThemAnh.Enabled = true;
             btn_luu.Enabled = true;
             btn_huy.Enabled = true;
 
@@ -495,6 +506,29 @@ namespace DBMS_UTEManagement
             {
                 MessageBox.Show("Không lấy được nội dung trong table Sinh Vien. Lỗi rồi!!!");
             }
+        }
+
+        private void btn_ThemAnh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            if(open.ShowDialog()==DialogResult.OK)
+            {
+                AnhSinhVien.Image = Image.FromFile(open.FileName);
+                this.Text = open.FileName;
+            }
+        }
+        // Chuyển image sang byte
+        byte[] ImageToByteArray(Image img)
+        {
+            MemoryStream m = new MemoryStream();
+            img.Save(m, System.Drawing.Imaging.ImageFormat.Png);
+            return m.ToArray();
+        }
+        // Chuyển từ byte sang image
+        Image ByteArrayToImage(byte[] b)
+        {
+            MemoryStream m = new MemoryStream(b);
+            return Image.FromStream(m);
         }
     }
 }

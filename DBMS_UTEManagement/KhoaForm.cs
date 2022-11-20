@@ -27,7 +27,7 @@ namespace DBMS_UTEManagement
         {
             InitializeComponent();
             SetUpNormalState();
-            this.dgvKhoa.DefaultCellStyle.Font = new Font("Cambria", 10);
+            this.dgvKhoa.DefaultCellStyle.Font = new Font("Cambria", 12);
 
             dgvKhoa.ReadOnly = true;
             if (username == "GiangVien")
