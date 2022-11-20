@@ -40,6 +40,7 @@ namespace DBMS_UTEManagement
                     {
                         DBMain.username = "GiangVien";
                     }
+                    this.Hide();
                     MainForm fr = new MainForm();
                     fr.ShowDialog();
                     Application.Exit();
@@ -58,7 +59,23 @@ namespace DBMS_UTEManagement
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult traloi;
+            traloi = MessageBox.Show("Bạn có muốn thoát không?", "Trả lời",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (traloi == DialogResult.Yes)
+                this.Close();
+        }
+
+        private void icon_password_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(txt_password.PasswordChar == '*')
+            {
+                txt_password.PasswordChar = '\0';
+            }
+            else if(txt_password.PasswordChar == '\0')
+            {
+                txt_password.PasswordChar = '*';
+            }
         }
     }
 }

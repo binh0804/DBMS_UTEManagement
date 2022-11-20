@@ -44,6 +44,9 @@ namespace DBMS_UTEManagement
             this.icon_class = new System.Windows.Forms.PictureBox();
             this.lb_Lop = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pn_LogOut = new System.Windows.Forms.Panel();
+            this.icon_LogOut = new System.Windows.Forms.PictureBox();
+            this.lb_LogOut = new System.Windows.Forms.Label();
             this.pn_logo = new System.Windows.Forms.Panel();
             this.pn_KhoaHoc = new System.Windows.Forms.Panel();
             this.icon_KhoaHoc = new System.Windows.Forms.PictureBox();
@@ -60,6 +63,8 @@ namespace DBMS_UTEManagement
             this.pn_Lop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_class)).BeginInit();
             this.panel1.SuspendLayout();
+            this.pn_LogOut.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_LogOut)).BeginInit();
             this.pn_KhoaHoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_KhoaHoc)).BeginInit();
             this.pn_MonHoc.SuspendLayout();
@@ -213,6 +218,7 @@ namespace DBMS_UTEManagement
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(123)))), ((int)(((byte)(247)))));
+            this.panel1.Controls.Add(this.pn_LogOut);
             this.panel1.Controls.Add(this.pn_logo);
             this.panel1.Controls.Add(this.pn_KhoaHoc);
             this.panel1.Controls.Add(this.pn_MonHoc);
@@ -224,6 +230,40 @@ namespace DBMS_UTEManagement
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(217, 717);
             this.panel1.TabIndex = 0;
+            // 
+            // pn_LogOut
+            // 
+            this.pn_LogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pn_LogOut.Controls.Add(this.icon_LogOut);
+            this.pn_LogOut.Controls.Add(this.lb_LogOut);
+            this.pn_LogOut.Location = new System.Drawing.Point(0, 630);
+            this.pn_LogOut.Name = "pn_LogOut";
+            this.pn_LogOut.Size = new System.Drawing.Size(220, 40);
+            this.pn_LogOut.TabIndex = 10;
+            this.pn_LogOut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_LogOut_MouseClick);
+            // 
+            // icon_LogOut
+            // 
+            this.icon_LogOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_LogOut.BackgroundImage")));
+            this.icon_LogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.icon_LogOut.Location = new System.Drawing.Point(20, 5);
+            this.icon_LogOut.Name = "icon_LogOut";
+            this.icon_LogOut.Size = new System.Drawing.Size(30, 30);
+            this.icon_LogOut.TabIndex = 9;
+            this.icon_LogOut.TabStop = false;
+            this.icon_LogOut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_LogOut_MouseClick);
+            // 
+            // lb_LogOut
+            // 
+            this.lb_LogOut.AutoSize = true;
+            this.lb_LogOut.Font = new System.Drawing.Font("Cambria", 15.75F);
+            this.lb_LogOut.ForeColor = System.Drawing.Color.White;
+            this.lb_LogOut.Location = new System.Drawing.Point(60, 9);
+            this.lb_LogOut.Name = "lb_LogOut";
+            this.lb_LogOut.Size = new System.Drawing.Size(79, 25);
+            this.lb_LogOut.TabIndex = 8;
+            this.lb_LogOut.Text = "Log out";
+            this.lb_LogOut.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pn_LogOut_MouseClick);
             // 
             // pn_logo
             // 
@@ -328,6 +368,9 @@ namespace DBMS_UTEManagement
             this.pn_Lop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_class)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.pn_LogOut.ResumeLayout(false);
+            this.pn_LogOut.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_LogOut)).EndInit();
             this.pn_KhoaHoc.ResumeLayout(false);
             this.pn_KhoaHoc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_KhoaHoc)).EndInit();
@@ -360,6 +403,9 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.PictureBox icon_khoa;
         private System.Windows.Forms.PictureBox icon_monhoc;
         private System.Windows.Forms.PictureBox icon_KhoaHoc;
+        private System.Windows.Forms.Panel pn_LogOut;
+        private System.Windows.Forms.PictureBox icon_LogOut;
+        private System.Windows.Forms.Label lb_LogOut;
     }
 }
 

@@ -300,7 +300,7 @@ namespace DBMS_UTEManagement
 
         private void image_Back_MouseClick(object sender, MouseEventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
         private void ExportExcel(string path)
         {
@@ -380,5 +380,6 @@ namespace DBMS_UTEManagement
                 }
             }
         }
+
     }
 }

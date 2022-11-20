@@ -56,13 +56,13 @@ namespace DBMS_UTEManagement
             this.txt_LanThi = new System.Windows.Forms.TextBox();
             this.dgvDiem = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cb_ChonNam = new System.Windows.Forms.ComboBox();
+            this.rd_NamvaHocKy = new System.Windows.Forms.RadioButton();
+            this.rd_Nam = new System.Windows.Forms.RadioButton();
             this.btn_Loc = new System.Windows.Forms.Button();
             this.image_Back = new System.Windows.Forms.PictureBox();
             this.lb_ketqua = new System.Windows.Forms.Label();
             this.lb_infoSV = new System.Windows.Forms.Label();
-            this.rd_Nam = new System.Windows.Forms.RadioButton();
-            this.rd_NamvaHocKy = new System.Windows.Forms.RadioButton();
-            this.cb_ChonNam = new System.Windows.Forms.ComboBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -352,6 +352,47 @@ namespace DBMS_UTEManagement
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kết quả học tập";
             // 
+            // cb_ChonNam
+            // 
+            this.cb_ChonNam.FormattingEnabled = true;
+            this.cb_ChonNam.Items.AddRange(new object[] {
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025"});
+            this.cb_ChonNam.Location = new System.Drawing.Point(193, 35);
+            this.cb_ChonNam.Name = "cb_ChonNam";
+            this.cb_ChonNam.Size = new System.Drawing.Size(121, 21);
+            this.cb_ChonNam.TabIndex = 6;
+            this.cb_ChonNam.Text = "2022";
+            // 
+            // rd_NamvaHocKy
+            // 
+            this.rd_NamvaHocKy.AutoSize = true;
+            this.rd_NamvaHocKy.Location = new System.Drawing.Point(90, 36);
+            this.rd_NamvaHocKy.Name = "rd_NamvaHocKy";
+            this.rd_NamvaHocKy.Size = new System.Drawing.Size(97, 17);
+            this.rd_NamvaHocKy.TabIndex = 5;
+            this.rd_NamvaHocKy.TabStop = true;
+            this.rd_NamvaHocKy.Text = "Năm và học kỳ";
+            this.rd_NamvaHocKy.UseVisualStyleBackColor = true;
+            // 
+            // rd_Nam
+            // 
+            this.rd_Nam.AutoSize = true;
+            this.rd_Nam.Location = new System.Drawing.Point(19, 36);
+            this.rd_Nam.Name = "rd_Nam";
+            this.rd_Nam.Size = new System.Drawing.Size(47, 17);
+            this.rd_Nam.TabIndex = 4;
+            this.rd_Nam.TabStop = true;
+            this.rd_Nam.Text = "Năm";
+            this.rd_Nam.UseVisualStyleBackColor = true;
+            // 
             // btn_Loc
             // 
             this.btn_Loc.Location = new System.Drawing.Point(335, 35);
@@ -390,47 +431,6 @@ namespace DBMS_UTEManagement
             this.lb_infoSV.Size = new System.Drawing.Size(35, 13);
             this.lb_infoSV.TabIndex = 26;
             this.lb_infoSV.Text = "label1";
-            // 
-            // rd_Nam
-            // 
-            this.rd_Nam.AutoSize = true;
-            this.rd_Nam.Location = new System.Drawing.Point(19, 36);
-            this.rd_Nam.Name = "rd_Nam";
-            this.rd_Nam.Size = new System.Drawing.Size(47, 17);
-            this.rd_Nam.TabIndex = 4;
-            this.rd_Nam.TabStop = true;
-            this.rd_Nam.Text = "Năm";
-            this.rd_Nam.UseVisualStyleBackColor = true;
-            // 
-            // rd_NamvaHocKy
-            // 
-            this.rd_NamvaHocKy.AutoSize = true;
-            this.rd_NamvaHocKy.Location = new System.Drawing.Point(90, 36);
-            this.rd_NamvaHocKy.Name = "rd_NamvaHocKy";
-            this.rd_NamvaHocKy.Size = new System.Drawing.Size(97, 17);
-            this.rd_NamvaHocKy.TabIndex = 5;
-            this.rd_NamvaHocKy.TabStop = true;
-            this.rd_NamvaHocKy.Text = "Năm và học kỳ";
-            this.rd_NamvaHocKy.UseVisualStyleBackColor = true;
-            // 
-            // cb_ChonNam
-            // 
-            this.cb_ChonNam.FormattingEnabled = true;
-            this.cb_ChonNam.Items.AddRange(new object[] {
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
-            "2024",
-            "2025"});
-            this.cb_ChonNam.Location = new System.Drawing.Point(193, 35);
-            this.cb_ChonNam.Name = "cb_ChonNam";
-            this.cb_ChonNam.Size = new System.Drawing.Size(121, 21);
-            this.cb_ChonNam.TabIndex = 6;
-            this.cb_ChonNam.Text = "2022";
             // 
             // BangDiemForm
             // 

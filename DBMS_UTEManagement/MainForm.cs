@@ -99,7 +99,7 @@ namespace DBMS_UTEManagement
             lb_Khoa.ForeColor = Color.White;
             lb_MonHoc.ForeColor = Color.White;
             lb_KhoaHoc.ForeColor = Color.White;
-
+            lb_LogOut.ForeColor = Color.White;
 
             pn_SinhVien.BackColor = Color.FromArgb(40, 123, 247);
             pn_NganhHoc.BackColor = Color.FromArgb(40, 123, 247);
@@ -107,8 +107,23 @@ namespace DBMS_UTEManagement
             pn_Lop.BackColor = Color.FromArgb(40, 123, 247);
             pn_MonHoc.BackColor = Color.FromArgb(40, 123, 247);
             pn_KhoaHoc.BackColor = Color.FromArgb(40, 123, 247);
-
+            pn_LogOut.BackColor = Color.FromArgb(40, 123, 247);
         }
 
+        private void pn_LogOut_MouseClick(object sender, MouseEventArgs e)
+        {
+            ResetColor();
+            lb_LogOut.ForeColor = Color.FromArgb(40, 123, 247);
+            pn_LogOut.BackColor = Color.White;
+            DialogResult traloi;
+            traloi = MessageBox.Show("Bạn có muốn đăng xuất không?", "Trả lời",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (traloi == DialogResult.Yes)
+            {
+                LoginForm lg = new LoginForm();
+                this.Hide();
+                lg.ShowDialog();
+            }    
+        }
     }
 }
