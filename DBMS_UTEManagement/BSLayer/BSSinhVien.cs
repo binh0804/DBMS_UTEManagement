@@ -28,7 +28,7 @@ namespace DBMS_UTEManagement.BSLayer
 
             return db.ExcuteQueryDataSetWithParam("SELECT * FROM fSearch(@string)", CommandType.Text, p1);
         }
-        public DataSet AddSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, string MaLop, float HocBong, byte[] Anh)
+        public bool AddSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, string MaLop, float HocBong, byte[] Anh)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -48,7 +48,7 @@ namespace DBMS_UTEManagement.BSLayer
             p8.Value = HocBong;
             SqlParameter p9 = new SqlParameter("@Anh", SqlDbType.VarBinary);
             p9.Value = Anh;
-            return db.ExcuteQueryDataSetWithParam("InsertStudentTransaction", CommandType.StoredProcedure, p1,p2,p3,p4,p5,p6,p7,p8,p9);
+            return db.MyExcuteNonQuery("InsertStudentTransaction", CommandType.StoredProcedure, p1,p2,p3,p4,p5,p6,p7,p8,p9);
         }
         public DataSet DeleteTTSV(string MaSV)
         {
