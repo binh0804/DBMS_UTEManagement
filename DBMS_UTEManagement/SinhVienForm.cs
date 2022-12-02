@@ -27,7 +27,7 @@ namespace DBMS_UTEManagement
         bool Them = false;
         bool Sua = false;
         string err;
-        bool dtb = false;
+        bool bool_checkDGV = false;
         public SinhVienForm()
         {
             InitializeComponent();
@@ -95,10 +95,6 @@ namespace DBMS_UTEManagement
                 {
                     BSSinhVien BSSV = new BSSinhVien();
                     // Thực hiện lệnh 
-                    Console.WriteLine(cb_gioiTinh.Text.ToString().Trim());
-                    Console.WriteLine(cb_maLop.SelectedValue.ToString().Trim());
-                    Console.WriteLine(dtp_ngaySinh.Value.Date);
-                    Console.WriteLine(float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat));
                     BSSV.AddSV( txt_masv.Text.Trim(), 
                                 txt_tensv.Text.Trim(),
                                 cb_gioiTinh.Text.ToString().Trim(), 
@@ -106,7 +102,6 @@ namespace DBMS_UTEManagement
                                 txt_noisinh.Text.Trim(), 
                                 txt_diachi.Text.Trim(),
                                 cb_maLop.SelectedValue.ToString().Trim(),
-                                float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat),
                                 ImageSinhVien);
                     // Load lại dữ liệu trên DataGridView 
 
@@ -138,7 +133,6 @@ namespace DBMS_UTEManagement
                                     txt_noisinh.Text.Trim(),
                                     txt_diachi.Text.Trim(),
                                     cb_maLop.SelectedValue.ToString().Trim(),
-                                    float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat),
                                     ImageSinhVien);
                     // Load lại dữ liệu trên DataGridView 
                     // Thông báo 
@@ -170,7 +164,7 @@ namespace DBMS_UTEManagement
             // Thứ tự dòng hiện hành
             try
             {
-                if (dtb == true)
+                if (bool_checkDGV == true)
                 {
                     int r = dgvSinhVien.CurrentCell.RowIndex;
                     // Chuyển thông tin lên panel 
@@ -179,7 +173,7 @@ namespace DBMS_UTEManagement
                     AnhSinhVien.Image = ByteArrayToImage(BSSV.SelectImage(txt_masv.Text));
 
                 }
-                else
+                else if(bool_checkDGV == false)
                 {
                     int r = dgvSinhVien.CurrentCell.RowIndex;
 
@@ -192,7 +186,6 @@ namespace DBMS_UTEManagement
                     txt_noisinh.Text = dgvSinhVien.Rows[r].Cells[4].Value.ToString().Trim();
                     txt_diachi.Text = dgvSinhVien.Rows[r].Cells[5].Value.ToString().Trim();
                     cb_maLop.SelectedValue = dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim();
-                    txt_hocbong.Text = dgvSinhVien.Rows[r].Cells[7].Value.ToString().Trim();
 
                     // Ảnh từ database lên
                     AnhSinhVien.Image = ByteArrayToImage(BSSV.SelectImage(txt_masv.Text));
@@ -311,14 +304,13 @@ namespace DBMS_UTEManagement
             Them = Sua = false;
             btn_ThemAnh.Enabled = false;
             txt_diachi.Enabled = false;
-            txt_hocbong.Enabled = false;
             txt_masv.Enabled = false;
             txt_noisinh.Enabled = false;
             txt_tensv.Enabled = false;
             cb_gioiTinh.Enabled = false;
             cb_maLop.Enabled = false;
             dtp_ngaySinh.Enabled = false;
-            dtb = false;
+            bool_checkDGV = false;
 
             btn_luu.Enabled = false;
             btn_huy.Enabled = false;
@@ -333,7 +325,6 @@ namespace DBMS_UTEManagement
             txt_tensv.ResetText();
             txt_noisinh.ResetText();
             txt_diachi.ResetText();
-            txt_hocbong.ResetText();
             cb_gioiTinh.ResetText();
             cb_maLop.ResetText();
             dtp_ngaySinh.ResetText();
@@ -342,7 +333,6 @@ namespace DBMS_UTEManagement
         private void SetUpAddState()
         {
             txt_diachi.Enabled = true;
-            txt_hocbong.Enabled = true;
             txt_masv.Enabled = true;
             txt_noisinh.Enabled = true;
             txt_tensv.Enabled = true;
@@ -433,7 +423,7 @@ namespace DBMS_UTEManagement
         {
             try
             {
-                dtb = true;
+                bool_checkDGV = true;
                 dtSinhVien = new DataTable();
                 dtSinhVien.Clear();
                 DataSet ds = dbSV.DTBtheoLop(cb_DTBlop.SelectedValue.ToString().Trim());
@@ -456,8 +446,8 @@ namespace DBMS_UTEManagement
         {
             try
             {
-                dtb = true;
-               
+                bool_checkDGV = true;
+
                 dtSinhVien = new DataTable();
                 dtSinhVien.Clear();
                 DataSet ds = dbSV.DTBtheoKhoa(cb_DiemKhoa.SelectedValue.ToString().Trim());
@@ -480,15 +470,19 @@ namespace DBMS_UTEManagement
         {
             try
             {
-                dtb = false;
+                bool_checkDGV = true;
+
                 dtSinhVien = new DataTable();
                 dtSinhVien.Clear();
-                dbSV.SetHocBongTop5(12675000);
-                DataSet ds = dbSV.LoadDSHocBongTop5();
+                DataSet ds = dbSV.DanhSachHocBong(
+                                                    int.Parse(txt_TopHocBong.Text),
+                                                    int.Parse(cb_HocKy.Text),
+                                                    int.Parse(cb_NamHoc.Text),
+                                                    cb_DiemKhoa.SelectedValue.ToString().Trim()
+                    );
                 dtSinhVien = ds.Tables[0];
                 // Đưa dữ liệu lên DataGridView 
                 dgvSinhVien.DataSource = dtSinhVien;
-                this.dgvSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
                 // Thay đổi độ rộng cột 
                 dgvSinhVien.AutoResizeColumns();
@@ -541,15 +535,9 @@ namespace DBMS_UTEManagement
             MemoryStream m = new MemoryStream(b);
             return Image.FromStream(m);
         }
+
+
     }
 }
 
 
-//Console.WriteLine(txt_masv.Text.Trim());
-//Console.WriteLine(txt_tensv.Text.Trim());
-//Console.WriteLine(cb_gioiTinh.Text.ToString().Trim());
-//Console.WriteLine(dtp_ngaySinh.Value.Date);
-//Console.WriteLine(txt_noisinh.Text.Trim());
-//Console.WriteLine(txt_diachi.Text.Trim());
-//Console.WriteLine(float.Parse(txt_hocbong.Text, CultureInfo.InvariantCulture.NumberFormat));
-//Console.WriteLine(cb_maLop.SelectedValue.ToString().Trim());

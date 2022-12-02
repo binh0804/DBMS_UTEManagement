@@ -28,7 +28,7 @@ namespace DBMS_UTEManagement.BSLayer
 
             return db.ExcuteQueryDataSetWithParam("SELECT * FROM fSearch(@string)", CommandType.Text, p1);
         }
-        public void AddSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, string MaLop, float HocBong, byte[] Anh)
+        public void AddSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, string MaLop, byte[] Anh)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -44,11 +44,9 @@ namespace DBMS_UTEManagement.BSLayer
             p6.Value = DiaChi;
             SqlParameter p7 = new SqlParameter("@MaLop", SqlDbType.Char);
             p7.Value = MaLop;
-            SqlParameter p8 = new SqlParameter("@HocBong", SqlDbType.Int);
-            p8.Value = HocBong;
-            SqlParameter p9 = new SqlParameter("@Anh", SqlDbType.VarBinary);
-            p9.Value = Anh;
-            db.MyExcuteNonQuery("InsertStudentTransaction", CommandType.StoredProcedure, p1,p2,p3,p4,p5,p6,p7,p8,p9);
+            SqlParameter p8 = new SqlParameter("@Anh", SqlDbType.VarBinary);
+            p8.Value = Anh;
+            db.MyExcuteNonQuery("InsertStudentTransaction", CommandType.StoredProcedure, p1,p2,p3,p4,p5,p6,p7,p8);
         }
         public void DeleteTTSV(string MaSV)
         {
@@ -56,7 +54,7 @@ namespace DBMS_UTEManagement.BSLayer
             p1.Value = MaSV;
             db.MyExcuteNonQuery("DeleteTTSV", CommandType.StoredProcedure, p1);
         }
-        public void UpdateSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, string MaLop, float HocBong, byte[] Anh)
+        public void UpdateSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, string MaLop, byte[] Anh)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -72,11 +70,9 @@ namespace DBMS_UTEManagement.BSLayer
             p6.Value = DiaChi;
             SqlParameter p7 = new SqlParameter("@MaLop", SqlDbType.Char);
             p7.Value = MaLop;
-            SqlParameter p8 = new SqlParameter("@HocBong", SqlDbType.Int);
-            p8.Value = HocBong;
-            SqlParameter p9 = new SqlParameter("@Anh", SqlDbType.VarBinary);
-            p9.Value = Anh;
-            db.MyExcuteNonQuery("UpdateStudentTransaction", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6, p7, p8,p9);
+            SqlParameter p8 = new SqlParameter("@Anh", SqlDbType.VarBinary);
+            p8.Value = Anh;
+            db.MyExcuteNonQuery("UpdateStudentTransaction", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6, p7, p8);
         }
         public DataSet LoadDSSVLop(string MaLop)
         {
@@ -101,18 +97,19 @@ namespace DBMS_UTEManagement.BSLayer
             return db.ExcuteQueryDataSetWithParam("SELECT * FROM fLoadDTBTheoKhoa(@string)", CommandType.Text, p1);
         }
 
-        public DataSet LoadDSHocBongTop5()
+        public DataSet DanhSachHocBong (int Top,int HocKy, int Nam, string Khoa)
         {
-            return db.ExcuteQueryDataSet($"select * from fLoadHocBongTop5()", CommandType.Text);
+            SqlParameter p1 = new SqlParameter("@Top", SqlDbType.Int);
+            p1.Value = Top;
+            SqlParameter p2 = new SqlParameter("@HocKy", SqlDbType.Int);
+            p2.Value = HocKy;
+            SqlParameter p3 = new SqlParameter("@Nam", SqlDbType.Int);
+            p3.Value = Nam;
+            SqlParameter p4 = new SqlParameter("@Khoa", SqlDbType.Char);
+            p4.Value = Khoa;
+            return db.ExcuteQueryDataSetWithParam($"select * from GetDanhSachHocBongTheoKhoaVaHocKy(@Top,@HocKy,@Nam,@Khoa)", CommandType.Text,p1,p2,p3,p4);
         }
 
-        public void SetHocBongTop5(int Tien)
-        {
-            SqlParameter p1 = new SqlParameter("@SoTien", SqlDbType.Int);
-            p1.Value = Tien;
-
-            db.MyExcuteNonQuery("SetHocBongXuatSac", CommandType.StoredProcedure, p1);
-        }
         public byte[] SelectImage(string MaSV)
         {
             string sqlString = "select Anh from SinhVien where MaSV = '" + MaSV + "'";

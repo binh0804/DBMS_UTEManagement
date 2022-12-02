@@ -32,8 +32,6 @@ namespace DBMS_UTEManagement
             this.malop = new System.Windows.Forms.Label();
             this.btn_huy = new System.Windows.Forms.Button();
             this.btn_luu = new System.Windows.Forms.Button();
-            this.txt_hocbong = new System.Windows.Forms.TextBox();
-            this.HocBong = new System.Windows.Forms.Label();
             this.DiaChi = new System.Windows.Forms.Label();
             this.NgaySinh = new System.Windows.Forms.Label();
             this.NoiSinh = new System.Windows.Forms.Label();
@@ -58,6 +56,14 @@ namespace DBMS_UTEManagement
             this.cb_maLop = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cb_NamHoc = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cb_HocKy = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_TopHocBong = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cb_DiemKhoa = new System.Windows.Forms.ComboBox();
             this.btn_SetHocBong = new System.Windows.Forms.Button();
@@ -78,7 +84,7 @@ namespace DBMS_UTEManagement
             // malop
             // 
             this.malop.AutoSize = true;
-            this.malop.Location = new System.Drawing.Point(208, 199);
+            this.malop.Location = new System.Drawing.Point(208, 169);
             this.malop.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.malop.Name = "malop";
             this.malop.Size = new System.Drawing.Size(46, 13);
@@ -87,10 +93,10 @@ namespace DBMS_UTEManagement
             // 
             // btn_huy
             // 
-            this.btn_huy.Location = new System.Drawing.Point(337, 223);
+            this.btn_huy.Location = new System.Drawing.Point(343, 230);
             this.btn_huy.Margin = new System.Windows.Forms.Padding(2);
             this.btn_huy.Name = "btn_huy";
-            this.btn_huy.Size = new System.Drawing.Size(70, 25);
+            this.btn_huy.Size = new System.Drawing.Size(64, 25);
             this.btn_huy.TabIndex = 42;
             this.btn_huy.Text = "Hủy";
             this.btn_huy.UseVisualStyleBackColor = true;
@@ -98,7 +104,7 @@ namespace DBMS_UTEManagement
             // 
             // btn_luu
             // 
-            this.btn_luu.Location = new System.Drawing.Point(233, 223);
+            this.btn_luu.Location = new System.Drawing.Point(269, 230);
             this.btn_luu.Margin = new System.Windows.Forms.Padding(2);
             this.btn_luu.Name = "btn_luu";
             this.btn_luu.Size = new System.Drawing.Size(70, 25);
@@ -106,24 +112,6 @@ namespace DBMS_UTEManagement
             this.btn_luu.Text = "Lưu";
             this.btn_luu.UseVisualStyleBackColor = true;
             this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
-            // 
-            // txt_hocbong
-            // 
-            this.txt_hocbong.Location = new System.Drawing.Point(287, 163);
-            this.txt_hocbong.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_hocbong.Name = "txt_hocbong";
-            this.txt_hocbong.Size = new System.Drawing.Size(120, 20);
-            this.txt_hocbong.TabIndex = 40;
-            // 
-            // HocBong
-            // 
-            this.HocBong.AutoSize = true;
-            this.HocBong.Location = new System.Drawing.Point(208, 169);
-            this.HocBong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.HocBong.Name = "HocBong";
-            this.HocBong.Size = new System.Drawing.Size(57, 13);
-            this.HocBong.TabIndex = 39;
-            this.HocBong.Text = "Học bổng:";
             // 
             // DiaChi
             // 
@@ -148,7 +136,7 @@ namespace DBMS_UTEManagement
             // NoiSinh
             // 
             this.NoiSinh.AutoSize = true;
-            this.NoiSinh.Location = new System.Drawing.Point(10, 199);
+            this.NoiSinh.Location = new System.Drawing.Point(208, 199);
             this.NoiSinh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.NoiSinh.Name = "NoiSinh";
             this.NoiSinh.Size = new System.Drawing.Size(48, 13);
@@ -195,10 +183,10 @@ namespace DBMS_UTEManagement
             // 
             // txt_noisinh
             // 
-            this.txt_noisinh.Location = new System.Drawing.Point(62, 193);
+            this.txt_noisinh.Location = new System.Drawing.Point(287, 194);
             this.txt_noisinh.Margin = new System.Windows.Forms.Padding(2);
             this.txt_noisinh.Name = "txt_noisinh";
-            this.txt_noisinh.Size = new System.Drawing.Size(117, 20);
+            this.txt_noisinh.Size = new System.Drawing.Size(120, 20);
             this.txt_noisinh.TabIndex = 30;
             // 
             // txt_tensv
@@ -277,8 +265,6 @@ namespace DBMS_UTEManagement
             this.groupBox1.Controls.Add(this.malop);
             this.groupBox1.Controls.Add(this.txt_tensv);
             this.groupBox1.Controls.Add(this.TenSV);
-            this.groupBox1.Controls.Add(this.txt_hocbong);
-            this.groupBox1.Controls.Add(this.HocBong);
             this.groupBox1.Controls.Add(this.txt_noisinh);
             this.groupBox1.Controls.Add(this.DiaChi);
             this.groupBox1.Controls.Add(this.GioiTinh);
@@ -287,14 +273,14 @@ namespace DBMS_UTEManagement
             this.groupBox1.Controls.Add(this.txt_diachi);
             this.groupBox1.Location = new System.Drawing.Point(871, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(432, 306);
+            this.groupBox1.Size = new System.Drawing.Size(432, 265);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết sinh viên";
             // 
             // btn_ThemAnh
             // 
-            this.btn_ThemAnh.Location = new System.Drawing.Point(62, 223);
+            this.btn_ThemAnh.Location = new System.Drawing.Point(59, 199);
             this.btn_ThemAnh.Name = "btn_ThemAnh";
             this.btn_ThemAnh.Size = new System.Drawing.Size(117, 25);
             this.btn_ThemAnh.TabIndex = 50;
@@ -305,7 +291,7 @@ namespace DBMS_UTEManagement
             // Anh
             // 
             this.Anh.AutoSize = true;
-            this.Anh.Location = new System.Drawing.Point(10, 229);
+            this.Anh.Location = new System.Drawing.Point(7, 205);
             this.Anh.Name = "Anh";
             this.Anh.Size = new System.Drawing.Size(29, 13);
             this.Anh.TabIndex = 49;
@@ -322,11 +308,11 @@ namespace DBMS_UTEManagement
             // 
             // btn_BangDiem
             // 
-            this.btn_BangDiem.Location = new System.Drawing.Point(13, 263);
+            this.btn_BangDiem.Location = new System.Drawing.Point(10, 230);
             this.btn_BangDiem.Name = "btn_BangDiem";
-            this.btn_BangDiem.Size = new System.Drawing.Size(97, 25);
+            this.btn_BangDiem.Size = new System.Drawing.Size(114, 25);
             this.btn_BangDiem.TabIndex = 47;
-            this.btn_BangDiem.Text = "Bảng điểm";
+            this.btn_BangDiem.Text = "Bảng điểm sinh viên";
             this.btn_BangDiem.UseVisualStyleBackColor = true;
             this.btn_BangDiem.Click += new System.EventHandler(this.btn_BangDiem_Click);
             // 
@@ -357,7 +343,7 @@ namespace DBMS_UTEManagement
             // 
             this.cb_maLop.DisplayMember = "Lop.MaLop";
             this.cb_maLop.FormattingEnabled = true;
-            this.cb_maLop.Location = new System.Drawing.Point(287, 193);
+            this.cb_maLop.Location = new System.Drawing.Point(287, 164);
             this.cb_maLop.Margin = new System.Windows.Forms.Padding(2);
             this.cb_maLop.Name = "cb_maLop";
             this.cb_maLop.Size = new System.Drawing.Size(120, 21);
@@ -379,6 +365,14 @@ namespace DBMS_UTEManagement
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.cb_NamHoc);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.cb_HocKy);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.txt_TopHocBong);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.cb_DiemKhoa);
             this.groupBox3.Controls.Add(this.btn_SetHocBong);
@@ -387,12 +381,96 @@ namespace DBMS_UTEManagement
             this.groupBox3.Controls.Add(this.btn_XuatFile);
             this.groupBox3.Controls.Add(this.txt_searchSV);
             this.groupBox3.Controls.Add(this.cb_DTBlop);
-            this.groupBox3.Location = new System.Drawing.Point(871, 345);
+            this.groupBox3.Location = new System.Drawing.Point(871, 304);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(435, 155);
+            this.groupBox3.Size = new System.Drawing.Size(432, 196);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tìm kiếm và bộ lọc";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(133, 118);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(32, 13);
+            this.label7.TabIndex = 58;
+            this.label7.Text = "Năm:";
+            // 
+            // cb_NamHoc
+            // 
+            this.cb_NamHoc.FormattingEnabled = true;
+            this.cb_NamHoc.Items.AddRange(new object[] {
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025"});
+            this.cb_NamHoc.Location = new System.Drawing.Point(171, 115);
+            this.cb_NamHoc.Name = "cb_NamHoc";
+            this.cb_NamHoc.Size = new System.Drawing.Size(52, 21);
+            this.cb_NamHoc.TabIndex = 57;
+            this.cb_NamHoc.Text = "2022";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 118);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.TabIndex = 56;
+            this.label6.Text = "Học kì:";
+            // 
+            // cb_HocKy
+            // 
+            this.cb_HocKy.FormattingEnabled = true;
+            this.cb_HocKy.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cb_HocKy.Location = new System.Drawing.Point(75, 115);
+            this.cb_HocKy.Name = "cb_HocKy";
+            this.cb_HocKy.Size = new System.Drawing.Size(52, 21);
+            this.cb_HocKy.TabIndex = 55;
+            this.cb_HocKy.Text = "1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 148);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 54;
+            this.label5.Text = "Top:";
+            // 
+            // txt_TopHocBong
+            // 
+            this.txt_TopHocBong.Location = new System.Drawing.Point(75, 145);
+            this.txt_TopHocBong.Name = "txt_TopHocBong";
+            this.txt_TopHocBong.Size = new System.Drawing.Size(52, 20);
+            this.txt_TopHocBong.TabIndex = 53;
+            this.txt_TopHocBong.Text = "10";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "Khoa:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "Lớp:";
             // 
             // label2
             // 
@@ -406,25 +484,25 @@ namespace DBMS_UTEManagement
             // cb_DiemKhoa
             // 
             this.cb_DiemKhoa.FormattingEnabled = true;
-            this.cb_DiemKhoa.Location = new System.Drawing.Point(16, 75);
+            this.cb_DiemKhoa.Location = new System.Drawing.Point(75, 84);
             this.cb_DiemKhoa.Name = "cb_DiemKhoa";
-            this.cb_DiemKhoa.Size = new System.Drawing.Size(111, 21);
+            this.cb_DiemKhoa.Size = new System.Drawing.Size(148, 21);
             this.cb_DiemKhoa.TabIndex = 49;
             // 
             // btn_SetHocBong
             // 
             this.btn_SetHocBong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btn_SetHocBong.Location = new System.Drawing.Point(233, 126);
+            this.btn_SetHocBong.Location = new System.Drawing.Point(136, 142);
             this.btn_SetHocBong.Name = "btn_SetHocBong";
-            this.btn_SetHocBong.Size = new System.Drawing.Size(95, 23);
+            this.btn_SetHocBong.Size = new System.Drawing.Size(141, 25);
             this.btn_SetHocBong.TabIndex = 48;
-            this.btn_SetHocBong.Text = "Set học bổng";
+            this.btn_SetHocBong.Text = "Danh sách học bổng";
             this.btn_SetHocBong.UseVisualStyleBackColor = false;
             this.btn_SetHocBong.Click += new System.EventHandler(this.btn_SetHocBong_Click);
             // 
             // btn_DTBtheokhoa
             // 
-            this.btn_DTBtheokhoa.Location = new System.Drawing.Point(133, 73);
+            this.btn_DTBtheokhoa.Location = new System.Drawing.Point(239, 82);
             this.btn_DTBtheokhoa.Name = "btn_DTBtheokhoa";
             this.btn_DTBtheokhoa.Size = new System.Drawing.Size(100, 23);
             this.btn_DTBtheokhoa.TabIndex = 47;
@@ -434,7 +512,7 @@ namespace DBMS_UTEManagement
             // 
             // btn_DTBlop
             // 
-            this.btn_DTBlop.Location = new System.Drawing.Point(133, 46);
+            this.btn_DTBlop.Location = new System.Drawing.Point(239, 52);
             this.btn_DTBlop.Name = "btn_DTBlop";
             this.btn_DTBlop.Size = new System.Drawing.Size(100, 23);
             this.btn_DTBlop.TabIndex = 47;
@@ -445,9 +523,9 @@ namespace DBMS_UTEManagement
             // btn_XuatFile
             // 
             this.btn_XuatFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btn_XuatFile.Location = new System.Drawing.Point(337, 126);
+            this.btn_XuatFile.Location = new System.Drawing.Point(317, 143);
             this.btn_XuatFile.Name = "btn_XuatFile";
-            this.btn_XuatFile.Size = new System.Drawing.Size(75, 23);
+            this.btn_XuatFile.Size = new System.Drawing.Size(95, 23);
             this.btn_XuatFile.TabIndex = 46;
             this.btn_XuatFile.Text = "Xuất file";
             this.btn_XuatFile.UseVisualStyleBackColor = false;
@@ -466,10 +544,10 @@ namespace DBMS_UTEManagement
             // 
             this.cb_DTBlop.DisplayMember = "Lop.MaLop";
             this.cb_DTBlop.FormattingEnabled = true;
-            this.cb_DTBlop.Location = new System.Drawing.Point(16, 48);
+            this.cb_DTBlop.Location = new System.Drawing.Point(75, 54);
             this.cb_DTBlop.Margin = new System.Windows.Forms.Padding(2);
             this.cb_DTBlop.Name = "cb_DTBlop";
-            this.cb_DTBlop.Size = new System.Drawing.Size(111, 21);
+            this.cb_DTBlop.Size = new System.Drawing.Size(148, 21);
             this.cb_DTBlop.TabIndex = 44;
             this.cb_DTBlop.ValueMember = "Lop.MaLop";
             // 
@@ -526,8 +604,6 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.Label malop;
         private System.Windows.Forms.Button btn_huy;
         private System.Windows.Forms.Button btn_luu;
-        private System.Windows.Forms.TextBox txt_hocbong;
-        private System.Windows.Forms.Label HocBong;
         private System.Windows.Forms.Label DiaChi;
         private System.Windows.Forms.Label NgaySinh;
         private System.Windows.Forms.Label NoiSinh;
@@ -562,5 +638,13 @@ namespace DBMS_UTEManagement
         private System.Windows.Forms.Button btn_ThemAnh;
         private System.Windows.Forms.Label Anh;
         private System.Windows.Forms.PictureBox AnhSinhVien;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cb_HocKy;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_TopHocBong;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cb_NamHoc;
     }
 }
