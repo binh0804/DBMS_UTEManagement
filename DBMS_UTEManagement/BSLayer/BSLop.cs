@@ -26,7 +26,7 @@ namespace DBMS_UTEManagement.BSLayer
         {
             return db.ExcuteQueryDataSet($"select MaLop from fLoadLop()", CommandType.Text);
         }
-        public DataSet ADDLopHoc(string MaLop, string TenLop, string MaKhoaHoc, string MaHe, string MaNganh)
+        public void ADDLopHoc(string MaLop, string TenLop, string MaKhoaHoc, string MaHe, string MaNganh)
         {
             SqlParameter p1 = new SqlParameter("@MaLop", SqlDbType.Char);
             p1.Value = MaLop;
@@ -39,9 +39,9 @@ namespace DBMS_UTEManagement.BSLayer
             SqlParameter p5 = new SqlParameter("@MaNganh", SqlDbType.Char);
             p5.Value = MaNganh;
 
-            return db.ExcuteQueryDataSetWithParam("ADDLopHoc", CommandType.StoredProcedure, p1, p2,p3,p4,p5);
+            db.MyExcuteNonQuery("ADDLopHoc", CommandType.StoredProcedure, p1, p2,p3,p4,p5);
         }
-        public DataSet UpdateLopHoc(string MaLop, string TenLop, string MaKhoaHoc, string MaHe, string MaNganh)
+        public void UpdateLopHoc(string MaLop, string TenLop, string MaKhoaHoc, string MaHe, string MaNganh)
         {
             SqlParameter p1 = new SqlParameter("@MaLop", SqlDbType.Char);
             p1.Value = MaLop;
@@ -54,14 +54,14 @@ namespace DBMS_UTEManagement.BSLayer
             SqlParameter p5 = new SqlParameter("@MaNganh", SqlDbType.Char);
             p5.Value = MaNganh;
 
-            return db.ExcuteQueryDataSetWithParam("UpdateLopHoc", CommandType.StoredProcedure, p1, p2, p3, p4, p5);
+            db.MyExcuteNonQuery("UpdateLopHoc", CommandType.StoredProcedure, p1, p2, p3, p4, p5);
         }
-        public DataSet DeleteLopHoc(string MaLop)
+        public void DeleteLopHoc(string MaLop)
         {
             SqlParameter p1 = new SqlParameter("@MaLop", SqlDbType.Char);
             p1.Value = MaLop;
 
-            return db.ExcuteQueryDataSetWithParam("DeleteLopHoc", CommandType.StoredProcedure, p1);
+            db.MyExcuteNonQuery("DeleteLopHoc", CommandType.StoredProcedure, p1);
         }
         public DataSet Search(string thongTin)
         {

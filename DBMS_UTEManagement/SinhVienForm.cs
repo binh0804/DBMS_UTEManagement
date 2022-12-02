@@ -117,7 +117,7 @@ namespace DBMS_UTEManagement
                 catch (Exception ex)
                 {
                     if(ex is SqlException)
-                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                        MessageBox.Show(ex.Message);
                     if (ex is FormatException)
                         MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
                     if (ex is NullReferenceException)
@@ -167,33 +167,43 @@ namespace DBMS_UTEManagement
         {
             BSSinhVien BSSV = new BSSinhVien();
             ResetTextAll();
-            // Thứ tự dòng hiện hành 
-            if(dtb==true)
+            // Thứ tự dòng hiện hành
+            try
             {
-                int r = dgvSinhVien.CurrentCell.RowIndex;
-                // Chuyển thông tin lên panel 
-                txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
-                txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
-                AnhSinhVien.Image = ByteArrayToImage(BSSV.SelectImage(txt_masv.Text));
+                if (dtb == true)
+                {
+                    int r = dgvSinhVien.CurrentCell.RowIndex;
+                    // Chuyển thông tin lên panel 
+                    txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
+                    txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
+                    AnhSinhVien.Image = ByteArrayToImage(BSSV.SelectImage(txt_masv.Text));
 
+                }
+                else
+                {
+                    int r = dgvSinhVien.CurrentCell.RowIndex;
+
+
+                    // Chuyển thông tin lên panel 
+                    txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
+                    txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
+                    cb_gioiTinh.SelectedItem = cb_gioiTinh.SelectedValue = cb_gioiTinh.Text = dgvSinhVien.Rows[r].Cells[2].Value.ToString().Trim();
+                    dtp_ngaySinh.Text = dgvSinhVien.Rows[r].Cells[3].Value.ToString().Trim();
+                    txt_noisinh.Text = dgvSinhVien.Rows[r].Cells[4].Value.ToString().Trim();
+                    txt_diachi.Text = dgvSinhVien.Rows[r].Cells[5].Value.ToString().Trim();
+                    cb_maLop.SelectedValue = dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim();
+                    txt_hocbong.Text = dgvSinhVien.Rows[r].Cells[7].Value.ToString().Trim();
+
+                    // Ảnh từ database lên
+                    AnhSinhVien.Image = ByteArrayToImage(BSSV.SelectImage(txt_masv.Text));
+                }
             }
-            else
+            catch(Exception ex)
             {
-                int r = dgvSinhVien.CurrentCell.RowIndex;
-
-
-                // Chuyển thông tin lên panel 
-                txt_masv.Text = dgvSinhVien.Rows[r].Cells[0].Value.ToString().Trim();
-                txt_tensv.Text = dgvSinhVien.Rows[r].Cells[1].Value.ToString().Trim();
-                cb_gioiTinh.SelectedItem = cb_gioiTinh.SelectedValue = cb_gioiTinh.Text =  dgvSinhVien.Rows[r].Cells[2].Value.ToString().Trim();
-                dtp_ngaySinh.Text = dgvSinhVien.Rows[r].Cells[3].Value.ToString().Trim();
-                txt_noisinh.Text = dgvSinhVien.Rows[r].Cells[4].Value.ToString().Trim();
-                txt_diachi.Text = dgvSinhVien.Rows[r].Cells[5].Value.ToString().Trim();
-                cb_maLop.SelectedValue = dgvSinhVien.Rows[r].Cells[6].Value.ToString().Trim();
-                txt_hocbong.Text = dgvSinhVien.Rows[r].Cells[7].Value.ToString().Trim();
-
-                // Ảnh từ database lên
-                AnhSinhVien.Image = ByteArrayToImage(BSSV.SelectImage(txt_masv.Text));
+                if (ex is NullReferenceException)
+                {
+                    MessageBox.Show("Lỗi rồi");
+                }
             }
         }
 
@@ -447,6 +457,7 @@ namespace DBMS_UTEManagement
             try
             {
                 dtb = true;
+               
                 dtSinhVien = new DataTable();
                 dtSinhVien.Clear();
                 DataSet ds = dbSV.DTBtheoKhoa(cb_DiemKhoa.SelectedValue.ToString().Trim());

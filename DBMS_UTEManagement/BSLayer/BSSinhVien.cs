@@ -28,7 +28,7 @@ namespace DBMS_UTEManagement.BSLayer
 
             return db.ExcuteQueryDataSetWithParam("SELECT * FROM fSearch(@string)", CommandType.Text, p1);
         }
-        public bool AddSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, string MaLop, float HocBong, byte[] Anh)
+        public void AddSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, string MaLop, float HocBong, byte[] Anh)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -48,15 +48,15 @@ namespace DBMS_UTEManagement.BSLayer
             p8.Value = HocBong;
             SqlParameter p9 = new SqlParameter("@Anh", SqlDbType.VarBinary);
             p9.Value = Anh;
-            return db.MyExcuteNonQuery("InsertStudentTransaction", CommandType.StoredProcedure, p1,p2,p3,p4,p5,p6,p7,p8,p9);
+            db.MyExcuteNonQuery("InsertStudentTransaction", CommandType.StoredProcedure, p1,p2,p3,p4,p5,p6,p7,p8,p9);
         }
-        public DataSet DeleteTTSV(string MaSV)
+        public void DeleteTTSV(string MaSV)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.Char);
             p1.Value = MaSV;
-            return db.ExcuteQueryDataSetWithParam("DeleteTTSV", CommandType.StoredProcedure, p1);
+            db.MyExcuteNonQuery("DeleteTTSV", CommandType.StoredProcedure, p1);
         }
-        public DataSet UpdateSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, string MaLop, float HocBong, byte[] Anh)
+        public void UpdateSV(string MaSV, string TenSV, string GioiTinh, DateTime NgaySinh, string NoiSinh, string DiaChi, string MaLop, float HocBong, byte[] Anh)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -76,7 +76,7 @@ namespace DBMS_UTEManagement.BSLayer
             p8.Value = HocBong;
             SqlParameter p9 = new SqlParameter("@Anh", SqlDbType.VarBinary);
             p9.Value = Anh;
-            return db.ExcuteQueryDataSetWithParam("UpdateStudentTransaction", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6, p7, p8,p9);
+            db.MyExcuteNonQuery("UpdateStudentTransaction", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6, p7, p8,p9);
         }
         public DataSet LoadDSSVLop(string MaLop)
         {
@@ -106,14 +106,12 @@ namespace DBMS_UTEManagement.BSLayer
             return db.ExcuteQueryDataSet($"select * from fLoadHocBongTop5()", CommandType.Text);
         }
 
-        public bool SetHocBongTop5(int Tien)
+        public void SetHocBongTop5(int Tien)
         {
             SqlParameter p1 = new SqlParameter("@SoTien", SqlDbType.Int);
             p1.Value = Tien;
 
-            db.ExcuteQueryDataSetWithParam("SetHocBongXuatSac", CommandType.StoredProcedure, p1);
-            return true;
-
+            db.MyExcuteNonQuery("SetHocBongXuatSac", CommandType.StoredProcedure, p1);
         }
         public byte[] SelectImage(string MaSV)
         {

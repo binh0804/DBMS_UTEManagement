@@ -86,10 +86,10 @@ namespace DBMS_UTEManagement.DBLayer
             return ds;
         }
 
-        public bool MyExcuteNonQuery(string strSQL, CommandType commType, params SqlParameter[] param)
+        public void MyExcuteNonQuery(string strSQL, CommandType commType, params SqlParameter[] param)
         {
-            bool f = false;
-            if (conn.State == ConnectionState.Open)
+/*            bool f = false;
+*/            if (conn.State == ConnectionState.Open)
                 conn.Close();
             conn.Open();
             comm.CommandText = strSQL;
@@ -99,20 +99,23 @@ namespace DBMS_UTEManagement.DBLayer
             {
                 comm.Parameters.Add(p);
             }
-            try
-            {
-                comm.ExecuteNonQuery();
-                f = true;
-            }
-            catch (SqlException ex)
-            {
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return f;
-        }
+            comm.ExecuteNonQuery();
+/*            f = true;
+*/            /*            try
+                        {
+                            comm.ExecuteNonQuery();
+                            f = true;
+                        }
+                        catch (SqlException ex)
+                        {
+                            return ex.Message;
+                        }
+                        finally
+                        {
+                            conn.Close();
+                        }*/
+/*            return f;
+*/        }
         public int ExcuteQueryScalar(string strSQL, CommandType ct, ref string error, params SqlParameter[] param)
         {
             int k = 0;

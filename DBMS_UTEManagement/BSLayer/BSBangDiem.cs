@@ -24,7 +24,7 @@ namespace DBMS_UTEManagement.BSLayer
 
             return db.ExcuteQueryDataSetWithParam("SELECT * FROM fLoadDiem(@string)", CommandType.Text, p1);
         }
-        public DataSet AddDiem(string MaSV, string MaMH, int LanThi, int HocKy, float Diem, int Nam)
+        public void AddDiem(string MaSV, string MaMH, int LanThi, int HocKy, float Diem, int Nam)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -38,9 +38,9 @@ namespace DBMS_UTEManagement.BSLayer
             p5.Value = Diem;
             SqlParameter p6 = new SqlParameter("@Nam", SqlDbType.Int);
             p6.Value = Nam;
-            return db.ExcuteQueryDataSetWithParam("Add", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6);
+            db.MyExcuteNonQuery("Add", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6);
         }
-        public DataSet DeleteDiem(string MaSV, string MaMH, int LanThi, int HocKy, int Nam)
+        public void DeleteDiem(string MaSV, string MaMH, int LanThi, int HocKy, int Nam)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -52,9 +52,9 @@ namespace DBMS_UTEManagement.BSLayer
             p4.Value = HocKy;
             SqlParameter p5 = new SqlParameter("@Nam", SqlDbType.Int);
             p5.Value = Nam;
-            return db.ExcuteQueryDataSetWithParam("DeleteDiem", CommandType.StoredProcedure, p1,p2,p3,p4, p5);
+            db.MyExcuteNonQuery("DeleteDiem", CommandType.StoredProcedure, p1,p2,p3,p4, p5);
         }
-        public DataSet UpdateDiem(string MaSV, string MaMH, int LanThi, int HocKy, float Diem, int Nam)
+        public void UpdateDiem(string MaSV, string MaMH, int LanThi, int HocKy, float Diem, int Nam)
         {
             SqlParameter p1 = new SqlParameter("@MaSV", SqlDbType.VarChar);
             p1.Value = MaSV;
@@ -68,7 +68,7 @@ namespace DBMS_UTEManagement.BSLayer
             p5.Value = Diem;
             SqlParameter p6 = new SqlParameter("@Nam", SqlDbType.Int);
             p6.Value = Nam;
-            return db.ExcuteQueryDataSetWithParam("UpdateDiem", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6);
+            db.MyExcuteNonQuery("UpdateDiem", CommandType.StoredProcedure, p1, p2, p3, p4, p5, p6);
         }
 
         public DataSet LoadDTBTheoNam(string MSSV)

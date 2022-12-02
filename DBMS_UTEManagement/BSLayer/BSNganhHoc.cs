@@ -21,7 +21,7 @@ namespace DBMS_UTEManagement.BSLayer
         {
             return db.ExcuteQueryDataSet($"select * from fSelectNganh()", CommandType.Text);
         }
-        public DataSet AddNganh(string MaNganh, string TenNganh, string MaKhoa)
+        public void AddNganh(string MaNganh, string TenNganh, string MaKhoa)
         {
             SqlParameter p1 = new SqlParameter("@MaNganh", SqlDbType.Char);
             p1.Value = MaNganh;
@@ -29,16 +29,16 @@ namespace DBMS_UTEManagement.BSLayer
             p2.Value = TenNganh;
             SqlParameter p3 = new SqlParameter("@MaKhoa", SqlDbType.Char);
             p3.Value = MaKhoa;
-            return db.ExcuteQueryDataSetWithParam("AddNganh", CommandType.StoredProcedure, p1, p2, p3);
+            db.MyExcuteNonQuery("AddNganh", CommandType.StoredProcedure, p1, p2, p3);
         }
-        public DataSet DeleteNganh(string MaNganh)
+        public void DeleteNganh(string MaNganh)
         {
             SqlParameter p1 = new SqlParameter("@MaNganh", SqlDbType.Char);
             p1.Value = MaNganh;
 
-            return db.ExcuteQueryDataSetWithParam("DeleteNganh", CommandType.StoredProcedure, p1);
+            db.MyExcuteNonQuery("DeleteNganh", CommandType.StoredProcedure, p1);
         }
-        public DataSet UpdateNganh(string MaNganh, string TenNganh, string MaKhoa)
+        public void UpdateNganh(string MaNganh, string TenNganh, string MaKhoa)
         {
             SqlParameter p1 = new SqlParameter("@MaNganh", SqlDbType.Char);
             p1.Value = MaNganh;
@@ -46,7 +46,7 @@ namespace DBMS_UTEManagement.BSLayer
             p2.Value = TenNganh;
             SqlParameter p3 = new SqlParameter("@MaKhoa", SqlDbType.Char);
             p3.Value = MaKhoa;
-            return db.ExcuteQueryDataSetWithParam("UpdateNganh", CommandType.StoredProcedure, p1, p2, p3);
+            db.MyExcuteNonQuery("UpdateNganh", CommandType.StoredProcedure, p1, p2, p3);
         }
         public DataSet Search(string thongTin)
         {
