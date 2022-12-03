@@ -87,7 +87,7 @@ namespace DBMS_UTEManagement
                 catch (Exception ex)
                 {
                     if (ex is SqlException)
-                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                        MessageBox.Show(ex.Message);
                     if (ex is FormatException)
                         MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
                     if (ex is NullReferenceException)
@@ -114,7 +114,7 @@ namespace DBMS_UTEManagement
                 catch (Exception ex)
                 {
                     if (ex is SqlException)
-                        MessageBox.Show("Không thêm được, hệ thống đang bị lỗi!");
+                        MessageBox.Show(ex.Message);
                     if (ex is FormatException)
                         MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
                     if (ex is NullReferenceException)

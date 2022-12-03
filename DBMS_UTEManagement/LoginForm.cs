@@ -20,7 +20,7 @@ namespace DBMS_UTEManagement
         public LoginForm()
         {
             InitializeComponent();
-            DBMain.string_ConnStr = "Data Source = LOJC\\LOJC; Initial Catalog = QuanLySinhVien_UTE; Integrated Security = true";
+            DBMain.string_ConnStr = "Data Source=DESKTOP-100BASK;Initial Catalog=QuanLySinhVien_UTE;Integrated Security=True";
         }
 
         private void btn_DangNhap_Click(object sender, EventArgs e)
@@ -31,8 +31,8 @@ namespace DBMS_UTEManagement
                 int k = blLG.Kiemtra(txt_username.Text, txt_password.Text);
                 if (k > 0)
                 {
-/*                    DBMain.string_ConnStr = "Data Source=LOJC\\LOJC;Initial Catalog=QuanLySinhVien_UTE;User ID=" + txt_username.Text + ";Password=" + txt_password.Text + ";";
-*/                    if (blLG.Checkrole(txt_username.Text) == 1)
+                    DBMain.string_ConnStr = "Data Source=DESKTOP-100BASK;Initial Catalog=QuanLySinhVien_UTE;User ID=" + txt_username.Text + ";Password=" + txt_password.Text + ";";
+                    if (blLG.Checkrole(txt_username.Text) == 1)
                     {
                         DBMain.username = "QuanTri";
                     }

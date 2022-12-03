@@ -26,5 +26,10 @@ namespace DBMS_UTEManagement.BSLayer
             string sqlString = "select userRole from LoginData where username ='" + us + "'";
             return db.KiemTra(sqlString, CommandType.Text);
         }
+
+        public DataSet LoadTracking()
+        {
+            return db.ExcuteQueryDataSet($"select * from TrackingLog", CommandType.Text);
+        }
     }
 }

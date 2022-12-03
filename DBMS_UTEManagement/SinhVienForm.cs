@@ -112,7 +112,11 @@ namespace DBMS_UTEManagement
                 catch (Exception ex)
                 {
                     if(ex is SqlException)
+                    {
                         MessageBox.Show(ex.Message);
+                        Console.WriteLine(ex.Message);
+                    }    
+
                     if (ex is FormatException)
                         MessageBox.Show("Vui lòng nhập đúng định dạng, không bỏ trống!");
                     if (ex is NullReferenceException)
@@ -121,7 +125,6 @@ namespace DBMS_UTEManagement
             }
             else if(Sua)
             {
-                Console.WriteLine("SUA");
                 try
                 {
                     // Thực hiện lệnh 
@@ -142,7 +145,7 @@ namespace DBMS_UTEManagement
                 catch(Exception ex)
                 {
                     if (ex is SqlException)
-                        MessageBox.Show("Không sửa được, hệ thống đang bị lỗi!");
+                        MessageBox.Show(ex.Message);
                     if (ex is FormatException)
                         MessageBox.Show("Không Update được, vui lòng nhập đúng định dạng!");
                     if (ex is NullReferenceException)
@@ -262,7 +265,7 @@ namespace DBMS_UTEManagement
             }
             catch (SqlException)
             {
-                MessageBox.Show("Không lấy được nội dung trong table Sản phẩm. Lỗi rồi!!!");
+                MessageBox.Show("Không lấy được nội dung trong table Sinh Vien. Lỗi rồi!!!");
             }
         }
 
@@ -489,7 +492,7 @@ namespace DBMS_UTEManagement
             }
             catch (SqlException)
             {
-                MessageBox.Show("Lỗi rồi");
+                MessageBox.Show("Lỗi rồi, không xem được danh sách học bổng");
             }
         }
 

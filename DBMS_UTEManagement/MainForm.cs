@@ -100,6 +100,7 @@ namespace DBMS_UTEManagement
             lb_MonHoc.ForeColor = Color.White;
             lb_KhoaHoc.ForeColor = Color.White;
             lb_LogOut.ForeColor = Color.White;
+            lb_Tracking.ForeColor = Color.White;
 
             pn_SinhVien.BackColor = Color.FromArgb(40, 123, 247);
             pn_NganhHoc.BackColor = Color.FromArgb(40, 123, 247);
@@ -107,7 +108,8 @@ namespace DBMS_UTEManagement
             pn_Lop.BackColor = Color.FromArgb(40, 123, 247);
             pn_MonHoc.BackColor = Color.FromArgb(40, 123, 247);
             pn_KhoaHoc.BackColor = Color.FromArgb(40, 123, 247);
-            pn_LogOut.BackColor = Color.FromArgb(40, 123, 247);
+            pn_LogOut.BackColor = Color.FromArgb(40, 123, 247); 
+            pn_Tracking.BackColor = Color.FromArgb(40, 123, 247);
         }
 
         private void pn_LogOut_MouseClick(object sender, MouseEventArgs e)
@@ -124,6 +126,15 @@ namespace DBMS_UTEManagement
                 this.Hide();
                 lg.ShowDialog();
             }    
+        }
+
+        private void pn_Tracking_MouseClick(object sender, MouseEventArgs e)
+        {
+            ResetColor();
+            lb_Tracking.ForeColor = Color.FromArgb(40, 123, 247);
+            pn_Tracking.BackColor = Color.White;
+            TrackingForm tkf = new TrackingForm();
+            tkf.ShowDialog();
         }
     }
 }

@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TrackingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackingForm.Designer.cs">
+      <DependentUpon>TrackingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BSLayer\BSBangDiem.cs" />
     <Compile Include="BSLayer\BSKhoaHoc.cs" />
     <Compile Include="BSLayer\BSLop.cs" />
@@ -131,6 +137,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="TrackingForm.resx">
+      <DependentUpon>TrackingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BangDiemForm.resx">
       <DependentUpon>BangDiemForm.cs</DependentUpon>
     </EmbeddedResource>
